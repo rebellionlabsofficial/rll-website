@@ -22,8 +22,8 @@ export default function PillarCards() {
 
         <div className="mt-16 grid gap-8 md:grid-cols-3">
           {PILLARS.map((pillar, index) => (
-            <ScrollAnimation key={pillar.number} delay={index * 0.15}>
-              <div className="group rounded-2xl border-l-4 border-l-transparent bg-white p-8 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-l-brand-red hover:shadow-md">
+            <ScrollAnimation key={pillar.number} delay={index * 0.15} className="flex">
+              <div className="group flex flex-1 flex-col rounded-2xl border-l-4 border-l-transparent bg-white p-8 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-l-brand-red hover:shadow-md">
                 <span className="text-sm font-medium text-brand-red">
                   {pillar.number}/{pillar.total}
                 </span>

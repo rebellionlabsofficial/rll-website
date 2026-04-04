@@ -1,6 +1,7 @@
 "use client";
 
 import ScrollAnimation from "@/components/ScrollAnimation";
+import PadlrName from "@/components/PadlrName";
 
 interface ProductCardProps {
   name: string;
@@ -27,7 +28,11 @@ export default function ProductCard({
         <div className="flex items-start justify-between">
           <div>
             <h3 className="font-heading text-2xl font-bold text-text-heading">
-              {name}
+              {name === "PADLR." ? (
+                <PadlrName dotColor="text-[#C8FF00]" />
+              ) : (
+                name
+              )}
             </h3>
             <p className="mt-1 text-sm text-brand-red">{tagline}</p>
           </div>

@@ -12,9 +12,9 @@ export default function Footer() {
             <Image
               src="/logo.png"
               alt="Rebel Lion Labs"
-              width={48}
-              height={48}
-              className="mb-4 h-12 w-auto brightness-0 invert"
+              width={96}
+              height={96}
+              className="mb-4 h-24 w-auto brightness-0 invert"
             />
             <p className="text-sm text-gray-400">
               Building sports apps that match the passion of players and fans.

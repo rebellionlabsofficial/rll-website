@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import { NAV_LINKS } from "@/lib/constants";
@@ -8,6 +9,9 @@ import { NAV_LINKS } from "@/lib/constants";
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const pathname = usePathname();
+  const isHome = pathname === "/";
+  const useLightText = isHome && !scrolled;
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -28,9 +32,11 @@ export default function Navbar() {
           <Image
             src="/logo.png"
             alt="Rebel Lion Labs"
-            width={40}
-            height={40}
-            className="h-10 w-auto"
+            width={80}
+            height={80}
+            className={`h-20 w-auto transition-all duration-300 ${
+              useLightText ? "brightness-0 invert" : ""
+            }`}
           />
         </Link>
 
@@ -40,7 +46,9 @@ export default function Navbar() {
             <Link
               key={link.href}
               href={link.href}
-              className="group relative text-sm font-medium text-text-heading transition-colors hover:text-brand-red"
+              className={`group relative text-sm font-medium transition-colors hover:text-brand-red ${
+                useLightText ? "text-white" : "text-text-heading"
+              }`}
             >
               {link.label}
               <span className="absolute -bottom-1 left-0 h-0.5 w-0 bg-brand-red transition-all duration-300 group-hover:w-full" />
@@ -55,19 +63,19 @@ export default function Navbar() {
           aria-label="Toggle menu"
         >
           <span
-            className={`h-0.5 w-6 bg-text-heading transition-all duration-300 ${
-              mobileOpen ? "translate-y-2 rotate-45" : ""
-            }`}
+            className={`h-0.5 w-6 transition-all duration-300 ${
+              useLightText ? "bg-white" : "bg-text-heading"
+            } ${mobileOpen ? "translate-y-2 rotate-45" : ""}`}
           />
           <span
-            className={`h-0.5 w-6 bg-text-heading transition-all duration-300 ${
-              mobileOpen ? "opacity-0" : ""
-            }`}
+            className={`h-0.5 w-6 transition-all duration-300 ${
+              useLightText ? "bg-white" : "bg-text-heading"
+            } ${mobileOpen ? "opacity-0" : ""}`}
           />
           <span
-            className={`h-0.5 w-6 bg-text-heading transition-all duration-300 ${
-              mobileOpen ? "-translate-y-2 -rotate-45" : ""
-            }`}
+            className={`h-0.5 w-6 transition-all duration-300 ${
+              useLightText ? "bg-white" : "bg-text-heading"
+            } ${mobileOpen ? "-translate-y-2 -rotate-45" : ""}`}
           />
         </button>
       </div>

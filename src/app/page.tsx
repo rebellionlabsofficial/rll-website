@@ -11,28 +11,6 @@ export default function Home() {
       <PillarCards />
       <FeaturedProduct />
 
-      {/* Vision Teaser */}
-      <section className="relative overflow-hidden bg-surface-grey py-24 px-6">
-        {/* Decorative gradient accent */}
-        <div className="gradient-blur top-0 right-0 h-[400px] w-[400px] bg-[#8B1A1A] opacity-[0.06]" />
-        <div className="relative z-10 mx-auto max-w-3xl text-center">
-          <ScrollAnimation>
-            <span className="text-sm font-semibold uppercase tracking-wider text-brand-red">
-              What&apos;s Next
-            </span>
-            <h2 className="mt-2 font-heading text-3xl font-bold text-text-heading md:text-4xl">
-              This Is Just the Beginning
-            </h2>
-            <p className="mt-4 text-lg text-text-body">
-              PADLR is our first step. We&apos;re building a family of sports
-              apps — each one designed to be the ultimate companion for players
-              of that sport. More apps, more sports, and exclusive merch are on
-              the horizon.
-            </p>
-          </ScrollAnimation>
-        </div>
-      </section>
-
       {/* Partner CTA */}
       <section className="py-24 px-6">
         <div className="mx-auto max-w-3xl text-center">

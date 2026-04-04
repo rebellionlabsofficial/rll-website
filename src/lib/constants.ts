@@ -2,7 +2,7 @@ export const SITE = {
   name: "Rebel Lion Labs",
   tagline: "Apps Built for the Players, by a Player",
   description:
-    "Rebel Lion Labs builds sports apps that match the passion of players and fans. Home of PADLR - the rating-first padel app.",
+    "Rebel Lion Labs builds sports apps that match the passion of players and fans. Home of PADLR. - the rating-first padel app.",
   url: "https://rebellionlabs.app",
   email: "rebellionlabsofficial@gmail.com",
 } as const;
@@ -40,7 +40,7 @@ export const PILLARS = [
 
 export const PRODUCTS = [
   {
-    name: "PADLR",
+    name: "PADLR.",
     tagline: "Your Rating. Your Game. Your Community.",
     description:
       "The rating-first padel app. Track your skill with Bayesian-powered ratings, log matches in 30 seconds, climb leaderboards across 23 countries, and connect with your padel community.",
