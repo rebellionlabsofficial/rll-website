@@ -12,8 +12,10 @@ export default function Home() {
       <FeaturedProduct />
 
       {/* Vision Teaser */}
-      <section className="bg-surface-grey py-24 px-6">
-        <div className="mx-auto max-w-3xl text-center">
+      <section className="relative overflow-hidden bg-surface-grey py-24 px-6">
+        {/* Decorative gradient accent */}
+        <div className="gradient-blur top-0 right-0 h-[400px] w-[400px] bg-[#8B1A1A] opacity-[0.06]" />
+        <div className="relative z-10 mx-auto max-w-3xl text-center">
           <ScrollAnimation>
             <span className="text-sm font-semibold uppercase tracking-wider text-brand-red">
               What&apos;s Next

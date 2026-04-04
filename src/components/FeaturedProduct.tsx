@@ -7,8 +7,11 @@ export default function FeaturedProduct() {
   const product = PRODUCTS[0];
 
   return (
-    <section className="py-24 px-6">
-      <div className="mx-auto max-w-6xl">
+    <section className="relative overflow-hidden py-24 px-6">
+      {/* Decorative gradient accent behind product showcase */}
+      <div className="gradient-blur top-1/2 left-1/2 h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/2 bg-[#8B1A1A] opacity-[0.05]" />
+
+      <div className="relative z-10 mx-auto max-w-6xl">
         <ScrollAnimation>
           <span className="text-sm font-semibold uppercase tracking-wider text-brand-red">
             Featured Product
@@ -50,14 +53,19 @@ export default function FeaturedProduct() {
           </ScrollAnimation>
 
           <ScrollAnimation delay={0.3}>
-            <div className="flex aspect-square items-center justify-center rounded-2xl bg-surface-grey">
-              <div className="text-center">
-                <div className="mx-auto mb-4 flex h-20 w-20 items-center justify-center rounded-2xl bg-brand-red text-3xl font-bold text-white font-heading">
-                  P
+            <div className="relative flex items-center justify-center py-8">
+              {/* Radial gradient accent behind phone mockup */}
+              <div className="absolute inset-0 bg-gradient-radial from-[#8B1A1A]/5 via-transparent to-transparent" />
+              {/* Phone mockup shape */}
+              <div className="relative flex h-[480px] w-[240px] items-center justify-center rounded-[2.5rem] border-2 border-surface-grey bg-white shadow-lg">
+                <div className="text-center">
+                  <div className="mx-auto mb-4 flex h-20 w-20 items-center justify-center rounded-2xl bg-brand-red text-3xl font-bold text-white font-heading">
+                    P
+                  </div>
+                  <p className="text-sm text-text-light">
+                    App preview coming soon
+                  </p>
                 </div>
-                <p className="text-sm text-text-light">
-                  App preview coming soon
-                </p>
               </div>
             </div>
           </ScrollAnimation>

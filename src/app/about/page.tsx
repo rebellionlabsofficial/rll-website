@@ -12,8 +12,11 @@ export default function AboutPage() {
   return (
     <>
       {/* Hero */}
-      <section className="flex min-h-[60vh] items-center justify-center px-6 pt-20">
-        <div className="mx-auto max-w-4xl text-center">
+      <section className="relative flex min-h-[60vh] items-center justify-center overflow-hidden px-6 pt-20">
+        {/* Decorative gradient accents */}
+        <div className="gradient-blur -top-20 -left-20 h-[400px] w-[400px] bg-[#8B1A1A] opacity-[0.08]" />
+        <div className="gradient-blur -bottom-20 -right-20 h-[350px] w-[350px] bg-[#D4856A] opacity-[0.06]" />
+        <div className="relative z-10 mx-auto max-w-4xl text-center">
           <ScrollAnimation>
             <h1 className="font-heading text-5xl font-bold leading-tight text-text-heading md:text-7xl">
               Built from Passion,{" "}
