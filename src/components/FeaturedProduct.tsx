@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import ScrollAnimation from "@/components/ScrollAnimation";
 import PadlrName from "@/components/PadlrName";
 import { PRODUCTS } from "@/lib/constants";
@@ -56,15 +57,16 @@ export default function FeaturedProduct() {
 
           <ScrollAnimation delay={0.3}>
             <div className="relative flex items-center justify-center py-8">
-              <div className="relative flex h-[480px] w-[240px] items-center justify-center rounded-[2.5rem] border border-white/10 bg-white/5 shadow-lg shadow-[#C8FF00]/5">
-                <div className="text-center">
-                  <div className="mx-auto mb-4 flex h-20 w-20 items-center justify-center rounded-2xl bg-[#C8FF00] text-3xl font-bold text-[#080809] font-heading">
-                    P
-                  </div>
-                  <p className="text-sm text-white/40">
-                    App preview coming soon
-                  </p>
-                </div>
+              <div className="relative h-[520px] w-[240px] overflow-hidden rounded-[2.5rem] border border-white/10 bg-[#080809] shadow-lg shadow-[#C8FF00]/10">
+                <Image
+                  src="/padlr-app-preview.png"
+                  alt="PADLR. iOS app showing the social feed with a logged padel match, leaderboard navigation, and achievement card"
+                  width={1320}
+                  height={2868}
+                  sizes="240px"
+                  className="h-full w-full object-cover object-top"
+                  priority
+                />
               </div>
             </div>
           </ScrollAnimation>
