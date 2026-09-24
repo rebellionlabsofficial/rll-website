@@ -4,11 +4,12 @@ import Icon, { BrandIcon } from "@/components/Icon";
 import { NAV_LINKS, PADLR, SITE } from "@/lib/constants";
 
 const PADLR_LINKS = [
-  { label: "Download on the App Store", href: PADLR.links.appStore },
+  { label: "Join the waitlist", href: PADLR.links.waitlist },
   { label: "playpadlr.app", href: PADLR.links.website },
   { label: "Support", href: PADLR.links.support },
   { label: "Privacy Policy", href: PADLR.links.privacy },
   { label: "Terms of Service", href: PADLR.links.terms },
+  { label: "EULA", href: PADLR.links.eula },
 ];
 
 const linkClass = "text-sm text-white/65 transition-colors hover:text-white";

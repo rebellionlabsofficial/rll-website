@@ -1,11 +1,12 @@
-// PADLR. copy mirrors https://playpadlr.app (source: rebellionlabsofficial/padlr-website).
-// When that site changes, update PADLR below so both sites tell the same story.
+// PADLR. copy mirrors https://playpadlr.app (source: rebellionlabsofficial/padlr-website,
+// synced with the deployed branch on 2026-09-24). When that site changes, update
+// PADLR below so both sites tell the same story.
 
 export const SITE = {
   name: "Rebel Lion Labs",
   tagline: "Apps Built for the Players, by a Player",
   description:
-    "Rebel Lion Labs is a sports app studio in Dublin, Ireland, building apps that match the passion of players and fans. Home of PADLR. — the ultimate padel companion app, free on iOS in 28 countries.",
+    "Rebel Lion Labs is a sports app studio in Dublin, Ireland, building apps that match the passion of players and fans. Home of PADLR. — the ultimate padel companion app, launching on iOS in November 2026 across 28 countries.",
   url: "https://rebellionlabs.app",
   email: "rebellionlabsofficial@gmail.com",
   location: "Dublin, Ireland",
@@ -74,13 +75,16 @@ export const PADLR = {
     "Track your skill rating, record matches, find players, book games, and climb the leaderboards — all in one app across 28 countries.",
   about:
     "PADLR. is the ultimate companion app for padel players. Track your skill rating, record matches, find players near you, book games, and climb the leaderboards. Powered by the OpenSkill Bayesian algorithm, every player gets a transparent, mathematically sound skill rating that updates after every confirmed match. Whether you're a total beginner or an elite competitor, PADLR. gives you the tools to improve your game and connect with the padel community.",
-  appStoreId: "6759811329",
+  // Not released yet: it goes to App Store review first, so link to the
+  // waitlist rather than the store until launch.
+  launch: "November 2026",
   links: {
     website: "https://playpadlr.app",
-    appStore: "https://apps.apple.com/app/padlr/id6759811329",
+    waitlist: "https://playpadlr.app/#waitlist",
     support: "https://playpadlr.app/docs/support/",
     privacy: "https://playpadlr.app/docs/privacy/",
     terms: "https://playpadlr.app/docs/terms/",
+    eula: "https://playpadlr.app/docs/eula/",
   },
   stats: [
     { value: "28", label: "Countries at launch" },
@@ -144,7 +148,7 @@ export const PADLR = {
       title: "Messaging",
       short: "DMs, match group chats, and chats for your regular crew.",
       description:
-        "Direct messages with any player you've matched with or mutually follow. Match group chats auto-created for booked matches. Custom group chats for your regular playing group.",
+        "Direct messages with players you follow and anyone you share a booked match with. Match group chats auto-created for booked matches. Custom group chats for your regular playing group.",
     },
   ],
   steps: [
@@ -206,24 +210,25 @@ export const PADLR = {
       "Rating trajectory predictions",
       "Player comparison tool",
       "Cost breakdown per match",
+      "No ads",
     ],
     note: "Less than the cost of one court booking per month",
   },
   roadmap: [
     {
-      when: "Summer 2026",
+      when: "Spring 2027",
       title: "Leagues & Tournaments",
       description:
         "Knockout brackets, round-robin, Americano & Mexicano formats. All results feed into your rating.",
     },
     {
-      when: "Late Summer 2026",
+      when: "Summer 2027",
       title: "Apple Watch & HealthKit",
       description:
         "Live scoring from your wrist, heart rate tracking, and padel as a proper workout in Apple Health.",
     },
     {
-      when: "Later 2026",
+      when: "Later 2027",
       title: "Club Integration",
       description:
         "Club profiles, event promotion, booking partnerships. Your PADLR. profile becomes your padel passport.",

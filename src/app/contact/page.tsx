@@ -93,22 +93,35 @@ export default function ContactPage() {
           >
             <p className="flex items-center gap-2 font-semibold">
               <Icon name="life-buoy" className="h-5 w-5 text-padlr-neon" />
-              Need help with PADLR.?
+              Waiting for PADLR.?
             </p>
             <p className="mt-2 text-sm leading-relaxed text-white/65">
-              Account, match, and subscription questions are answered fastest in
-              the PADLR. support centre.
+              PADLR. launches on iOS in {PADLR.launch}. Join the waitlist to
+              hear first, or read how ratings, matches, and Pro work in the
+              support centre.
             </p>
-            <a
-              href={PADLR.links.support}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-padlr-neon underline-offset-4 hover:underline"
-            >
-              Visit PADLR. support
-              <Icon name="arrow-up-right" className="h-4 w-4" />
-              <span className="sr-only"> (opens in a new tab)</span>
-            </a>
+            <div className="mt-4 flex flex-wrap gap-x-6 gap-y-2">
+              <a
+                href={PADLR.links.waitlist}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 text-sm font-medium text-padlr-neon underline-offset-4 hover:underline"
+              >
+                Join the waitlist
+                <Icon name="arrow-up-right" className="h-4 w-4" />
+                <span className="sr-only"> (opens in a new tab)</span>
+              </a>
+              <a
+                href={PADLR.links.support}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 text-sm font-medium text-white/80 underline-offset-4 hover:text-white hover:underline"
+              >
+                PADLR. support
+                <Icon name="arrow-up-right" className="h-4 w-4" />
+                <span className="sr-only"> (opens in a new tab)</span>
+              </a>
+            </div>
           </div>
         </div>
 

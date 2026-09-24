@@ -48,19 +48,19 @@ export default function FeaturedProduct() {
             </p>
             <div className="mt-10 flex flex-wrap gap-3">
               <ButtonLink
-                href={PADLR.links.appStore}
+                href={PADLR.links.waitlist}
                 external
                 variant="neon"
                 size="lg"
               >
-                Get PADLR. — it&apos;s free
+                Join the waitlist
               </ButtonLink>
               <ButtonLink href="/products" variant="ghost-dark" size="lg">
                 How it works
               </ButtonLink>
             </div>
             <p className="mt-6 font-mono text-[11px] uppercase tracking-[0.18em] text-white/55">
-              iOS · Free · 28 countries
+              iOS · {PADLR.launch} · 28 countries
             </p>
           </div>
 

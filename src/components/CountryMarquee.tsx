@@ -12,7 +12,7 @@ export default function CountryMarquee({ countries }: CountryMarqueeProps) {
           <ul
             key={copy}
             aria-label={
-              copy === 0 ? "Countries where PADLR. is available" : undefined
+              copy === 0 ? "Countries where PADLR. is launching" : undefined
             }
             aria-hidden={copy === 1 ? true : undefined}
             className="flex shrink-0 items-center"

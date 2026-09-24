@@ -10,16 +10,12 @@ import SectionHeading from "@/components/SectionHeading";
 import { PADLR, SITE } from "@/lib/constants";
 import { pageMetadata } from "@/lib/metadata";
 
-export const metadata = {
-  ...pageMetadata({
-    title: "Our Apps — Sports Apps Built for Players",
-    description:
-      "Explore sports apps by Rebel Lion Labs. PADLR. is the ultimate padel companion app — Bayesian skill ratings, 30-second match logging, booking, messaging, a social feed, and leaderboards. Free on iOS in 28 countries.",
-    path: "/products",
-  }),
-  // Safari on iOS shows a "Get / Open" banner for PADLR.
-  itunes: { appId: PADLR.appStoreId },
-};
+export const metadata = pageMetadata({
+  title: "Our Apps — Sports Apps Built for Players",
+  description:
+    "Explore sports apps by Rebel Lion Labs. PADLR. is the ultimate padel companion app — Bayesian skill ratings, 30-second match logging, booking, messaging, a social feed, and leaderboards. Launching on iOS in November 2026 across 28 countries.",
+  path: "/products",
+});
 
 const SCREENS = [
   {
@@ -67,8 +63,6 @@ const applicationJsonLd = {
   operatingSystem: "iOS",
   applicationCategory: "SportsApplication",
   url: PADLR.links.website,
-  installUrl: PADLR.links.appStore,
-  offers: { "@type": "Offer", price: "0", priceCurrency: "EUR" },
   author: { "@type": "Organization", name: SITE.name, url: SITE.url },
 };
 
@@ -115,14 +109,14 @@ export default function ProductsPage() {
                   className="h-7 w-auto"
                 />
                 <span className="eyebrow rounded-full bg-padlr-neon px-3 py-1.5 text-padlr-ink">
-                  Live on iOS
+                  {PADLR.launch}
                 </span>
               </div>
               <p className="mt-10 text-2xl font-semibold tracking-tight">
                 {PADLR.tagline}
               </p>
               <p className="mt-3 max-w-md text-white/65">
-                {PADLR.summary} Free on the App Store in{" "}
+                {PADLR.summary} Launching on iOS in {PADLR.launch} across{" "}
                 {PADLR.countries.length} countries.
               </p>
               <p className="mt-8 inline-flex items-center gap-2 text-sm font-medium text-padlr-neon">
@@ -200,12 +194,12 @@ export default function ProductsPage() {
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <ButtonLink
-                  href={PADLR.links.appStore}
+                  href={PADLR.links.waitlist}
                   external
                   variant="neon"
                   size="lg"
                 >
-                  Get PADLR. — it&apos;s free
+                  Join the waitlist
                 </ButtonLink>
                 <ButtonLink
                   href={PADLR.links.website}
@@ -217,7 +211,7 @@ export default function ProductsPage() {
                 </ButtonLink>
               </div>
               <p className="mt-6 font-mono text-[11px] uppercase tracking-[0.18em] text-white/55">
-                Free · iOS · {PADLR.countries.length} countries ·{" "}
+                iOS · {PADLR.launch} · {PADLR.countries.length} countries ·{" "}
                 {PADLR.languages} languages
               </p>
             </div>
@@ -534,12 +528,12 @@ export default function ProductsPage() {
                 </div>
                 <p className="mt-6 text-sm text-white/60">{PADLR.pro.note}</p>
                 <ButtonLink
-                  href={PADLR.links.appStore}
+                  href={PADLR.links.waitlist}
                   external
                   variant="neon"
                   className="mt-6"
                 >
-                  Get PADLR. on the App Store
+                  Get Pro at launch
                 </ButtonLink>
               </div>
             </div>
@@ -555,17 +549,17 @@ export default function ProductsPage() {
               eyebrow="Availability"
               title={
                 <>
-                  Live in{" "}
+                  Launching in{" "}
                   <span className="accent text-lion">
                     {PADLR.countries.length} countries.
                   </span>
                 </>
               }
-              lead={`Across Europe, the Americas, and the Middle East, in ${PADLR.languages} languages. Built by padel players, for padel players.`}
+              lead={`Across Europe, the Americas, and the Middle East, in ${PADLR.languages} languages, from ${PADLR.launch}. Built by padel players, for padel players.`}
             />
           </div>
           <ul
-            aria-label="Countries where PADLR. is available"
+            aria-label="Countries where PADLR. is launching"
             className="reveal reveal-1 flex flex-wrap content-start gap-2 lg:col-span-7"
           >
             {PADLR.countries.map((country) => (
@@ -605,15 +599,15 @@ export default function ProductsPage() {
       <div className="pt-3 sm:pt-4">
         <CtaBand
           title="Ready to play?"
-          lead="Your rating story starts with your first match. PADLR. is free on the App Store."
+          lead="Your rating story starts with your first match. Join the waitlist and be the first to know when PADLR. launches."
         >
           <ButtonLink
-            href={PADLR.links.appStore}
+            href={PADLR.links.waitlist}
             external
             variant="light"
             size="lg"
           >
-            Get PADLR. — free on iOS
+            Join the waitlist
           </ButtonLink>
           <ButtonLink
             href={PADLR.links.website}

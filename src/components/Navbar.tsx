@@ -87,19 +87,19 @@ export default function Navbar() {
 
         <div className="flex items-center gap-2">
           <a
-            href={PADLR.links.appStore}
+            href={PADLR.links.waitlist}
             target="_blank"
             rel="noopener noreferrer"
             className="group hidden h-10 items-center gap-1.5 rounded-full bg-ink px-4 text-sm font-medium text-white transition-colors hover:bg-ink/85 sm:inline-flex"
           >
-            Get PADLR.
+            Join waitlist
             <Icon
               name="arrow-up-right"
               className="h-4 w-4 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
             />
             <span className="sr-only">
               {" "}
-              on the App Store (opens in a new tab)
+              for PADLR. on playpadlr.app (opens in a new tab)
             </span>
           </a>
           <button
@@ -154,13 +154,13 @@ export default function Navbar() {
           })}
         </ul>
         <a
-          href={PADLR.links.appStore}
+          href={PADLR.links.waitlist}
           target="_blank"
           rel="noopener noreferrer"
           onClick={() => setOpen(false)}
           className="mt-2 flex h-12 items-center justify-center gap-2 rounded-2xl bg-ink text-[15px] font-medium text-white"
         >
-          Get PADLR. — free on the App Store
+          Join the PADLR. waitlist
           <Icon name="arrow-up-right" className="h-4 w-4" />
           <span className="sr-only"> (opens in a new tab)</span>
         </a>

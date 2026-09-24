@@ -16,7 +16,10 @@ export const metadata = pageMetadata({
 const FACTS = [
   { label: "Based in", value: SITE.location },
   { label: "Debut app", value: "PADLR. — padel" },
-  { label: "Available in", value: `${PADLR.countries.length} countries` },
+  {
+    label: "Launching",
+    value: `${PADLR.launch} · ${PADLR.countries.length} countries`,
+  },
   { label: "Approach", value: "One sport at a time" },
 ];
 
@@ -24,20 +27,23 @@ const CHAPTERS = [
   {
     step: "01",
     title: "Padel",
-    description: "PADLR. — live on the App Store.",
-    status: "Live",
+    description: `PADLR. — launching on iOS in ${PADLR.launch}.`,
+    status: "Nov 2026",
+    current: true,
   },
   {
     step: "02",
     title: "More sports",
     description: "Purpose-built apps, one sport at a time.",
     status: "Next",
+    current: false,
   },
   {
     step: "03",
     title: "Merch & apparel",
     description: "For the players who live and breathe their sport.",
     status: "Later",
+    current: false,
   },
 ];
 
@@ -241,12 +247,12 @@ export default function AboutPage() {
               </p>
               <div className="mt-10 flex flex-wrap gap-3">
                 <ButtonLink
-                  href={PADLR.links.appStore}
+                  href={PADLR.links.waitlist}
                   external
                   variant="neon"
                   size="lg"
                 >
-                  Get PADLR. — it&apos;s free
+                  Join the waitlist
                 </ButtonLink>
                 <ButtonLink href="/products" variant="ghost-dark" size="lg">
                   Explore the app
@@ -299,36 +305,36 @@ export default function AboutPage() {
           </div>
           <ol className="grid content-center gap-4 lg:col-span-6 lg:col-start-7">
             {CHAPTERS.map((chapter, index) => {
-              const live = chapter.status === "Live";
+              const { current } = chapter;
               return (
                 <li
                   key={chapter.title}
                   className={`reveal ${["", "reveal-1", "reveal-2"][index]} flex items-center gap-6 rounded-3xl border p-6 sm:p-7 ${
-                    live
+                    current
                       ? "border-ink bg-ink text-white"
                       : "border-dashed border-line-strong bg-white/50"
                   }`}
                 >
                   <span
-                    className={`font-serif text-4xl italic ${live ? "text-padlr-neon" : "text-lion"}`}
+                    className={`font-serif text-4xl italic ${current ? "text-padlr-neon" : "text-lion"}`}
                   >
                     {chapter.step}
                   </span>
                   <div className="flex-1">
                     <h3
-                      className={`text-xl font-semibold tracking-tight ${live ? "text-white" : ""}`}
+                      className={`text-xl font-semibold tracking-tight ${current ? "text-white" : ""}`}
                     >
                       {chapter.title}
                     </h3>
                     <p
-                      className={`mt-1 text-[15px] ${live ? "text-white/70" : "text-ink-soft"}`}
+                      className={`mt-1 text-[15px] ${current ? "text-white/70" : "text-ink-soft"}`}
                     >
                       {chapter.description}
                     </p>
                   </div>
                   <span
                     className={`eyebrow shrink-0 rounded-full px-3 py-1.5 ${
-                      live
+                      current
                         ? "bg-padlr-neon text-padlr-ink"
                         : "border border-line-strong text-ink-muted"
                     }`}

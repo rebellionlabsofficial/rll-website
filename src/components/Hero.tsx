@@ -19,16 +19,16 @@ export default function Hero() {
       <div className="container-page grid items-center gap-16 lg:grid-cols-12 lg:gap-10">
         <div className="lg:col-span-7">
           <a
-            href={PADLR.links.appStore}
+            href={PADLR.links.waitlist}
             target="_blank"
             rel="noopener noreferrer"
             className="rise group inline-flex items-center gap-3 rounded-full border border-line bg-white/80 py-1.5 pl-1.5 pr-4 text-sm shadow-card backdrop-blur transition-colors hover:border-line-strong"
           >
             <span className="rounded-full bg-ink px-2.5 py-1 font-mono text-[10px] font-medium uppercase tracking-[0.18em] text-padlr-neon">
-              Live
+              Nov 2026
             </span>
             <span className="text-ink-soft">
-              PADLR. is free on the App Store
+              PADLR. launches on iOS — join the waitlist
             </span>
             <Icon
               name="arrow-up-right"
@@ -46,7 +46,8 @@ export default function Hero() {
             Rebel Lion Labs is a sports app studio in Dublin building apps that
             match the passion of the people who play them. Our debut,{" "}
             <span className="font-semibold text-ink">PADLR.</span>, is the
-            ultimate padel companion — free on iOS in 28 countries.
+            ultimate padel companion — launching on iOS in November 2026 across
+            28 countries.
           </p>
 
           <div className="rise rise-d3 mt-10 flex flex-wrap items-center gap-3">

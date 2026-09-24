@@ -38,12 +38,12 @@ export default function Home() {
       <Hero />
 
       <section
-        aria-label="Where PADLR. is available"
+        aria-label="Where PADLR. is launching"
         className="border-y border-line bg-white/40"
       >
         <div className="container-page flex items-center gap-8 py-5">
           <p className="eyebrow hidden shrink-0 text-ink sm:block">
-            Live in {PADLR.countries.length} countries
+            Launching in {PADLR.countries.length} countries
           </p>
           <CountryMarquee countries={PADLR.countries} />
         </div>

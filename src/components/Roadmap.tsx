@@ -1,13 +1,13 @@
 import { PADLR, STUDIO_ROADMAP_ITEM } from "@/lib/constants";
 
-const LIVE_ITEM = {
-  when: "Live now",
-  title: "PADLR. on iOS",
+const LAUNCH_ITEM = {
+  when: PADLR.launch,
+  title: "PADLR. launches on iOS",
   description:
-    "Free on the App Store across 28 countries — ratings, match logging, booking, messaging, the social feed, leaderboards, and badges.",
+    "Across 28 countries, with ratings, match logging, booking, messaging, the social feed, leaderboards, and badges from day one.",
 };
 
-const ITEMS = [LIVE_ITEM, ...PADLR.roadmap, STUDIO_ROADMAP_ITEM];
+const ITEMS = [LAUNCH_ITEM, ...PADLR.roadmap, STUDIO_ROADMAP_ITEM];
 
 // Vertical timeline: [when | dot | content] from sm up, [dot | when+content] below.
 export default function Roadmap() {
@@ -19,7 +19,7 @@ export default function Roadmap() {
       />
       <ol className="relative">
         {ITEMS.map((item, index) => {
-          const live = index === 0;
+          const upNext = index === 0;
           return (
             <li
               key={item.title}
@@ -27,7 +27,7 @@ export default function Roadmap() {
             >
               <p
                 className={`eyebrow col-start-2 row-start-1 sm:col-start-1 sm:pt-1.5 sm:text-right ${
-                  live ? "text-lion" : "text-ink-muted"
+                  upNext ? "text-lion" : "text-ink-muted"
                 }`}
               >
                 {item.when}
@@ -36,12 +36,12 @@ export default function Roadmap() {
                 aria-hidden="true"
                 className="relative col-start-1 row-start-1 mt-1 flex h-4 w-4 items-center justify-center sm:col-start-2 sm:mt-1.5"
               >
-                {live && (
+                {upNext && (
                   <span className="absolute inset-0 rounded-full bg-lion/30 motion-safe:animate-ping" />
                 )}
                 <span
                   className={`relative h-3 w-3 rounded-full ${
-                    live
+                    upNext
                       ? "bg-lion ring-4 ring-lion/15"
                       : "border-2 border-line-strong bg-canvas"
                   }`}
