@@ -131,6 +131,7 @@
    Motion. Content is visible by default: animations are layered on only when
    the visitor hasn't asked for reduced motion, and scroll reveals only where
    the browser supports scroll-driven animations. No JavaScript required.
+   Screen only: in print nothing scrolls, so reveals would stay hidden.
 
    Clip decorative containers with overflow-clip, not overflow-hidden:
    overflow: hidden makes an element a scroll container, and a view() timeline
@@ -165,7 +166,7 @@
   }
 }
 
-@media (prefers-reduced-motion: no-preference) {
+@media screen and (prefers-reduced-motion: no-preference) {
   .rise {
     animation: rise 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both;
     animation-delay: var(--rise-delay, 0ms);
