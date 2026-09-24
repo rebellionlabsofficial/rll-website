@@ -109,6 +109,19 @@
     );
   }
 
+  .legal > h2 {
+    @apply mt-14 text-2xl font-semibold tracking-tight first:mt-0;
+  }
+  .legal > p {
+    @apply mt-4 leading-relaxed text-ink-soft;
+  }
+  .legal > ul {
+    @apply mt-4 list-disc space-y-2.5 pl-5 leading-relaxed text-ink-soft marker:text-lion;
+  }
+  .legal strong {
+    @apply font-semibold text-ink;
+  }
+
   .no-scrollbar {
     scrollbar-width: none;
   }

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
+import Link from "next/link";
 import Icon from "@/components/Icon";
 import { SITE } from "@/lib/constants";
 
@@ -154,6 +155,17 @@ export default function ContactForm() {
           className={`${fieldClass} resize-y`}
         />
       </div>
+
+      <p className="mt-5 text-sm leading-relaxed text-ink-muted">
+        We use your details only to respond to your enquiry. See our{" "}
+        <Link
+          href="/privacy"
+          className="font-medium text-ink underline decoration-line-strong underline-offset-4 hover:decoration-ink"
+        >
+          privacy notice
+        </Link>
+        .
+      </p>
 
       {status === "error" && (
         <p

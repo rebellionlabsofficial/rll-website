@@ -153,7 +153,15 @@ export default function Footer() {
             &copy; {new Date().getFullYear()} Rebel Lion Labs. All rights
             reserved.
           </p>
-          <p>PADLR. is a trademark of Rebel Lion Labs.</p>
+          <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
+            <Link
+              href="/privacy"
+              className="underline-offset-4 transition-colors hover:text-white hover:underline"
+            >
+              Privacy notice
+            </Link>
+            <p>PADLR. is a trademark of Rebel Lion Labs.</p>
+          </div>
         </div>
       </div>
     </footer>
