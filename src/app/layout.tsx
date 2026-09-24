@@ -1,19 +1,28 @@
-import type { Metadata } from "next";
-import { Inter, Outfit } from "next/font/google";
+import type { Metadata, Viewport } from "next";
+import { Geist, Geist_Mono, Instrument_Serif } from "next/font/google";
 import "./globals.css";
 import { SITE } from "@/lib/constants";
+import { SHARE_IMAGE } from "@/lib/metadata";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
-const inter = Inter({
+const geist = Geist({
   subsets: ["latin"],
-  variable: "--font-inter",
+  variable: "--font-geist",
   display: "swap",
 });
 
-const outfit = Outfit({
+const geistMono = Geist_Mono({
   subsets: ["latin"],
-  variable: "--font-outfit",
+  variable: "--font-geist-mono",
+  display: "swap",
+});
+
+const instrumentSerif = Instrument_Serif({
+  subsets: ["latin"],
+  weight: "400",
+  style: ["normal", "italic"],
+  variable: "--font-instrument-serif",
   display: "swap",
 });
 
@@ -24,18 +33,25 @@ export const metadata: Metadata = {
     template: `%s | ${SITE.name}`,
   },
   description: SITE.description,
+  applicationName: SITE.name,
   openGraph: {
-    title: SITE.name,
+    title: `${SITE.name} — ${SITE.tagline}`,
     description: SITE.description,
-    url: SITE.url,
     siteName: SITE.name,
+    locale: "en_IE",
     type: "website",
+    images: [SHARE_IMAGE],
   },
   twitter: {
     card: "summary_large_image",
-    title: SITE.name,
+    title: `${SITE.name} — ${SITE.tagline}`,
     description: SITE.description,
+    images: [SHARE_IMAGE],
   },
+};
+
+export const viewport: Viewport = {
+  themeColor: "#F7F6F3",
 };
 
 export default function RootLayout({
@@ -44,10 +60,19 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${inter.variable} ${outfit.variable}`}>
-      <body className="font-body">
+    <html
+      lang="en"
+      className={`${geist.variable} ${geistMono.variable} ${instrumentSerif.variable}`}
+    >
+      <body>
+        <a
+          href="#main"
+          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-full focus:bg-ink focus:px-5 focus:py-3 focus:text-sm focus:font-medium focus:text-white"
+        >
+          Skip to content
+        </a>
         <Navbar />
-        <main>{children}</main>
+        <main id="main">{children}</main>
         <Footer />
       </body>
     </html>

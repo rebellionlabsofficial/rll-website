@@ -2,27 +2,208 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer components {
-  .gradient-blur {
-    @apply absolute rounded-full blur-3xl opacity-20 pointer-events-none;
-  }
-}
-
 @layer base {
   html {
     scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
   }
 
   body {
-    @apply bg-surface-white text-text-body antialiased;
+    @apply bg-canvas font-sans text-ink-soft antialiased;
   }
 
   h1,
   h2,
   h3,
-  h4,
-  h5,
-  h6 {
-    @apply font-heading text-text-heading;
+  h4 {
+    @apply text-ink;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  ::selection {
+    @apply bg-lion text-white;
+  }
+
+  :focus-visible {
+    outline: 2px solid theme("colors.lion.DEFAULT");
+    outline-offset: 3px;
+  }
+
+  [data-surface="dark"] :focus-visible {
+    outline-color: theme("colors.padlr.neon");
+  }
+
+  [data-surface="brand"] :focus-visible {
+    outline-color: #fff;
+  }
+
+  /* Keep anchor targets clear of the fixed navbar. */
+  [id] {
+    scroll-margin-top: 7rem;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+}
+
+@layer components {
+  .container-page {
+    @apply mx-auto w-full max-w-page px-5 sm:px-8;
+  }
+
+  .eyebrow {
+    @apply font-mono text-[11px] font-medium uppercase tracking-[0.2em];
+  }
+
+  .display {
+    @apply font-semibold;
+    letter-spacing: -0.045em;
+    line-height: 0.96;
+  }
+
+  .heading {
+    @apply font-semibold;
+    letter-spacing: -0.035em;
+    line-height: 1.04;
+  }
+
+  /* Serif italic accent words in headings, echoing the serif in the logo.
+     Instrument Serif runs small next to Geist, so it is nudged up. */
+  .accent {
+    @apply font-serif font-normal italic;
+    font-size: 1.08em;
+    letter-spacing: -0.01em;
+  }
+
+  /* Rounded, inset "stage" used for dark product sections and CTA bands. */
+  .panel-inset {
+    @apply mx-2 rounded-[2rem] sm:mx-3 lg:mx-4 lg:rounded-[2.75rem];
+  }
+
+  .bg-grid {
+    background-image:
+      linear-gradient(to right, rgb(14 14 16 / 0.055) 1px, transparent 1px),
+      linear-gradient(to bottom, rgb(14 14 16 / 0.055) 1px, transparent 1px);
+    background-size: 64px 64px;
+  }
+
+  .bg-grid-dark {
+    background-image:
+      linear-gradient(to right, rgb(255 255 255 / 0.045) 1px, transparent 1px),
+      linear-gradient(to bottom, rgb(255 255 255 / 0.045) 1px, transparent 1px);
+    background-size: 64px 64px;
+  }
+
+  .mask-radial {
+    mask-image: radial-gradient(
+      ellipse 75% 65% at 50% 25%,
+      #000 25%,
+      transparent 75%
+    );
+  }
+
+  .no-scrollbar {
+    scrollbar-width: none;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .mask-fade-x {
+    mask-image: linear-gradient(
+      to right,
+      transparent,
+      #000 8%,
+      #000 92%,
+      transparent
+    );
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   Motion. Content is visible by default: animations are layered on only when
+   the visitor hasn't asked for reduced motion, and scroll reveals only where
+   the browser supports scroll-driven animations. No JavaScript required.
+
+   Clip decorative containers with overflow-clip, not overflow-hidden:
+   overflow: hidden makes an element a scroll container, and a view() timeline
+   binds to the nearest one, so reveals inside it would never animate.
+   ------------------------------------------------------------------------ */
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes reveal {
+  from {
+    opacity: 0;
+    transform: translateY(32px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .rise {
+    animation: rise 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+    animation-delay: var(--rise-delay, 0ms);
+  }
+  .rise-d1 {
+    --rise-delay: 90ms;
+  }
+  .rise-d2 {
+    --rise-delay: 180ms;
+  }
+  .rise-d3 {
+    --rise-delay: 270ms;
+  }
+  .rise-d4 {
+    --rise-delay: 360ms;
+  }
+
+  .marquee-track {
+    animation: marquee 80s linear infinite;
+  }
+  .marquee:hover .marquee-track {
+    animation-play-state: paused;
+  }
+
+  @supports (animation-timeline: view()) {
+    .reveal {
+      animation: reveal linear both;
+      animation-timeline: view();
+      animation-range: entry 0px entry 180px;
+    }
+    .reveal-1 {
+      animation-range: entry 40px entry 220px;
+    }
+    .reveal-2 {
+      animation-range: entry 80px entry 260px;
+    }
+    .reveal-3 {
+      animation-range: entry 120px entry 300px;
+    }
   }
 }

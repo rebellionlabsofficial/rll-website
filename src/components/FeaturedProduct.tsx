@@ -1,76 +1,124 @@
-"use client";
-
 import Image from "next/image";
-import ScrollAnimation from "@/components/ScrollAnimation";
-import PadlrName from "@/components/PadlrName";
-import { PRODUCTS } from "@/lib/constants";
+import ButtonLink from "@/components/ButtonLink";
+import Eyebrow from "@/components/Eyebrow";
+import Icon from "@/components/Icon";
+import PhoneFrame from "@/components/PhoneFrame";
+import { PADLR } from "@/lib/constants";
 
 export default function FeaturedProduct() {
-  const product = PRODUCTS[0];
-
   return (
-    <section className="relative overflow-hidden bg-[#080809] py-16 px-6">
-      {/* Decorative gradient accents */}
-      <div className="gradient-blur top-0 right-0 h-[500px] w-[500px] bg-[#C8FF00] opacity-[0.07]" />
-      <div className="gradient-blur bottom-0 left-0 h-[400px] w-[400px] bg-[#C8FF00] opacity-[0.05]" />
+    <section
+      aria-labelledby="featured-product"
+      data-surface="dark"
+      className="panel-inset relative isolate overflow-clip bg-padlr-ink py-20 text-white sm:py-28"
+    >
+      <div
+        aria-hidden="true"
+        className="bg-grid-dark absolute inset-0 -z-10 [mask-image:radial-gradient(ellipse_at_75%_15%,#000_15%,transparent_60%)]"
+      />
+      <div
+        aria-hidden="true"
+        className="absolute -right-40 -top-40 -z-10 h-[38rem] w-[38rem] rounded-full bg-padlr-neon/[0.09] blur-[120px]"
+      />
+      <div
+        aria-hidden="true"
+        className="absolute -bottom-48 -left-32 -z-10 h-[30rem] w-[30rem] rounded-full bg-padlr-neon/[0.06] blur-[120px]"
+      />
 
-      <div className="relative z-10 mx-auto max-w-6xl">
-        <ScrollAnimation>
-          <span className="text-sm font-semibold uppercase tracking-wider text-[#C8FF00]">
-            Featured Product
-          </span>
-          <h2 className="mt-2 font-heading text-3xl font-bold text-white md:text-4xl">
-            <PadlrName dotColor="text-[#C8FF00]" />
-          </h2>
-          <p className="mt-1 text-lg text-white/70">{product.tagline}</p>
-        </ScrollAnimation>
-
-        <div className="mt-0 grid items-center gap-12 md:grid-cols-2">
-          <ScrollAnimation delay={0.15}>
-            <div className="rounded-2xl border border-white/10 bg-white/5 p-8 backdrop-blur-sm">
-              <p className="text-white/80 leading-relaxed">
-                {product.description}
-              </p>
-              <ul className="mt-6 space-y-3">
-                {product.features.map((feature) => (
-                  <li key={feature} className="flex items-start gap-3 text-sm">
-                    <span className="mt-0.5 h-2 w-2 flex-shrink-0 rounded-full bg-[#C8FF00]" />
-                    <span className="text-white/70">{feature}</span>
-                  </li>
-                ))}
-              </ul>
-              <div className="mt-8 flex items-center gap-4">
-                <a
-                  href={product.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-block rounded-full bg-[#C8FF00] px-6 py-2.5 text-sm font-semibold text-[#080809] transition-all duration-300 hover:scale-105 hover:bg-[#D4FF33]"
-                >
-                  Learn More
-                </a>
-                <span className="rounded-full border border-[#C8FF00]/30 bg-[#C8FF00]/10 px-4 py-1.5 text-xs font-medium text-[#C8FF00]">
-                  {product.status}
-                </span>
-              </div>
+      <div className="container-page">
+        <div className="grid items-center gap-16 lg:grid-cols-12 lg:gap-10">
+          <div className="reveal lg:col-span-6">
+            <Eyebrow tone="neon">Featured product · Our debut</Eyebrow>
+            <Image
+              src="/PADLRLogo.png"
+              alt="PADLR."
+              width={360}
+              height={55}
+              className="mt-8 h-9 w-auto sm:h-11"
+            />
+            <h2
+              id="featured-product"
+              className="heading mt-8 text-[2.5rem] text-white sm:text-5xl lg:text-[3.5rem]"
+            >
+              Your <span className="text-padlr-neon">Rating.</span> Your Game.
+              Your Community.
+            </h2>
+            <p className="mt-6 max-w-xl text-lg leading-relaxed text-white/65">
+              {PADLR.summary} {PADLR.description}
+            </p>
+            <div className="mt-10 flex flex-wrap gap-3">
+              <ButtonLink
+                href={PADLR.links.appStore}
+                external
+                variant="neon"
+                size="lg"
+              >
+                Get PADLR. — it&apos;s free
+              </ButtonLink>
+              <ButtonLink href="/products" variant="ghost-dark" size="lg">
+                How it works
+              </ButtonLink>
             </div>
-          </ScrollAnimation>
+            <p className="mt-6 font-mono text-[11px] uppercase tracking-[0.18em] text-white/55">
+              iOS · Free · 28 countries
+            </p>
+          </div>
 
-          <ScrollAnimation delay={0.3}>
-            <div className="relative flex items-center justify-center py-8">
-              <div className="relative h-[520px] w-[240px] overflow-hidden rounded-[2.5rem] border border-white/10 bg-[#080809] shadow-lg shadow-[#C8FF00]/10">
-                <Image
-                  src="/padlr-app-preview.png"
-                  alt="PADLR. iOS app showing the social feed with a logged padel match, leaderboard navigation, and achievement card"
-                  width={1320}
-                  height={2868}
-                  sizes="240px"
-                  className="h-full w-full object-cover object-top"
-                  priority
+          <div className="lg:col-span-6">
+            <div className="mx-auto flex max-w-md items-end justify-center lg:max-w-lg">
+              <div className="reveal reveal-1 w-[44%] max-w-[250px]">
+                <PhoneFrame
+                  src="/padlr/stats.webp"
+                  alt="PADLR. stats screen with a 3.9 rating, a confidence ring and a rating history chart"
+                  sizes="(min-width: 1024px) 250px, 40vw"
+                  className="mb-12 opacity-80"
+                />
+              </div>
+              <div className="reveal reveal-2 relative z-10 -ml-[10%] w-[50%] max-w-[285px]">
+                <PhoneFrame
+                  src="/padlr/leaderboards.webp"
+                  alt="PADLR. leaderboards screen with a podium of the most active players"
+                  sizes="(min-width: 1024px) 285px, 46vw"
                 />
               </div>
             </div>
-          </ScrollAnimation>
+          </div>
         </div>
+
+        <dl className="reveal mt-20 grid grid-cols-2 gap-px overflow-clip rounded-3xl border border-white/10 bg-white/10 lg:grid-cols-4">
+          {PADLR.stats.map((stat) => (
+            <div
+              key={stat.label}
+              className="flex flex-col-reverse bg-padlr-ink p-6 sm:p-8"
+            >
+              <dt className="mt-2 text-sm text-white/60">{stat.label}</dt>
+              <dd className="text-4xl font-semibold tracking-tight text-padlr-neon sm:text-5xl">
+                {stat.value}
+              </dd>
+            </div>
+          ))}
+        </dl>
+
+        <ul className="reveal mt-5 grid gap-px overflow-clip rounded-3xl border border-white/10 bg-white/10 sm:grid-cols-2 lg:grid-cols-4">
+          {PADLR.features.map((feature) => (
+            <li
+              key={feature.title}
+              className="flex gap-4 bg-padlr-ink p-5 sm:block sm:p-7"
+            >
+              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-white/[0.06] text-padlr-neon">
+                <Icon name={feature.icon} />
+              </span>
+              <div>
+                <h3 className="font-semibold tracking-tight text-white sm:mt-5">
+                  {feature.title}
+                </h3>
+                <p className="mt-1.5 text-sm leading-relaxed text-white/60 sm:mt-2">
+                  {feature.short}
+                </p>
+              </div>
+            </li>
+          ))}
+        </ul>
       </div>
     </section>
   );

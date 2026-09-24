@@ -1,240 +1,630 @@
-import type { Metadata } from "next";
-import Link from "next/link";
-import ScrollAnimation from "@/components/ScrollAnimation";
-import PadlrName from "@/components/PadlrName";
+import Image from "next/image";
+import ButtonLink from "@/components/ButtonLink";
+import CtaBand from "@/components/CtaBand";
+import Eyebrow from "@/components/Eyebrow";
+import Icon from "@/components/Icon";
+import JsonLd from "@/components/JsonLd";
+import PhoneFrame from "@/components/PhoneFrame";
+import Roadmap from "@/components/Roadmap";
+import SectionHeading from "@/components/SectionHeading";
+import { PADLR, SITE } from "@/lib/constants";
+import { pageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
-  title: "Our Apps — Sports Apps Built for Players",
-  description:
-    "Explore sports apps by Rebel Lion Labs. PADLR. is our rating-first padel app with Bayesian skill ratings, match logging, leaderboards across 23 countries, and a thriving player community. Launching Spring 2026.",
-  keywords:
-    "padel app, padel rating app, padel score tracker, sports apps, padel leaderboard, padel community app, Bayesian rating padel, racquet sports app",
+export const metadata = {
+  ...pageMetadata({
+    title: "Our Apps — Sports Apps Built for Players",
+    description:
+      "Explore sports apps by Rebel Lion Labs. PADLR. is the ultimate padel companion app — Bayesian skill ratings, 30-second match logging, booking, messaging, a social feed, and leaderboards. Free on iOS in 28 countries.",
+    path: "/products",
+  }),
+  // Safari on iOS shows a "Get / Open" banner for PADLR.
+  itunes: { appId: PADLR.appStoreId },
+};
+
+const SCREENS = [
+  {
+    src: "/padlr-app-preview.png",
+    width: 1320,
+    height: 2868,
+    label: "Feed",
+    alt: "PADLR. feed with a doubles match result and a Level Up achievement",
+  },
+  {
+    src: "/padlr/stats.webp",
+    width: 720,
+    height: 1565,
+    label: "Stats",
+    alt: "PADLR. stats screen with a 3.9 rating, confidence ring and rating history chart",
+  },
+  {
+    src: "/padlr/discover.webp",
+    width: 720,
+    height: 1565,
+    label: "Discover",
+    alt: "PADLR. discover screen listing open games and players nearby",
+  },
+  {
+    src: "/padlr/leaderboards.webp",
+    width: 720,
+    height: 1565,
+    label: "Rankings",
+    alt: "PADLR. leaderboards with a podium of the most active players",
+  },
+  {
+    src: "/padlr/match.webp",
+    width: 720,
+    height: 1565,
+    label: "Match Details",
+    alt: "PADLR. match details showing a doubles victory and rating change",
+  },
+];
+
+const applicationJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "MobileApplication",
+  name: PADLR.name,
+  description: PADLR.about,
+  operatingSystem: "iOS",
+  applicationCategory: "SportsApplication",
+  url: PADLR.links.website,
+  installUrl: PADLR.links.appStore,
+  offers: { "@type": "Offer", price: "0", priceCurrency: "EUR" },
+  author: { "@type": "Organization", name: SITE.name, url: SITE.url },
 };
 
 export default function ProductsPage() {
   return (
     <>
-      {/* Hero */}
-      <section className="relative overflow-hidden px-6 pt-32 pb-16">
-        <div className="gradient-blur -top-20 -right-20 h-[350px] w-[350px] bg-[#8B1A1A] opacity-[0.07]" />
-        <div className="relative z-10 mx-auto max-w-4xl text-center">
-          <ScrollAnimation>
-            <span className="text-sm font-semibold uppercase tracking-wider text-brand-red">
-              Our Products
-            </span>
-            <h1 className="mt-4 font-heading text-5xl font-bold text-text-heading md:text-6xl">
-              Sports Apps That{" "}
-              <span className="text-brand-red">Get It</span>
+      <JsonLd data={applicationJsonLd} />
+
+      {/* Hero + product index */}
+      <section className="relative isolate overflow-clip pb-16 pt-32 sm:pt-36 lg:pt-44">
+        <div
+          aria-hidden="true"
+          className="bg-grid mask-radial absolute inset-0 -z-10"
+        />
+        <div className="container-page">
+          <div className="max-w-3xl">
+            <Eyebrow className="rise">Our apps</Eyebrow>
+            <h1 className="rise rise-d1 display mt-7 text-[clamp(3rem,7vw,5.5rem)]">
+              Sports apps that <span className="accent text-lion">get it.</span>
             </h1>
-            <p className="mx-auto mt-4 max-w-2xl text-lg text-text-body">
-              Every app we build is purpose-made for a single sport. No
-              generic fitness trackers. No one-size-fits-all platforms. Just
-              dedicated tools built by people who actually play.
+            <p className="rise rise-d2 mt-8 max-w-2xl text-lg leading-relaxed text-ink-soft sm:text-xl">
+              Every app we build is purpose-made for a single sport. No generic
+              fitness trackers. No one-size-fits-all platforms. Just dedicated
+              tools built by people who actually play.
             </p>
-          </ScrollAnimation>
-        </div>
-      </section>
-
-      {/* PADLR. Flagship Section */}
-      <section className="relative overflow-hidden bg-[#080809] py-24 px-6">
-        <div className="gradient-blur top-0 left-0 h-[500px] w-[500px] bg-[#C8FF00] opacity-[0.07]" />
-        <div className="gradient-blur bottom-0 right-0 h-[400px] w-[400px] bg-[#C8FF00] opacity-[0.05]" />
-
-        <div className="relative z-10 mx-auto max-w-6xl">
-          <ScrollAnimation>
-            <h2 className="font-heading text-3xl font-bold text-white md:text-4xl">
-              <PadlrName className="text-white" dotColor="text-[#C8FF00]" />
-            </h2>
-            <p className="mt-2 text-sm text-[#C8FF00]">
-              Your Rating. Your Game. Your Community.
-            </p>
-          </ScrollAnimation>
-
-          <div className="mt-12 grid gap-12 md:grid-cols-2">
-            {/* Left - Description */}
-            <ScrollAnimation delay={0.15}>
-              <div className="space-y-6 text-white/80 leading-relaxed">
-                <p>
-                  <PadlrName dotColor="text-[#C8FF00]" /> is the rating-first
-                  padel app — built to give every player a transparent,
-                  mathematically sound skill rating. Powered by Bayesian
-                  algorithms that account for score margins, opponent strength,
-                  and team dynamics, your rating tells the truth about your game.
-                </p>
-                <p>
-                  But it&apos;s more than a number.{" "}
-                  <PadlrName dotColor="text-[#C8FF00]" /> is a complete padel
-                  companion. Log matches in 30 seconds, climb leaderboards
-                  across 23 countries, connect with your community through a
-                  social feed of match cards, and collect badges as you hit
-                  milestones.
-                </p>
-                <p>
-                  Whether you&apos;re a casual weekend player or grinding for the
-                  top of the leaderboard,{" "}
-                  <PadlrName dotColor="text-[#C8FF00]" /> is designed to make
-                  your padel experience better.
-                </p>
-                <a
-                  href="https://playpadlr.app"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mt-2 inline-block rounded-full bg-[#C8FF00] px-8 py-3 text-sm font-semibold text-[#080809] transition-all duration-300 hover:scale-105 hover:bg-[#D4FF33]"
-                >
-                  Visit PADLR. Website
-                </a>
-              </div>
-            </ScrollAnimation>
-
-            {/* Right - Features */}
-            <ScrollAnimation delay={0.3}>
-              <div className="space-y-4">
-                {[
-                  {
-                    title: "Bayesian Skill Ratings",
-                    desc: "A transparent 0-7 rating that reflects how you actually play — no black boxes, no guesswork",
-                  },
-                  {
-                    title: "Global Leaderboards",
-                    desc: "Compete across global, country, city, and friend-based rankings — see where you stand at every level",
-                  },
-                  {
-                    title: "Social Match Feed",
-                    desc: "Every match becomes a card in your feed — scores, rating changes, reactions, and comments from your community",
-                  },
-                  {
-                    title: "Player Discovery",
-                    desc: "Find opponents at your skill level nearby — no more mismatched games or empty courts",
-                  },
-                ].map((feature, i) => (
-                  <div
-                    key={feature.title}
-                    className="rounded-xl border border-white/10 bg-white/5 p-5 backdrop-blur-sm"
-                  >
-                    <div className="flex items-start gap-3">
-                      <span className="mt-1 h-2 w-2 flex-shrink-0 rounded-full bg-[#C8FF00]" />
-                      <div>
-                        <h3 className="text-sm font-semibold text-white">
-                          {feature.title}
-                        </h3>
-                        <p className="mt-1 text-xs leading-relaxed text-white/50">
-                          {feature.desc}
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </ScrollAnimation>
           </div>
 
-          {/* Stats Row */}
-          <div className="mt-16 grid grid-cols-2 gap-4 md:grid-cols-4">
-            {[
-              { stat: "0–7", label: "Skill rating scale" },
-              { stat: "30s", label: "To log a match" },
-              { stat: "23", label: "Countries" },
-              { stat: "5", label: "Badge rarity tiers" },
-            ].map((item) => (
-              <ScrollAnimation key={item.label} delay={0.15}>
-                <div className="rounded-xl border border-white/10 bg-white/5 py-6 text-center">
-                  <p className="font-heading text-3xl font-bold text-[#C8FF00]">
-                    {item.stat}
-                  </p>
-                  <p className="mt-1 text-xs text-white/40">{item.label}</p>
-                </div>
-              </ScrollAnimation>
-            ))}
-          </div>
-
-        </div>
-      </section>
-
-      {/* Roadmap / What's Coming */}
-      <section className="relative overflow-hidden py-24 px-6">
-        <div className="gradient-blur bottom-0 -left-20 h-[300px] w-[300px] bg-[#8B1A1A] opacity-[0.05]" />
-        <div className="relative z-10 mx-auto max-w-6xl">
-          <ScrollAnimation>
-            <span className="text-sm font-semibold uppercase tracking-wider text-brand-red">
-              Roadmap
-            </span>
-            <h2 className="mt-2 font-heading text-3xl font-bold text-text-heading md:text-4xl">
-              What&apos;s Coming Next
-            </h2>
-            <p className="mt-4 max-w-2xl text-text-body">
-              We&apos;re building sport by sport. Here&apos;s what&apos;s on the
-              horizon for Rebel Lion Labs.
-            </p>
-          </ScrollAnimation>
-
-          <div className="mt-12 grid gap-6 md:grid-cols-3">
-            <ScrollAnimation delay={0}>
-              <div className="rounded-2xl border-l-4 border-l-[#C8FF00] bg-surface-grey p-6">
-                <span className="text-xs font-semibold uppercase tracking-wider text-[#C8FF00]">
-                  Spring 2026
-                </span>
-                <h3 className="mt-2 font-heading text-lg font-bold text-text-heading">
-                  <PadlrName dotColor="text-[#C8FF00]" /> iOS Launch
-                </h3>
-                <p className="mt-2 text-sm text-text-body">
-                  Full release of the rating-first padel app on the App Store.
-                  Ratings, match logging, leaderboards, social feed, and badges.
-                </p>
-              </div>
-            </ScrollAnimation>
-            <ScrollAnimation delay={0.15}>
-              <div className="rounded-2xl border-l-4 border-l-brand-red bg-surface-grey p-6">
-                <span className="text-xs font-semibold uppercase tracking-wider text-brand-red">
-                  Summer 2026
-                </span>
-                <h3 className="mt-2 font-heading text-lg font-bold text-text-heading">
-                  Apple Watch & HealthKit
-                </h3>
-                <p className="mt-2 text-sm text-text-body">
-                  Track your padel sessions from your wrist. Heart rate, calories,
-                  and session duration synced automatically with your{" "}
-                  <PadlrName dotColor="text-[#C8FF00]" /> profile.
-                </p>
-              </div>
-            </ScrollAnimation>
-            <ScrollAnimation delay={0.3}>
-              <div className="rounded-2xl border-l-4 border-l-text-light bg-surface-grey p-6">
-                <span className="text-xs font-semibold uppercase tracking-wider text-text-light">
-                  Future
-                </span>
-                <h3 className="mt-2 font-heading text-lg font-bold text-text-heading">
-                  More Sports & Merch
-                </h3>
-                <p className="mt-2 text-sm text-text-body">
-                  New sports, new apps — each one purpose-built for its players.
-                  Plus exclusive merch and apparel for the community.
-                </p>
-              </div>
-            </ScrollAnimation>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="bg-surface-grey py-24 px-6">
-        <div className="mx-auto max-w-3xl text-center">
-          <ScrollAnimation>
-            <h2 className="font-heading text-3xl font-bold text-text-heading md:text-4xl">
-              Want to Know When We Launch?
-            </h2>
-            <p className="mt-4 text-text-body">
-              Drop us a message and be the first to know when{" "}
-              <PadlrName dotColor="text-[#C8FF00]" /> hits the App Store.
-            </p>
-            <Link
-              href="/contact"
-              className="mt-8 inline-block rounded-full bg-brand-red px-8 py-3 text-sm font-semibold text-white transition-all duration-300 hover:scale-105 hover:bg-brand-red-dark"
+          <div className="rise rise-d3 mt-14 grid gap-5 md:grid-cols-5">
+            <a
+              href="#padlr"
+              data-surface="dark"
+              className="group relative isolate overflow-clip rounded-3xl bg-padlr-ink p-8 text-white shadow-lift md:col-span-3"
             >
-              Get in Touch
-            </Link>
-          </ScrollAnimation>
+              <div
+                aria-hidden="true"
+                className="absolute -right-20 -top-24 -z-10 h-72 w-72 rounded-full bg-padlr-neon/15 blur-[80px] transition-opacity duration-500 group-hover:opacity-80"
+              />
+              <div className="flex items-start justify-between gap-4">
+                <Image
+                  src="/PADLRLogo.png"
+                  alt="PADLR."
+                  width={360}
+                  height={55}
+                  className="h-7 w-auto"
+                />
+                <span className="eyebrow rounded-full bg-padlr-neon px-3 py-1.5 text-padlr-ink">
+                  Live on iOS
+                </span>
+              </div>
+              <p className="mt-10 text-2xl font-semibold tracking-tight">
+                {PADLR.tagline}
+              </p>
+              <p className="mt-3 max-w-md text-white/65">
+                {PADLR.summary} Free on the App Store in{" "}
+                {PADLR.countries.length} countries.
+              </p>
+              <p className="mt-8 inline-flex items-center gap-2 text-sm font-medium text-padlr-neon">
+                Explore PADLR.
+                <Icon
+                  name="arrow-right"
+                  className="h-4 w-4 rotate-90 transition-transform duration-300 group-hover:translate-y-0.5"
+                />
+              </p>
+            </a>
+            <div className="flex flex-col justify-between rounded-3xl border border-dashed border-line-strong bg-white/50 p-8 md:col-span-2">
+              <div className="flex items-start justify-between gap-4">
+                <p className="text-xl font-semibold tracking-tight text-ink">
+                  Next sport
+                </p>
+                <span className="eyebrow rounded-full border border-line-strong px-3 py-1.5 text-ink-muted">
+                  In the works
+                </span>
+              </div>
+              <div>
+                <p className="mt-10 text-ink-soft">
+                  We&apos;re building sport by sport. Want to hear first — or
+                  help shape what comes next?
+                </p>
+                <ButtonLink
+                  href="/contact"
+                  variant="secondary"
+                  className="mt-6"
+                >
+                  Get in touch
+                </ButtonLink>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
+
+      {/* PADLR. overview */}
+      <section
+        id="padlr"
+        aria-labelledby="padlr-heading"
+        data-surface="dark"
+        className="panel-inset relative isolate overflow-clip bg-padlr-ink py-20 text-white sm:py-28"
+      >
+        <div
+          aria-hidden="true"
+          className="bg-grid-dark absolute inset-0 -z-10 [mask-image:radial-gradient(ellipse_at_30%_10%,#000_15%,transparent_60%)]"
+        />
+        <div
+          aria-hidden="true"
+          className="absolute -left-40 -top-40 -z-10 h-[40rem] w-[40rem] rounded-full bg-padlr-neon/[0.08] blur-[120px]"
+        />
+        <div className="container-page">
+          <div className="grid gap-12 lg:grid-cols-12 lg:gap-10">
+            <div className="reveal lg:col-span-7">
+              <Eyebrow tone="neon">PADLR. · Padel</Eyebrow>
+              <Image
+                src="/PADLRLogo.png"
+                alt="PADLR."
+                width={360}
+                height={55}
+                className="mt-8 h-10 w-auto sm:h-12"
+              />
+              <h2
+                id="padlr-heading"
+                className="heading mt-8 text-[2.5rem] text-white sm:text-6xl"
+              >
+                Your <span className="text-padlr-neon">Rating.</span> Your Game.
+                Your Community.
+              </h2>
+            </div>
+            <div className="reveal reveal-1 lg:col-span-5 lg:pt-16">
+              <p className="text-lg leading-relaxed text-white/70">
+                {PADLR.about}
+              </p>
+              <div className="mt-8 flex flex-wrap gap-3">
+                <ButtonLink
+                  href={PADLR.links.appStore}
+                  external
+                  variant="neon"
+                  size="lg"
+                >
+                  Get PADLR. — it&apos;s free
+                </ButtonLink>
+                <ButtonLink
+                  href={PADLR.links.website}
+                  external
+                  variant="ghost-dark"
+                  size="lg"
+                >
+                  playpadlr.app
+                </ButtonLink>
+              </div>
+              <p className="mt-6 font-mono text-[11px] uppercase tracking-[0.18em] text-white/55">
+                Free · iOS · {PADLR.countries.length} countries ·{" "}
+                {PADLR.languages} languages
+              </p>
+            </div>
+          </div>
+
+          <ul
+            aria-label="Inside PADLR."
+            className="no-scrollbar -mx-5 mt-16 flex snap-x snap-mandatory gap-4 overflow-x-auto px-5 pb-2 sm:-mx-8 sm:px-8 lg:mx-0 lg:grid lg:grid-cols-5 lg:gap-6 lg:overflow-visible lg:px-0"
+          >
+            {SCREENS.map((screen, index) => (
+              <li
+                key={screen.label}
+                className={`reveal ${["", "reveal-1", "reveal-2", "reveal-3", "reveal-3"][index]} w-[62vw] max-w-[250px] shrink-0 snap-center lg:w-auto lg:max-w-none`}
+              >
+                <PhoneFrame
+                  src={screen.src}
+                  alt={screen.alt}
+                  width={screen.width}
+                  height={screen.height}
+                  sizes="(min-width: 1024px) 220px, 62vw"
+                />
+                <p className="mt-4 text-center font-mono text-[11px] uppercase tracking-[0.18em] text-white/55">
+                  {screen.label}
+                </p>
+              </li>
+            ))}
+          </ul>
+
+          <dl className="reveal mt-16 grid grid-cols-2 gap-px overflow-clip rounded-3xl border border-white/10 bg-white/10 lg:grid-cols-4">
+            {PADLR.stats.map((stat) => (
+              <div
+                key={stat.label}
+                className="flex flex-col-reverse bg-padlr-ink p-6 sm:p-8"
+              >
+                <dt className="mt-2 text-sm text-white/60">{stat.label}</dt>
+                <dd className="text-4xl font-semibold tracking-tight text-padlr-neon sm:text-5xl">
+                  {stat.value}
+                </dd>
+              </div>
+            ))}
+          </dl>
+        </div>
+      </section>
+
+      {/* Features */}
+      <section className="py-24 sm:py-32">
+        <div className="container-page">
+          <div className="reveal">
+            <SectionHeading
+              eyebrow="Features"
+              title={
+                <>
+                  Built for <span className="accent text-lion">players.</span>
+                </>
+              }
+              lead="Everything you need to track your padel journey, find your community, and prove your level."
+            />
+          </div>
+          <ul className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            {PADLR.features.map((feature, index) => (
+              <li
+                key={feature.title}
+                className={`reveal ${["", "reveal-1", "reveal-2", "reveal-3"][index % 4]}`}
+              >
+                <div className="group flex h-full flex-col rounded-3xl border border-line bg-white p-7 shadow-card transition-all duration-300 hover:-translate-y-1 hover:shadow-lift">
+                  <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-padlr-ink text-padlr-neon">
+                    <Icon name={feature.icon} />
+                  </span>
+                  <h3 className="mt-6 text-lg font-semibold tracking-tight">
+                    {feature.title}
+                  </h3>
+                  <p className="mt-3 text-[15px] leading-relaxed text-ink-soft">
+                    {feature.description}
+                  </p>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      {/* How it works */}
+      <section className="border-y border-line bg-white/50 py-24 sm:py-32">
+        <div className="container-page">
+          <div className="reveal">
+            <SectionHeading
+              eyebrow="How it works"
+              title={
+                <>
+                  Three steps to{" "}
+                  <span className="accent text-lion">your real level.</span>
+                </>
+              }
+              align="center"
+            />
+          </div>
+          <div className="relative mt-16">
+            <span
+              aria-hidden="true"
+              className="absolute left-[16.5%] right-[16.5%] top-8 hidden h-px bg-line-strong md:block"
+            />
+            <ol className="relative grid gap-12 md:grid-cols-3 md:gap-8">
+              {PADLR.steps.map((step, index) => (
+                <li
+                  key={step.title}
+                  className={`reveal ${["", "reveal-1", "reveal-2"][index]} relative text-center`}
+                >
+                  <span className="relative mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-ink font-serif text-3xl italic text-padlr-neon shadow-lift">
+                    {index + 1}
+                  </span>
+                  <h3 className="mt-7 text-xl font-semibold tracking-tight">
+                    {step.title}
+                  </h3>
+                  <p className="mx-auto mt-3 max-w-xs leading-relaxed text-ink-soft">
+                    {step.description}
+                  </p>
+                </li>
+              ))}
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      {/* Rating engine */}
+      <section className="pt-3 sm:pt-4">
+        <div
+          data-surface="dark"
+          className="panel-inset relative isolate overflow-clip bg-padlr-ink py-20 text-white sm:py-24"
+        >
+          <div
+            aria-hidden="true"
+            className="absolute -right-32 bottom-0 -z-10 h-[32rem] w-[32rem] rounded-full bg-padlr-neon/[0.07] blur-[120px]"
+          />
+          <div className="container-page grid items-center gap-14 lg:grid-cols-12 lg:gap-12">
+            <div className="reveal lg:col-span-5">
+              <div className="rounded-[2rem] border border-white/10 bg-padlr-raised p-8 sm:p-10">
+                <span className="eyebrow rounded-full bg-padlr-neon/10 px-3 py-1.5 text-padlr-neon">
+                  OpenSkill engine
+                </span>
+                <div className="relative mx-auto mt-10 h-52 w-52">
+                  <svg
+                    viewBox="0 0 208 208"
+                    className="h-full w-full -rotate-90"
+                    aria-hidden="true"
+                  >
+                    <circle
+                      cx="104"
+                      cy="104"
+                      r="92"
+                      fill="none"
+                      stroke="#262527"
+                      strokeWidth="12"
+                    />
+                    <circle
+                      cx="104"
+                      cy="104"
+                      r="92"
+                      fill="none"
+                      stroke="#C8FF00"
+                      strokeWidth="12"
+                      strokeLinecap="round"
+                      strokeDasharray="578"
+                      strokeDashoffset="58"
+                    />
+                  </svg>
+                  <div className="absolute inset-0 flex flex-col items-center justify-center">
+                    <span className="text-5xl font-semibold tracking-tight text-padlr-neon">
+                      3.9
+                    </span>
+                    <span className="eyebrow mt-1 text-white/55">
+                      Confident
+                    </span>
+                  </div>
+                </div>
+                <h3 className="mt-10 text-center text-lg font-semibold text-white">
+                  Your confidence ring
+                </h3>
+                <p className="mt-2 text-center text-sm leading-relaxed text-white/60">
+                  The ring shows how certain the system is about your rating.
+                  Play more matches and it tightens — meaning your rating is
+                  locked in.
+                </p>
+              </div>
+            </div>
+
+            <div className="reveal reveal-1 lg:col-span-7">
+              <Eyebrow tone="neon">The rating system</Eyebrow>
+              <h2 className="heading mt-5 text-[2.25rem] text-white sm:text-5xl">
+                Why our rating <span className="text-padlr-neon">works.</span>
+              </h2>
+              <p className="mt-5 max-w-xl text-lg leading-relaxed text-white/65">
+                {PADLR.rating.intro}
+              </p>
+              <ul className="mt-8 divide-y divide-white/10 border-y border-white/10">
+                {PADLR.rating.factors.map((factor) => (
+                  <li key={factor.title} className="flex gap-4 py-5">
+                    <Icon
+                      name={factor.icon}
+                      className="mt-0.5 h-5 w-5 shrink-0 text-padlr-neon"
+                    />
+                    <div>
+                      <h3 className="font-semibold text-white">
+                        {factor.title}
+                      </h3>
+                      <p className="mt-1 text-sm leading-relaxed text-white/60">
+                        {factor.description}
+                      </p>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+              <div className="mt-8 overflow-clip rounded-2xl border border-white/10">
+                <table className="w-full text-left text-sm">
+                  <caption className="sr-only">
+                    How the PADLR. rating compares with a basic Elo system
+                  </caption>
+                  <thead className="bg-white/[0.04]">
+                    <tr>
+                      <th
+                        scope="col"
+                        className="eyebrow px-5 py-4 font-medium text-white/55"
+                      >
+                        Feature
+                      </th>
+                      <th
+                        scope="col"
+                        className="eyebrow px-5 py-4 text-center font-medium text-padlr-neon"
+                      >
+                        PADLR.
+                      </th>
+                      <th
+                        scope="col"
+                        className="eyebrow px-5 py-4 text-center font-medium text-white/55"
+                      >
+                        Basic Elo
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-white/10">
+                    {PADLR.rating.comparison.map((row) => (
+                      <tr key={row}>
+                        <th
+                          scope="row"
+                          className="px-5 py-3.5 font-normal text-white/80"
+                        >
+                          {row}
+                        </th>
+                        <td className="px-5 py-3.5">
+                          <Icon
+                            name="check"
+                            className="mx-auto h-5 w-5 text-padlr-neon"
+                          />
+                          <span className="sr-only">Yes</span>
+                        </td>
+                        <td className="px-5 py-3.5">
+                          <Icon
+                            name="x"
+                            className="mx-auto h-5 w-5 text-white/30"
+                          />
+                          <span className="sr-only">No</span>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* PADLR. Pro */}
+      <section className="py-24 sm:py-32">
+        <div className="container-page">
+          <div
+            data-surface="dark"
+            className="reveal relative isolate overflow-clip rounded-[2rem] bg-gradient-to-br from-padlr-raised to-padlr-ink p-8 text-white ring-1 ring-padlr-neon/25 sm:p-12 lg:p-16"
+          >
+            <div className="grid items-center gap-12 lg:grid-cols-12">
+              <div className="lg:col-span-7">
+                <span className="eyebrow rounded-full bg-padlr-neon px-3 py-1.5 text-padlr-ink">
+                  Premium
+                </span>
+                <h2 className="heading mt-7 text-[2.5rem] text-white sm:text-6xl">
+                  PADLR. <span className="text-padlr-neon">Pro</span>
+                </h2>
+                <p className="mt-5 max-w-xl leading-relaxed text-white/65">
+                  {PADLR.pro.intro}
+                </p>
+                <ul className="mt-8 grid gap-3 sm:grid-cols-2">
+                  {PADLR.pro.features.map((feature) => (
+                    <li
+                      key={feature}
+                      className="flex items-start gap-3 text-sm text-white/85"
+                    >
+                      <Icon
+                        name="check"
+                        className="mt-0.5 h-4 w-4 shrink-0 text-padlr-neon"
+                      />
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div className="text-center lg:col-span-5">
+                <div className="relative mx-auto flex h-48 w-48 items-center justify-center rounded-full border-2 border-padlr-neon/30 sm:h-56 sm:w-56">
+                  <div
+                    aria-hidden="true"
+                    className="absolute inset-0 rounded-full bg-padlr-neon/5 blur-xl"
+                  />
+                  <span className="relative text-6xl font-semibold tracking-tight text-padlr-neon">
+                    PRO
+                  </span>
+                </div>
+                <p className="mt-6 text-sm text-white/60">{PADLR.pro.note}</p>
+                <ButtonLink
+                  href={PADLR.links.appStore}
+                  external
+                  variant="neon"
+                  className="mt-6"
+                >
+                  Get PADLR. on the App Store
+                </ButtonLink>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Availability */}
+      <section className="border-t border-line py-24 sm:py-32">
+        <div className="container-page grid gap-12 lg:grid-cols-12 lg:gap-10">
+          <div className="reveal lg:col-span-5">
+            <SectionHeading
+              eyebrow="Availability"
+              title={
+                <>
+                  Live in{" "}
+                  <span className="accent text-lion">
+                    {PADLR.countries.length} countries.
+                  </span>
+                </>
+              }
+              lead={`Across Europe, the Americas, and the Middle East, in ${PADLR.languages} languages. Built by padel players, for padel players.`}
+            />
+          </div>
+          <ul
+            aria-label="Countries where PADLR. is available"
+            className="reveal reveal-1 flex flex-wrap content-start gap-2 lg:col-span-7"
+          >
+            {PADLR.countries.map((country) => (
+              <li
+                key={country}
+                className="rounded-full border border-line bg-white px-4 py-2 text-sm text-ink-soft"
+              >
+                {country}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      {/* Roadmap */}
+      <section id="roadmap" className="bg-canvas-deep py-24 sm:py-32">
+        <div className="container-page grid gap-14 lg:grid-cols-12 lg:gap-10">
+          <div className="reveal lg:col-span-5">
+            <div className="lg:sticky lg:top-32">
+              <SectionHeading
+                eyebrow="Roadmap"
+                title={
+                  <>
+                    What&apos;s <span className="accent text-lion">next.</span>
+                  </>
+                }
+                lead="PADLR. is actively evolving. Here's what's on the roadmap — and where Rebel Lion Labs goes after that."
+              />
+            </div>
+          </div>
+          <div className="lg:col-span-7 lg:pt-4">
+            <Roadmap />
+          </div>
+        </div>
+      </section>
+
+      <div className="pt-3 sm:pt-4">
+        <CtaBand
+          title="Ready to play?"
+          lead="Your rating story starts with your first match. PADLR. is free on the App Store."
+        >
+          <ButtonLink
+            href={PADLR.links.appStore}
+            external
+            variant="light"
+            size="lg"
+          >
+            Get PADLR. — free on iOS
+          </ButtonLink>
+          <ButtonLink
+            href={PADLR.links.website}
+            external
+            variant="ghost-dark"
+            size="lg"
+          >
+            Visit playpadlr.app
+          </ButtonLink>
+        </CtaBand>
+      </div>
     </>
   );
 }

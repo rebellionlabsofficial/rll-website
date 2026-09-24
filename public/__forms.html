@@ -1,6 +1,30 @@
-<!-- This hidden form is for Netlify Forms detection at build time -->
-<form name="contact" netlify netlify-honeypot="bot-field" hidden>
-  <input type="text" name="name" />
-  <input type="email" name="email" />
-  <textarea name="message"></textarea>
-</form>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="robots" content="noindex" />
+    <title>Form definitions</title>
+  </head>
+  <body>
+    <!--
+      Netlify Forms reads this static file at deploy time to register the
+      "contact" form. src/components/ContactForm.tsx submits to this path,
+      because Netlify only captures form POSTs sent to static files.
+      Keep the fields and topic options in sync with that component.
+    -->
+    <form name="contact" data-netlify="true" netlify-honeypot="bot-field" hidden>
+      <input type="hidden" name="form-name" value="contact" />
+      <input name="bot-field" />
+      <input type="text" name="name" />
+      <input type="email" name="email" />
+      <select name="topic">
+        <option value="General enquiry">General enquiry</option>
+        <option value="Partnership">Partnership</option>
+        <option value="Investment">Investment</option>
+        <option value="Press">Press</option>
+        <option value="PADLR. feedback">PADLR. feedback</option>
+      </select>
+      <textarea name="message"></textarea>
+    </form>
+  </body>
+</html>
