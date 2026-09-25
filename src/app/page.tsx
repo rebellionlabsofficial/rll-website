@@ -9,32 +9,17 @@ import ButtonLink from "@/components/ButtonLink";
 import JsonLd from "@/components/JsonLd";
 import { PADLR, SITE } from "@/lib/constants";
 import { pageMetadata } from "@/lib/metadata";
+import { organization, website } from "@/lib/structured-data";
 
 export const metadata = pageMetadata({
   description: SITE.description,
   path: "/",
 });
 
-const organizationJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  name: SITE.name,
-  url: SITE.url,
-  logo: `${SITE.url}/brand/rll-shield.png`,
-  email: SITE.email,
-  description: SITE.description,
-  address: {
-    "@type": "PostalAddress",
-    addressLocality: "Dublin",
-    addressCountry: "IE",
-  },
-  sameAs: [SITE.linkedin],
-};
-
 export default function Home() {
   return (
     <>
-      <JsonLd data={organizationJsonLd} />
+      <JsonLd data={[organization, website]} />
       <Hero />
 
       <section
@@ -64,7 +49,7 @@ export default function Home() {
                     <span className="accent text-lion">sport by sport.</span>
                   </>
                 }
-                lead="PADLR. is actively evolving — and it's only the first app from Rebel Lion Labs. Here's what's on the roadmap."
+                lead="What's coming to PADLR. after launch, and what Rebel Lion Labs plans to build next."
               />
               <ButtonLink
                 href="/products#roadmap"
@@ -82,8 +67,8 @@ export default function Home() {
       </section>
 
       <CtaBand
-        title="Interested in what we're building?"
-        lead="Whether you're a player, a partner, or an investor — we'd love to hear from you."
+        title="Talk to us."
+        lead="We'd like to hear from players, clubs, partners and investors. Use the contact form or send us an email."
       >
         <ButtonLink href="/contact" variant="light" size="lg">
           Get in touch

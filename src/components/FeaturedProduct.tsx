@@ -28,7 +28,7 @@ export default function FeaturedProduct() {
       <div className="container-page">
         <div className="grid items-center gap-16 lg:grid-cols-12 lg:gap-10">
           <div className="reveal lg:col-span-6">
-            <Eyebrow tone="neon">Featured product · Our debut</Eyebrow>
+            <Eyebrow tone="neon">Our first app · Padel</Eyebrow>
             <Image
               src="/PADLRLogo.png"
               alt="PADLR."
@@ -56,11 +56,11 @@ export default function FeaturedProduct() {
                 Join the waitlist
               </ButtonLink>
               <ButtonLink href="/products" variant="ghost-dark" size="lg">
-                How it works
+                See how PADLR. works
               </ButtonLink>
             </div>
             <p className="mt-6 font-mono text-[11px] uppercase tracking-[0.18em] text-white/55">
-              iOS · {PADLR.launch} · 28 countries
+              iOS · {PADLR.launch} · {PADLR.countries.length} countries
             </p>
           </div>
 
@@ -69,7 +69,7 @@ export default function FeaturedProduct() {
               <div className="reveal reveal-1 w-[44%] max-w-[250px]">
                 <PhoneFrame
                   src="/padlr/stats.webp"
-                  alt="PADLR. stats screen with a 3.9 rating, a confidence ring and a rating history chart"
+                  alt="PADLR. stats screen showing a 3.9 padel rating, a confidence ring and a rating history chart"
                   sizes="(min-width: 1024px) 250px, 40vw"
                   className="mb-12 opacity-80"
                 />
@@ -77,7 +77,7 @@ export default function FeaturedProduct() {
               <div className="reveal reveal-2 relative z-10 -ml-[10%] w-[50%] max-w-[285px]">
                 <PhoneFrame
                   src="/padlr/leaderboards.webp"
-                  alt="PADLR. leaderboards screen with a podium of the most active players"
+                  alt="PADLR. padel leaderboards with a podium of the most active players"
                   sizes="(min-width: 1024px) 285px, 46vw"
                 />
               </div>

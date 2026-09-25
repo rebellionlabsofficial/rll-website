@@ -2,18 +2,20 @@ import Image from "next/image";
 import ButtonLink from "@/components/ButtonLink";
 import CtaBand from "@/components/CtaBand";
 import Eyebrow from "@/components/Eyebrow";
+import Faq from "@/components/Faq";
 import Icon from "@/components/Icon";
 import JsonLd from "@/components/JsonLd";
 import PhoneFrame from "@/components/PhoneFrame";
 import Roadmap from "@/components/Roadmap";
 import SectionHeading from "@/components/SectionHeading";
-import { PADLR, SITE } from "@/lib/constants";
+import { PADLR } from "@/lib/constants";
 import { pageMetadata } from "@/lib/metadata";
+import { breadcrumbs, padlrApp, padlrFaqs } from "@/lib/structured-data";
 
 export const metadata = pageMetadata({
-  title: "Our Apps — Sports Apps Built for Players",
+  title: "PADLR. Padel Rating App for iPhone",
   description:
-    "Explore sports apps by Rebel Lion Labs. PADLR. is the ultimate padel companion app — Bayesian skill ratings, 30-second match logging, booking, messaging, a social feed, and leaderboards. Launching on iOS in November 2026 across 28 countries.",
+    "PADLR. is our padel app for iPhone. Get a fair 0–7 padel rating, log matches in 30 seconds, find players at your level and climb the leaderboards.",
   path: "/products",
 });
 
@@ -23,53 +25,44 @@ const SCREENS = [
     width: 1320,
     height: 2868,
     label: "Feed",
-    alt: "PADLR. feed with a doubles match result and a Level Up achievement",
+    alt: "PADLR. padel app feed with a doubles match result and a Level Up achievement",
   },
   {
     src: "/padlr/stats.webp",
     width: 720,
     height: 1565,
     label: "Stats",
-    alt: "PADLR. stats screen with a 3.9 rating, confidence ring and rating history chart",
+    alt: "PADLR. stats screen with a 3.9 padel rating, confidence ring and rating history chart",
   },
   {
     src: "/padlr/discover.webp",
     width: 720,
     height: 1565,
     label: "Discover",
-    alt: "PADLR. discover screen listing open games and players nearby",
+    alt: "PADLR. discover screen listing open padel games and players nearby",
   },
   {
     src: "/padlr/leaderboards.webp",
     width: 720,
     height: 1565,
     label: "Rankings",
-    alt: "PADLR. leaderboards with a podium of the most active players",
+    alt: "PADLR. padel leaderboards with a podium of the most active players",
   },
   {
     src: "/padlr/match.webp",
     width: 720,
     height: 1565,
     label: "Match Details",
-    alt: "PADLR. match details showing a doubles victory and rating change",
+    alt: "PADLR. match details for a doubles win, with each player's rating change",
   },
 ];
-
-const applicationJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "MobileApplication",
-  name: PADLR.name,
-  description: PADLR.about,
-  operatingSystem: "iOS",
-  applicationCategory: "SportsApplication",
-  url: PADLR.links.website,
-  author: { "@type": "Organization", name: SITE.name, url: SITE.url },
-};
 
 export default function ProductsPage() {
   return (
     <>
-      <JsonLd data={applicationJsonLd} />
+      <JsonLd
+        data={[breadcrumbs("Products", "/products"), padlrApp, padlrFaqs]}
+      />
 
       {/* Hero + product index */}
       <section className="relative isolate overflow-clip pb-16 pt-32 sm:pt-36 lg:pt-44">
@@ -81,12 +74,13 @@ export default function ProductsPage() {
           <div className="max-w-3xl">
             <Eyebrow className="rise">Our apps</Eyebrow>
             <h1 className="rise rise-d1 display mt-7 text-[clamp(3rem,7vw,5.5rem)]">
-              Sports apps that <span className="accent text-lion">get it.</span>
+              Sports apps, starting with{" "}
+              <span className="accent text-lion">padel.</span>
             </h1>
             <p className="rise rise-d2 mt-8 max-w-2xl text-lg leading-relaxed text-ink-soft sm:text-xl">
-              Every app we build is purpose-made for a single sport. No generic
-              fitness trackers. No one-size-fits-all platforms. Just dedicated
-              tools built by people who actually play.
+              We build each app for one sport, with the people who play it. The
+              first is PADLR., a padel app for skill ratings, match logging and
+              finding players at your level.
             </p>
           </div>
 
@@ -138,8 +132,8 @@ export default function ProductsPage() {
               </div>
               <div>
                 <p className="mt-10 text-ink-soft">
-                  We&apos;re building sport by sport. Want to hear first — or
-                  help shape what comes next?
+                  We&apos;re building one sport at a time. If you&apos;d like to
+                  hear about the next one first, or help shape it, get in touch.
                 </p>
                 <ButtonLink
                   href="/contact"
@@ -172,7 +166,7 @@ export default function ProductsPage() {
         <div className="container-page">
           <div className="grid gap-12 lg:grid-cols-12 lg:gap-10">
             <div className="reveal lg:col-span-7">
-              <Eyebrow tone="neon">PADLR. · Padel</Eyebrow>
+              <Eyebrow tone="neon">PADLR. · Padel app</Eyebrow>
               <Image
                 src="/PADLRLogo.png"
                 alt="PADLR."
@@ -218,7 +212,7 @@ export default function ProductsPage() {
           </div>
 
           <ul
-            aria-label="Inside PADLR."
+            aria-label="PADLR. app screens"
             className="no-scrollbar -mx-5 mt-16 flex snap-x snap-mandatory gap-4 overflow-x-auto px-5 pb-2 sm:-mx-8 sm:px-8 lg:mx-0 lg:grid lg:grid-cols-5 lg:gap-6 lg:overflow-visible lg:px-0"
           >
             {SCREENS.map((screen, index) => (
@@ -264,10 +258,11 @@ export default function ProductsPage() {
               eyebrow="Features"
               title={
                 <>
-                  Built for <span className="accent text-lion">players.</span>
+                  Built for{" "}
+                  <span className="accent text-lion">padel players.</span>
                 </>
               }
-              lead="Everything you need to track your padel journey, find your community, and prove your level."
+              lead="Everything you need to track your matches, find people to play with and prove your level."
             />
           </div>
           <ul className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
@@ -390,9 +385,9 @@ export default function ProductsPage() {
                   Your confidence ring
                 </h3>
                 <p className="mt-2 text-center text-sm leading-relaxed text-white/60">
-                  The ring shows how certain the system is about your rating.
-                  Play more matches and it tightens — meaning your rating is
-                  locked in.
+                  The ring shows how sure the system is about your rating. It
+                  fills up as you play more matches, and a full ring means your
+                  rating is well established.
                 </p>
               </div>
             </div>
@@ -400,7 +395,8 @@ export default function ProductsPage() {
             <div className="reveal reveal-1 lg:col-span-7">
               <Eyebrow tone="neon">The rating system</Eyebrow>
               <h2 className="heading mt-5 text-[2.25rem] text-white sm:text-5xl">
-                Why our rating <span className="text-padlr-neon">works.</span>
+                How the padel rating{" "}
+                <span className="text-padlr-neon">works.</span>
               </h2>
               <p className="mt-5 max-w-xl text-lg leading-relaxed text-white/65">
                 {PADLR.rating.intro}
@@ -478,6 +474,16 @@ export default function ProductsPage() {
                   </tbody>
                 </table>
               </div>
+              <a
+                href={PADLR.links.ratingSystem}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-6 inline-flex items-center gap-1.5 text-sm font-medium text-padlr-neon underline-offset-4 hover:underline"
+              >
+                Read how PADLR. calculates your rating
+                <Icon name="arrow-up-right" className="h-4 w-4" />
+                <span className="sr-only"> (opens in a new tab)</span>
+              </a>
             </div>
           </div>
         </div>
@@ -555,7 +561,7 @@ export default function ProductsPage() {
                   </span>
                 </>
               }
-              lead={`Across Europe, the Americas, and the Middle East, in ${PADLR.languages} languages, from ${PADLR.launch}. Built by padel players, for padel players.`}
+              lead={`PADLR. launches in ${PADLR.launch} across Europe, the Americas and the Middle East, in ${PADLR.languages} languages.`}
             />
           </div>
           <ul
@@ -586,8 +592,16 @@ export default function ProductsPage() {
                     What&apos;s <span className="accent text-lion">next.</span>
                   </>
                 }
-                lead="PADLR. is actively evolving. Here's what's on the roadmap — and where Rebel Lion Labs goes after that."
+                lead="What's planned for PADLR. after launch, and where Rebel Lion Labs goes next."
               />
+              <ButtonLink
+                href={PADLR.links.roadmap}
+                external
+                variant="secondary"
+                className="mt-9"
+              >
+                Read the full roadmap
+              </ButtonLink>
             </div>
           </div>
           <div className="lg:col-span-7 lg:pt-4">
@@ -596,10 +610,33 @@ export default function ProductsPage() {
         </div>
       </section>
 
+      {/* FAQ */}
+      <section id="faq" className="py-24 sm:py-32">
+        <div className="container-page grid gap-12 lg:grid-cols-12 lg:gap-10">
+          <div className="reveal lg:col-span-4">
+            <div className="lg:sticky lg:top-32">
+              <SectionHeading
+                eyebrow="FAQ"
+                title={
+                  <>
+                    Questions about{" "}
+                    <span className="accent text-lion">PADLR.</span>
+                  </>
+                }
+                lead="Quick answers about the app, the rating and the launch."
+              />
+            </div>
+          </div>
+          <div className="reveal reveal-1 lg:col-span-8">
+            <Faq />
+          </div>
+        </div>
+      </section>
+
       <div className="pt-3 sm:pt-4">
         <CtaBand
-          title="Ready to play?"
-          lead="Your rating story starts with your first match. Join the waitlist and be the first to know when PADLR. launches."
+          title="Get PADLR. at launch."
+          lead="Join the waitlist on playpadlr.app and you'll hear as soon as PADLR. is on the App Store."
         >
           <ButtonLink
             href={PADLR.links.waitlist}

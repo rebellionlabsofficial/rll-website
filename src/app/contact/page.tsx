@@ -1,19 +1,22 @@
 import ContactForm from "@/components/ContactForm";
 import Eyebrow from "@/components/Eyebrow";
 import Icon, { BrandIcon } from "@/components/Icon";
+import JsonLd from "@/components/JsonLd";
 import { PADLR, SITE } from "@/lib/constants";
 import { pageMetadata } from "@/lib/metadata";
+import { breadcrumbs } from "@/lib/structured-data";
 
 export const metadata = pageMetadata({
-  title: "Contact",
+  title: "Contact Us",
   description:
-    "Get in touch with Rebel Lion Labs in Dublin, Ireland. Whether you're a player, a partner, an investor, or just curious — we'd love to hear from you.",
+    "Contact Rebel Lion Labs, the Dublin studio behind the PADLR. padel app, about feedback, partnerships, investment or press.",
   path: "/contact",
 });
 
 export default function ContactPage() {
   return (
     <section className="relative isolate overflow-clip pb-24 pt-32 sm:pb-32 sm:pt-36 lg:pt-44">
+      <JsonLd data={breadcrumbs("Contact", "/contact")} />
       <div
         aria-hidden="true"
         className="bg-grid mask-radial absolute inset-0 -z-10"
@@ -25,9 +28,8 @@ export default function ContactPage() {
             Let&apos;s <span className="accent text-lion">talk.</span>
           </h1>
           <p className="rise rise-d2 mt-8 max-w-md text-lg leading-relaxed text-ink-soft">
-            Whether you&apos;re a player with feedback, a partner with an idea,
-            or an investor curious about what we&apos;re building — drop us a
-            line.
+            Use the form or email us about PADLR., partnerships, investment or
+            press.
           </p>
 
           <ul className="rise rise-d3 mt-12 space-y-3">
@@ -93,12 +95,12 @@ export default function ContactPage() {
           >
             <p className="flex items-center gap-2 font-semibold">
               <Icon name="life-buoy" className="h-5 w-5 text-padlr-neon" />
-              Waiting for PADLR.?
+              PADLR. isn&apos;t out yet
             </p>
             <p className="mt-2 text-sm leading-relaxed text-white/65">
-              PADLR. launches on iOS in {PADLR.launch}. Join the waitlist to
-              hear first, or read how ratings, matches, and Pro work in the
-              support centre.
+              It&apos;s coming to iOS in {PADLR.launch}. Join the waitlist to
+              hear when it launches, or read the support centre for how ratings,
+              matches and Pro work.
             </p>
             <div className="mt-4 flex flex-wrap gap-x-6 gap-y-2">
               <a

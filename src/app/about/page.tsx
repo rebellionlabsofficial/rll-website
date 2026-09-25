@@ -2,20 +2,22 @@ import Image from "next/image";
 import ButtonLink from "@/components/ButtonLink";
 import CtaBand from "@/components/CtaBand";
 import Eyebrow from "@/components/Eyebrow";
+import JsonLd from "@/components/JsonLd";
 import SectionHeading from "@/components/SectionHeading";
 import { PADEL_STATS, PADLR, PRINCIPLES, SITE } from "@/lib/constants";
 import { pageMetadata } from "@/lib/metadata";
+import { breadcrumbs } from "@/lib/structured-data";
 
 export const metadata = pageMetadata({
-  title: "About Us — Sports App Development Studio",
+  title: "About Us: Sports App Studio in Dublin",
   description:
-    "Rebel Lion Labs is a sports app studio in Dublin, Ireland, building player-first mobile apps. We started with padel — one of the fastest-growing sports in the world — and PADLR., the ultimate padel companion app.",
+    "Rebel Lion Labs is a small sports app studio in Dublin, Ireland. We started with padel and built PADLR., an app for padel ratings, matches and finding players.",
   path: "/about",
 });
 
 const FACTS = [
   { label: "Based in", value: SITE.location },
-  { label: "Debut app", value: "PADLR. — padel" },
+  { label: "First app", value: "PADLR. (padel)" },
   {
     label: "Launching",
     value: `${PADLR.launch} · ${PADLR.countries.length} countries`,
@@ -27,21 +29,21 @@ const CHAPTERS = [
   {
     step: "01",
     title: "Padel",
-    description: `PADLR. — launching on iOS in ${PADLR.launch}.`,
+    description: `PADLR., launching on iOS in ${PADLR.launch}.`,
     status: "Nov 2026",
     current: true,
   },
   {
     step: "02",
     title: "More sports",
-    description: "Purpose-built apps, one sport at a time.",
+    description: "A dedicated app for each new sport.",
     status: "Next",
     current: false,
   },
   {
     step: "03",
     title: "Merch & apparel",
-    description: "For the players who live and breathe their sport.",
+    description: "Clothing and kit for players and fans.",
     status: "Later",
     current: false,
   },
@@ -50,6 +52,8 @@ const CHAPTERS = [
 export default function AboutPage() {
   return (
     <>
+      <JsonLd data={breadcrumbs("About", "/about")} />
+
       {/* Hero */}
       <section className="relative isolate overflow-clip pb-20 pt-32 sm:pt-36 lg:pb-28 lg:pt-44">
         <div
@@ -60,12 +64,12 @@ export default function AboutPage() {
           <div className="lg:col-span-7">
             <Eyebrow className="rise">About Rebel Lion Labs</Eyebrow>
             <h1 className="rise rise-d1 display mt-7 text-[clamp(3rem,7vw,5.5rem)]">
-              Built from passion,{" "}
-              <span className="accent text-lion">driven by purpose.</span>
+              We build the apps we wanted{" "}
+              <span className="accent text-lion">as players.</span>
             </h1>
             <p className="rise rise-d2 mt-8 max-w-xl text-lg leading-relaxed text-ink-soft sm:text-xl">
-              We&apos;re a small, determined sports app studio on a mission to
-              build technology that matches the passion of the people who play.
+              Rebel Lion Labs is a small sports app studio in Dublin. We make
+              one app per sport, and we started with padel.
             </p>
           </div>
           <div className="rise rise-d3 lg:col-span-5">
@@ -112,31 +116,31 @@ export default function AboutPage() {
           </div>
           <div className="reveal reveal-1 space-y-6 text-lg leading-relaxed text-ink-soft lg:col-span-8 lg:pt-12">
             <p>
-              Rebel Lion Labs was born out of frustration. As a lifelong sports
-              player who had tried every app, every tracker, and every platform
-              — none of them got it right. The passion players bring to the
-              court was never reflected in the tools built to serve them.
+              Rebel Lion Labs started out of frustration. We&apos;ve played
+              sport all our lives and tried just about every app, tracker and
+              platform going, and none of them got it right. They never matched
+              how much players care about their game.
             </p>
             <p>
-              Padel made it impossible to ignore. Finish a match and the score
-              sits on the whiteboard with nowhere to go that matters — no rating
-              to update, no leaderboard to climb, no way to find better
-              opponents next week. Courts are booked in one app, games are
-              organised in WhatsApp, rankings live in spreadsheets. The result
-              just evaporates.
+              Padel made the problem impossible to ignore. You finish a match,
+              the score is on the whiteboard, and there&apos;s nowhere useful to
+              put it: no rating to update, no leaderboard to climb, no way to
+              find better opponents for next week. You book the court in one
+              app, sort out the game on WhatsApp and keep the rankings in a
+              spreadsheet. Then the result is gone.
             </p>
             <p>
-              That frustration became a mission: build the dedicated sports apps
-              that should have existed all along — crafted for the players, by a
-              player. Apps that understand the culture, the competition, and the
-              community that make each sport special.
+              We decided to build our own apps, for players and by people who
+              play. Each app focuses on one sport and gets the details of that
+              sport right.
             </p>
             <figure className="!mt-12 border-l-2 border-lion pl-6 sm:pl-8">
               <blockquote className="font-serif text-3xl italic leading-snug text-ink sm:text-4xl">
-                “The rating is not a feature. The rating is the foundation.”
+                “We were staring at a score that was about to be wiped off the
+                whiteboard, thinking: why doesn&apos;t this exist?”
               </blockquote>
               <figcaption className="eyebrow mt-5 text-ink-muted">
-                The idea PADLR. is built on
+                How PADLR. started
               </figcaption>
             </figure>
           </div>
@@ -172,15 +176,15 @@ export default function AboutPage() {
           </dl>
           <div className="reveal mt-14 grid gap-6 text-lg leading-relaxed text-ink-soft md:grid-cols-2 md:gap-10">
             <p>
-              Padel is exploding globally — yet the technology serving its
-              players hasn&apos;t kept up. Most players still track matches in
-              group chats, argue about skill levels without any data, and have
-              no easy way to find opponents at their level.
+              Padel is growing fast all over the world, but the apps players use
+              haven&apos;t kept up. Most people still track results in group
+              chats, argue about who&apos;s a 3.5 and who&apos;s a 4.0, and
+              struggle to find opponents at their level.
             </p>
             <p>
-              We saw the chance to build the definitive digital home for padel
-              players. That&apos;s why PADLR. is our debut: the app we wished
-              existed when we stepped onto the court.
+              PADLR. is the app we needed every time we walked off court with a
+              result and nowhere to put it. That made padel the obvious place to
+              start.
             </p>
           </div>
         </div>
@@ -194,11 +198,11 @@ export default function AboutPage() {
               eyebrow="How we build"
               title={
                 <>
-                  Four principles.{" "}
-                  <span className="accent text-lion">Non-negotiable.</span>
+                  The four principles{" "}
+                  <span className="accent text-lion">we build by.</span>
                 </>
               }
-              lead="We wrote these down early. They've guided every product decision since."
+              lead="We wrote these down early on. They've guided every product decision since."
             />
           </div>
           <ol className="mt-14 grid gap-5 sm:grid-cols-2">
@@ -234,7 +238,7 @@ export default function AboutPage() {
           />
           <div className="container-page grid items-center gap-14 lg:grid-cols-12 lg:gap-10">
             <div className="reveal lg:col-span-7">
-              <Eyebrow tone="neon">What we build · Our debut</Eyebrow>
+              <Eyebrow tone="neon">Our first app · Padel</Eyebrow>
               <Image
                 src="/PADLRLogo.png"
                 alt="PADLR."
@@ -255,7 +259,7 @@ export default function AboutPage() {
                   Join the waitlist
                 </ButtonLink>
                 <ButtonLink href="/products" variant="ghost-dark" size="lg">
-                  Explore the app
+                  See how it works
                 </ButtonLink>
               </div>
             </div>
@@ -290,16 +294,12 @@ export default function AboutPage() {
             />
             <div className="mt-8 space-y-5 text-lg leading-relaxed text-ink-soft">
               <p>
-                We&apos;re not building one app — we&apos;re building a family
-                of apps. Each one purpose-built for a specific sport, each one
-                designed to be the ultimate digital companion for the players of
-                that game.
+                PADLR. is our first app, and there will be more. We give each
+                sport its own app instead of squeezing every sport into one.
               </p>
               <p>
-                Starting with padel and expanding sport by sport, Rebel Lion
-                Labs is on a mission to become the home of sports technology
-                that truly understands its players. As our community grows, so
-                will our offering — including exclusive merch and apparel.
+                After padel we&apos;ll take on other sports, one at a time. We
+                also plan to make merch and apparel for the community.
               </p>
             </div>
           </div>
@@ -349,8 +349,8 @@ export default function AboutPage() {
       </section>
 
       <CtaBand
-        title="Want to be part of the journey?"
-        lead="Whether you're a player, a partner, or an investor — we'd love to connect."
+        title="Want to get involved?"
+        lead="We'd like to hear from players, clubs, partners and investors. Send us a message and we'll get back to you."
       >
         <ButtonLink href="/contact" variant="light" size="lg">
           Get in touch

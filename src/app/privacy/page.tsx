@@ -1,15 +1,17 @@
 import Eyebrow from "@/components/Eyebrow";
+import JsonLd from "@/components/JsonLd";
 import { PADLR, SITE } from "@/lib/constants";
 import { pageMetadata } from "@/lib/metadata";
+import { breadcrumbs } from "@/lib/structured-data";
 
 export const metadata = pageMetadata({
   title: "Privacy Notice",
   description:
-    "How Rebel Lion Labs handles personal data on rebellionlabs.app: what the contact form collects, why, who processes it, how long we keep it, and your rights under GDPR.",
+    "How Rebel Lion Labs handles personal data on rebellionlabs.app: what the contact form collects, why, who processes it, how long we keep it and your GDPR rights.",
   path: "/privacy",
 });
 
-const LAST_UPDATED = "24 September 2026";
+const LAST_UPDATED = "25 September 2026";
 
 const SUMMARY = [
   "We only collect what you choose to send us, through the contact form or by email.",
@@ -37,7 +39,7 @@ const PURPOSES = [
     purpose: "Replying to your enquiry and any follow-up",
     data: "Your name, email address, the topic you choose, your message, and anything else you include in emails to us.",
     basis:
-      "Our legitimate interest in responding to people who contact us (GDPR Article 6(1)(f)). If your enquiry is about working with us — a partnership, for example — taking the steps you've asked for before entering into a contract (Article 6(1)(b)).",
+      "Our legitimate interest in responding to people who contact us (GDPR Article 6(1)(f)). If your enquiry is about working with us (a partnership, for example), taking the steps you've asked for before entering into a contract (Article 6(1)(b)).",
   },
   {
     purpose: "Delivering the website, keeping it secure, and filtering spam",
@@ -49,7 +51,7 @@ const PURPOSES = [
     purpose: "Meeting our legal obligations",
     data: "Only what the obligation requires.",
     basis:
-      "Legal obligation (Article 6(1)(c)) — for example, responding to a lawful request from an authority.",
+      "Legal obligation (Article 6(1)(c)), for example when responding to a lawful request from an authority.",
   },
 ];
 
@@ -59,6 +61,7 @@ const linkClass =
 export default function PrivacyPage() {
   return (
     <>
+      <JsonLd data={breadcrumbs("Privacy Notice", "/privacy")} />
       <section className="relative isolate overflow-clip pb-14 pt-32 sm:pt-36 lg:pt-44">
         <div
           aria-hidden="true"
@@ -229,10 +232,10 @@ export default function PrivacyPage() {
             <h2 id="how-long-we-keep-it">How long we keep it</h2>
             <ul>
               <li>
-                <strong>Enquiries</strong> — form submissions and the emails
-                that follow — are kept for up to 12 months after our last
-                exchange, then deleted. We keep them longer only if your enquiry
-                becomes an ongoing working relationship, or if we need them to
+                <strong>Enquiries</strong> (form submissions and the emails that
+                follow) are kept for up to 12 months after our last exchange,
+                then deleted. We keep them longer only if your enquiry becomes
+                an ongoing working relationship, or if we need them to
                 establish, exercise, or defend legal claims.
               </li>
               <li>

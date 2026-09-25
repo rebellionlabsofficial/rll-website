@@ -28,7 +28,7 @@ export default function Hero() {
               Nov 2026
             </span>
             <span className="text-ink-soft">
-              PADLR. launches on iOS — join the waitlist
+              PADLR. launches on iOS. Join the waitlist
             </span>
             <Icon
               name="arrow-up-right"
@@ -43,11 +43,11 @@ export default function Hero() {
           </h1>
 
           <p className="rise rise-d2 mt-8 max-w-xl text-lg leading-relaxed text-ink-soft sm:text-xl">
-            Rebel Lion Labs is a sports app studio in Dublin building apps that
-            match the passion of the people who play them. Our debut,{" "}
-            <span className="font-semibold text-ink">PADLR.</span>, is the
-            ultimate padel companion — launching on iOS in November 2026 across
-            28 countries.
+            We&apos;re a small sports app studio in Dublin. Our first app,{" "}
+            <span className="font-semibold text-ink">PADLR.</span>, gives padel
+            players a fair skill rating, a quick way to log matches and an easy
+            way to find people to play with. It launches in{" "}
+            {PADLR.countries.length} countries on iOS in {PADLR.launch}.
           </p>
 
           <div className="rise rise-d3 mt-10 flex flex-wrap items-center gap-3">
@@ -82,7 +82,7 @@ export default function Hero() {
             />
             <PhoneFrame
               src="/padlr-app-preview.png"
-              alt="The PADLR. app feed, showing a confirmed doubles match between four players and a level-up achievement"
+              alt="The PADLR. padel app feed, showing a confirmed doubles match between four players and a level-up achievement"
               width={1320}
               height={2868}
               sizes="(min-width: 1024px) 270px, 62vw"
@@ -107,7 +107,7 @@ export default function Hero() {
             <p className="mt-1 text-2xl font-semibold tracking-tight text-ink">
               30s
             </p>
-            <p className="text-xs text-ink-muted">Opponent-confirmed</p>
+            <p className="text-xs text-ink-muted">Player-confirmed</p>
           </div>
         </div>
       </div>

@@ -3,8 +3,7 @@ import { PADLR, STUDIO_ROADMAP_ITEM } from "@/lib/constants";
 const LAUNCH_ITEM = {
   when: PADLR.launch,
   title: "PADLR. launches on iOS",
-  description:
-    "Across 28 countries, with ratings, match logging, booking, messaging, the social feed, leaderboards, and badges from day one.",
+  description: `In ${PADLR.countries.length} countries, with ratings, match logging, booking, messaging, the social feed, leaderboards and badges from day one.`,
 };
 
 const ITEMS = [LAUNCH_ITEM, ...PADLR.roadmap, STUDIO_ROADMAP_ITEM];

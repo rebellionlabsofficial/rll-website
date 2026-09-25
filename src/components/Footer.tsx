@@ -6,6 +6,7 @@ import { NAV_LINKS, PADLR, SITE } from "@/lib/constants";
 const PADLR_LINKS = [
   { label: "Join the waitlist", href: PADLR.links.waitlist },
   { label: "playpadlr.app", href: PADLR.links.website },
+  { label: "Padel blog", href: PADLR.links.blog },
   { label: "Support", href: PADLR.links.support },
   { label: "Privacy Policy", href: PADLR.links.privacy },
   { label: "Terms of Service", href: PADLR.links.terms },
@@ -41,8 +42,8 @@ export default function Footer() {
             </span>
           </Link>
           <p className="mt-6 max-w-sm leading-relaxed text-white/65">
-            Building sports apps that match the passion of players and fans.
-            Home of PADLR.
+            Sports apps built for the players, by a player. Our first app is
+            PADLR., for padel.
           </p>
           <ul className="mt-8 space-y-3 text-sm">
             <li>
@@ -139,12 +140,12 @@ export default function Footer() {
       </div>
 
       <div className="container-page">
-        <p
+        {/* Decorative watermark, hidden from screen readers. The text comes
+            from CSS content so contrast checkers don't treat it as body text. */}
+        <div
           aria-hidden="true"
-          className="pointer-events-none select-none whitespace-nowrap text-center font-serif text-[15.5vw] italic leading-[0.8] tracking-tight text-white/[0.06] lg:text-[11.5rem]"
-        >
-          Rebel Lion Labs
-        </p>
+          className="pointer-events-none select-none whitespace-nowrap text-center font-serif text-[15.5vw] italic leading-[0.8] tracking-tight text-white/[0.06] before:content-['Rebel_Lion_Labs'] lg:text-[11.5rem]"
+        />
       </div>
 
       <div className="border-t border-white/10">

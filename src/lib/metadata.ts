@@ -7,7 +7,7 @@ export const SHARE_IMAGE = {
   url: "/og-image.png",
   width: 1200,
   height: 630,
-  alt: "Rebel Lion Labs — Apps built for the players, by a player. Home of PADLR.",
+  alt: "Rebel Lion Labs: apps built for the players, by a player. Home of PADLR., the padel app.",
 };
 
 interface PageMetadataOptions {
@@ -25,9 +25,7 @@ export function pageMetadata({
   description,
   path,
 }: PageMetadataOptions): Metadata {
-  const fullTitle = title
-    ? `${title} | ${SITE.name}`
-    : `${SITE.name} — ${SITE.tagline}`;
+  const fullTitle = title ? `${title} | ${SITE.name}` : SITE.title;
 
   return {
     ...(title ? { title } : {}),

@@ -60,7 +60,7 @@ export default function ContactForm() {
           Message sent
         </h2>
         <p className="mt-3 max-w-sm text-ink-soft">
-          Thanks for reaching out. We aim to reply within 2 business days.
+          Thanks for getting in touch. We aim to reply within two working days.
         </p>
         <button
           type="button"
@@ -157,7 +157,7 @@ export default function ContactForm() {
       </div>
 
       <p className="mt-5 text-sm leading-relaxed text-ink-muted">
-        We use your details only to respond to your enquiry. See our{" "}
+        We only use your details to reply to you. See our{" "}
         <Link
           href="/privacy"
           className="font-medium text-ink underline decoration-line-strong underline-offset-4 hover:decoration-ink"

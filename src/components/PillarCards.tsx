@@ -17,7 +17,7 @@ export default function PillarCards() {
                 <span className="accent text-lion">the player.</span>
               </>
             }
-            lead="Three principles sit behind everything we build — whatever the sport."
+            lead="Three ideas sit behind everything we build, whatever the sport."
           />
         </div>
 
