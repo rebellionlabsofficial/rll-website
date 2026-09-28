@@ -1,11 +1,10 @@
 import type {
   BreadcrumbList,
-  FAQPage,
   MobileApplication,
   Organization,
   WebSite,
 } from "schema-dts";
-import { PADLR, PADLR_FAQS, SITE } from "@/lib/constants";
+import { PADLR, SITE } from "@/lib/constants";
 
 // Schema.org data for search engines, typed with schema-dts so a misspelt or
 // misplaced property fails the type check. The full organisation lives on the
@@ -62,18 +61,9 @@ export const padlrApp: MobileApplication = {
   operatingSystem: "iOS",
   applicationCategory: "SportsApplication",
   offers: { "@type": "Offer", price: "0", priceCurrency: "EUR" },
+  ...(PADLR.appStoreUrl ? { installUrl: PADLR.appStoreUrl } : {}),
   author: publisher,
   publisher,
-};
-
-export const padlrFaqs: FAQPage = {
-  "@type": "FAQPage",
-  "@id": `${SITE.url}/products#faq`,
-  mainEntity: PADLR_FAQS.map((faq) => ({
-    "@type": "Question",
-    name: faq.question,
-    acceptedAnswer: { "@type": "Answer", text: faq.answer },
-  })),
 };
 
 /** Home > page trail, so results show the page name instead of the URL. */

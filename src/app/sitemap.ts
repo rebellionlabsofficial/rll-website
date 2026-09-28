@@ -12,25 +12,25 @@ const PAGES: {
 }[] = [
   {
     path: "",
-    lastModified: "2026-09-25",
+    lastModified: "2026-09-28",
     changeFrequency: "monthly",
     priority: 1,
   },
   {
     path: "/products",
-    lastModified: "2026-09-25",
+    lastModified: "2026-09-28",
     changeFrequency: "monthly",
     priority: 0.9,
   },
   {
     path: "/about",
-    lastModified: "2026-09-25",
+    lastModified: "2026-09-28",
     changeFrequency: "monthly",
     priority: 0.8,
   },
   {
     path: "/contact",
-    lastModified: "2026-09-25",
+    lastModified: "2026-09-28",
     changeFrequency: "yearly",
     priority: 0.5,
   },

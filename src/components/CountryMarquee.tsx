@@ -1,3 +1,5 @@
+import { PADLR_LAUNCHED } from "@/lib/constants";
+
 interface CountryMarqueeProps {
   countries: readonly string[];
 }
@@ -12,7 +14,9 @@ export default function CountryMarquee({ countries }: CountryMarqueeProps) {
           <ul
             key={copy}
             aria-label={
-              copy === 0 ? "Countries where PADLR. is launching" : undefined
+              copy === 0
+                ? `Countries where PADLR. is ${PADLR_LAUNCHED ? "available" : "launching"}`
+                : undefined
             }
             aria-hidden={copy === 1 ? true : undefined}
             className="flex shrink-0 items-center"

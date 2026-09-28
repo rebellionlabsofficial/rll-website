@@ -2,7 +2,7 @@ import Image from "next/image";
 import ButtonLink from "@/components/ButtonLink";
 import Icon from "@/components/Icon";
 import PhoneFrame from "@/components/PhoneFrame";
-import { PADLR } from "@/lib/constants";
+import { PADLR, PADLR_CTA, PADLR_LAUNCHED } from "@/lib/constants";
 
 export default function Hero() {
   return (
@@ -19,16 +19,18 @@ export default function Hero() {
       <div className="container-page grid items-center gap-16 lg:grid-cols-12 lg:gap-10">
         <div className="lg:col-span-7">
           <a
-            href={PADLR.links.waitlist}
+            href={PADLR_CTA.href}
             target="_blank"
             rel="noopener noreferrer"
             className="rise group inline-flex items-center gap-3 rounded-full border border-line bg-white/80 py-1.5 pl-1.5 pr-4 text-sm shadow-card backdrop-blur transition-colors hover:border-line-strong"
           >
             <span className="rounded-full bg-ink px-2.5 py-1 font-mono text-[10px] font-medium uppercase tracking-[0.18em] text-padlr-neon">
-              Nov 2026
+              {PADLR_LAUNCHED ? "Out now" : "Nov 2026"}
             </span>
             <span className="text-ink-soft">
-              PADLR. launches on iOS. Join the waitlist
+              {PADLR_LAUNCHED
+                ? "PADLR. is on the App Store. Download it free"
+                : "PADLR. launches on iOS. Join the waitlist"}
             </span>
             <Icon
               name="arrow-up-right"
@@ -46,8 +48,10 @@ export default function Hero() {
             We&apos;re a small sports app studio in Dublin. Our first app,{" "}
             <span className="font-semibold text-ink">PADLR.</span>, gives padel
             players a fair skill rating, a quick way to log matches and an easy
-            way to find people to play with. It launches in{" "}
-            {PADLR.countries.length} countries on iOS in {PADLR.launch}.
+            way to find people to play with.{" "}
+            {PADLR_LAUNCHED
+              ? `It's out now on iOS in ${PADLR.countries.length} countries.`
+              : `It launches in ${PADLR.countries.length} countries on iOS in ${PADLR.launch}.`}
           </p>
 
           <div className="rise rise-d3 mt-10 flex flex-wrap items-center gap-3">

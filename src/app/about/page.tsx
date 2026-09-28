@@ -4,7 +4,14 @@ import CtaBand from "@/components/CtaBand";
 import Eyebrow from "@/components/Eyebrow";
 import JsonLd from "@/components/JsonLd";
 import SectionHeading from "@/components/SectionHeading";
-import { PADEL_STATS, PADLR, PRINCIPLES, SITE } from "@/lib/constants";
+import {
+  PADEL_STATS,
+  PADLR,
+  PADLR_CTA,
+  PADLR_LAUNCHED,
+  PRINCIPLES,
+  SITE,
+} from "@/lib/constants";
 import { pageMetadata } from "@/lib/metadata";
 import { breadcrumbs } from "@/lib/structured-data";
 
@@ -19,8 +26,8 @@ const FACTS = [
   { label: "Based in", value: SITE.location },
   { label: "First app", value: "PADLR. (padel)" },
   {
-    label: "Launching",
-    value: `${PADLR.launch} · ${PADLR.countries.length} countries`,
+    label: PADLR_LAUNCHED ? "Available" : "Launching",
+    value: `${PADLR_LAUNCHED ? "iOS" : PADLR.launch} · ${PADLR.countries.length} countries`,
   },
   { label: "Approach", value: "One sport at a time" },
 ];
@@ -29,8 +36,10 @@ const CHAPTERS = [
   {
     step: "01",
     title: "Padel",
-    description: `PADLR., launching on iOS in ${PADLR.launch}.`,
-    status: "Nov 2026",
+    description: PADLR_LAUNCHED
+      ? "PADLR., out now on iOS."
+      : `PADLR., launching on iOS in ${PADLR.launch}.`,
+    status: PADLR_LAUNCHED ? "Live" : "Nov 2026",
     current: true,
   },
   {
@@ -251,15 +260,20 @@ export default function AboutPage() {
               </p>
               <div className="mt-10 flex flex-wrap gap-3">
                 <ButtonLink
-                  href={PADLR.links.waitlist}
+                  href={PADLR_CTA.href}
                   external
                   variant="neon"
                   size="lg"
                 >
-                  Join the waitlist
+                  {PADLR_CTA.label}
                 </ButtonLink>
-                <ButtonLink href="/products" variant="ghost-dark" size="lg">
-                  See how it works
+                <ButtonLink
+                  href={PADLR.links.website}
+                  external
+                  variant="ghost-dark"
+                  size="lg"
+                >
+                  Visit playpadlr.app
                 </ButtonLink>
               </div>
             </div>

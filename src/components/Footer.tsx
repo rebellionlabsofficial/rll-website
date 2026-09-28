@@ -1,10 +1,10 @@
 import Link from "next/link";
 import Image from "next/image";
 import Icon, { BrandIcon } from "@/components/Icon";
-import { NAV_LINKS, PADLR, SITE } from "@/lib/constants";
+import { NAV_LINKS, PADLR, PADLR_CTA, SITE } from "@/lib/constants";
 
 const PADLR_LINKS = [
-  { label: "Join the waitlist", href: PADLR.links.waitlist },
+  { label: PADLR_CTA.label, href: PADLR_CTA.href },
   { label: "playpadlr.app", href: PADLR.links.website },
   { label: "Padel blog", href: PADLR.links.blog },
   { label: "Support", href: PADLR.links.support },

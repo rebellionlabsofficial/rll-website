@@ -6,7 +6,7 @@ import Icon from "@/components/Icon";
 import { SITE } from "@/lib/constants";
 
 // Keep in sync with the field list in public/__forms.html.
-export const TOPICS = [
+const TOPICS = [
   "General enquiry",
   "Partnership",
   "Investment",

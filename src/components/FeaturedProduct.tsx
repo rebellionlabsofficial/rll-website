@@ -3,7 +3,7 @@ import ButtonLink from "@/components/ButtonLink";
 import Eyebrow from "@/components/Eyebrow";
 import Icon from "@/components/Icon";
 import PhoneFrame from "@/components/PhoneFrame";
-import { PADLR } from "@/lib/constants";
+import { PADLR, PADLR_CTA, PADLR_LAUNCHED } from "@/lib/constants";
 
 export default function FeaturedProduct() {
   return (
@@ -48,19 +48,25 @@ export default function FeaturedProduct() {
             </p>
             <div className="mt-10 flex flex-wrap gap-3">
               <ButtonLink
-                href={PADLR.links.waitlist}
+                href={PADLR_CTA.href}
                 external
                 variant="neon"
                 size="lg"
               >
-                Join the waitlist
+                {PADLR_CTA.label}
               </ButtonLink>
-              <ButtonLink href="/products" variant="ghost-dark" size="lg">
-                See how PADLR. works
+              <ButtonLink
+                href={PADLR.links.website}
+                external
+                variant="ghost-dark"
+                size="lg"
+              >
+                Visit playpadlr.app
               </ButtonLink>
             </div>
             <p className="mt-6 font-mono text-[11px] uppercase tracking-[0.18em] text-white/55">
-              iOS · {PADLR.launch} · {PADLR.countries.length} countries
+              iOS · {PADLR_LAUNCHED ? "Out now" : PADLR.launch} ·{" "}
+              {PADLR.countries.length} countries
             </p>
           </div>
 
