@@ -19,10 +19,10 @@ export default function CtaBand({ title, lead, children }: CtaBandProps) {
         className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_top_left,rgba(255,255,255,0.16),transparent_55%)]"
       />
       <Image
-        src="/brand/rll-shield-white.png"
+        src="/brand/kit/logo/rll-emblem-white.svg"
         alt=""
-        width={357}
-        height={384}
+        width={458}
+        height={492}
         className="pointer-events-none absolute -bottom-24 -right-20 -z-10 w-[22rem] opacity-[0.08] sm:w-[28rem] lg:-bottom-20 lg:right-10 lg:w-[30rem]"
       />
       <div className="container-page py-20 sm:py-24 lg:py-28">

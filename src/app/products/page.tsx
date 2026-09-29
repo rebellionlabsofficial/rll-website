@@ -92,10 +92,10 @@ export default function ProductsPage() {
               />
               <div className="flex items-start justify-between gap-4">
                 <Image
-                  src="/PADLRLogo.png"
+                  src="/padlr/padlr-logo-white.svg"
                   alt="PADLR."
-                  width={360}
-                  height={55}
+                  width={603}
+                  height={88}
                   className="h-7 w-auto"
                 />
                 <span className="eyebrow rounded-full bg-padlr-neon px-3 py-1.5 text-padlr-ink">
@@ -166,10 +166,10 @@ export default function ProductsPage() {
             <div className="reveal lg:col-span-7">
               <Eyebrow tone="neon">PADLR. · Padel app</Eyebrow>
               <Image
-                src="/PADLRLogo.png"
+                src="/padlr/padlr-logo-white.svg"
                 alt="PADLR."
-                width={360}
-                height={55}
+                width={603}
+                height={88}
                 className="mt-8 h-10 w-auto sm:h-12"
               />
               <h2

@@ -84,10 +84,10 @@ export default function AboutPage() {
           <div className="rise rise-d3 lg:col-span-5">
             <div className="rounded-3xl border border-line bg-white p-7 shadow-card sm:p-8">
               <Image
-                src="/brand/rll-shield.png"
+                src="/brand/kit/logo/rll-emblem-red.svg"
                 alt=""
-                width={357}
-                height={384}
+                width={458}
+                height={492}
                 className="h-14 w-auto"
               />
               <dl className="mt-8 divide-y divide-line">
@@ -249,10 +249,10 @@ export default function AboutPage() {
             <div className="reveal lg:col-span-7">
               <Eyebrow tone="neon">Our first app · Padel</Eyebrow>
               <Image
-                src="/PADLRLogo.png"
+                src="/padlr/padlr-logo-white.svg"
                 alt="PADLR."
-                width={360}
-                height={55}
+                width={603}
+                height={88}
                 className="mt-8 h-9 w-auto sm:h-11"
               />
               <p className="mt-8 max-w-2xl text-lg leading-relaxed text-white/70">

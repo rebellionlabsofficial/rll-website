@@ -49,19 +49,13 @@ export default function Navbar() {
           className="flex items-center gap-2.5 rounded-full"
         >
           <Image
-            src="/brand/rll-shield.png"
-            alt=""
-            width={357}
-            height={384}
+            src="/brand/kit/logo/rll-horizontal-red.svg"
+            alt="Rebel Lion Labs"
+            width={1750}
+            height={492}
             priority
-            className="h-8 w-auto"
+            className="h-9 w-auto sm:h-10"
           />
-          <span className="text-[15px] font-semibold tracking-tight text-ink">
-            Rebel Lion{" "}
-            <span className="font-mono text-[11px] font-medium uppercase tracking-[0.22em] text-ink-muted">
-              Labs
-            </span>
-          </span>
         </Link>
 
         <ul className="hidden items-center gap-1 md:flex">

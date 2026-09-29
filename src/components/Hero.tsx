@@ -78,10 +78,10 @@ export default function Hero() {
               className="absolute left-1/2 top-1/3 -z-10 h-72 w-72 -translate-x-1/2 rounded-full bg-padlr-neon/20 blur-[90px]"
             />
             <Image
-              src="/PADLRLogo.png"
+              src="/padlr/padlr-logo-white.svg"
               alt="PADLR."
-              width={360}
-              height={55}
+              width={603}
+              height={88}
               className="mx-auto mt-9 h-5 w-auto sm:h-6"
             />
             <PhoneFrame

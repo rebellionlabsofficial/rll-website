@@ -28,18 +28,12 @@ export default function Footer() {
             className="inline-flex items-center gap-3 rounded-full"
           >
             <Image
-              src="/brand/rll-shield-white.png"
-              alt=""
-              width={357}
-              height={384}
-              className="h-10 w-auto"
+              src="/brand/kit/logo/rll-horizontal-white.svg"
+              alt="Rebel Lion Labs"
+              width={1750}
+              height={492}
+              className="h-12 w-auto"
             />
-            <span className="text-lg font-semibold tracking-tight">
-              Rebel Lion{" "}
-              <span className="font-mono text-xs font-medium uppercase tracking-[0.22em] text-white/60">
-                Labs
-              </span>
-            </span>
           </Link>
           <p className="mt-6 max-w-sm leading-relaxed text-white/65">
             Sports apps built for the players, by a player. Our first app is

@@ -30,10 +30,10 @@ export default function FeaturedProduct() {
           <div className="reveal lg:col-span-6">
             <Eyebrow tone="neon">Our first app · Padel</Eyebrow>
             <Image
-              src="/PADLRLogo.png"
+              src="/padlr/padlr-logo-white.svg"
               alt="PADLR."
-              width={360}
-              height={55}
+              width={603}
+              height={88}
               className="mt-8 h-9 w-auto sm:h-11"
             />
             <h2
