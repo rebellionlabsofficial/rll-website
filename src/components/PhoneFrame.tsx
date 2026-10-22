@@ -16,7 +16,7 @@ export default function PhoneFrame({
   src,
   alt,
   width = 720,
-  height = 1565,
+  height = 1558,
   sizes = "(min-width: 1024px) 300px, 60vw",
   priority = false,
   className = "",

@@ -75,7 +75,7 @@ export default function FeaturedProduct() {
               <div className="reveal reveal-1 w-[44%] max-w-[250px]">
                 <PhoneFrame
                   src="/padlr/stats.webp"
-                  alt="PADLR. stats screen showing a 3.9 padel rating, a confidence ring and a rating history chart"
+                  alt="PADLR. stats screen showing a 3.6 padel level, its confidence ring and the level chart"
                   sizes="(min-width: 1024px) 250px, 40vw"
                   className="mb-12 opacity-80"
                 />
@@ -83,7 +83,7 @@ export default function FeaturedProduct() {
               <div className="reveal reveal-2 relative z-10 -ml-[10%] w-[50%] max-w-[285px]">
                 <PhoneFrame
                   src="/padlr/leaderboards.webp"
-                  alt="PADLR. padel leaderboards with a podium of the most active players"
+                  alt="PADLR. padel rankings among friends, with a podium of the most active players"
                   sizes="(min-width: 1024px) 285px, 46vw"
                 />
               </div>

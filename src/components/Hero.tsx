@@ -86,9 +86,9 @@ export default function Hero() {
             />
             <PhoneFrame
               src="/padlr-app-preview.png"
-              alt="The PADLR. padel app feed, showing a confirmed doubles match between four players and a level-up achievement"
-              width={1320}
-              height={2868}
+              alt="The PADLR. padel app feed, showing a confirmed doubles match between four players and a Globe Trotter badge"
+              width={1284}
+              height={2778}
               sizes="(min-width: 1024px) 270px, 62vw"
               priority
               className="absolute left-1/2 top-[20%] w-[64%] -translate-x-1/2"

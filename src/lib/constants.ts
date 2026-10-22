@@ -87,7 +87,7 @@ export const PILLARS = [
   {
     title: "Properly engineered",
     description:
-      "A rating only works if players trust it. PADLR.'s rating engine alone has more than 250 automated tests.",
+      "A rating only works if players trust it. PADLR.'s rating engine alone has more than 300 automated tests.",
   },
 ] as const;
 
@@ -100,7 +100,7 @@ export const PRINCIPLES = [
   {
     title: "Fairness",
     description:
-      "Every result goes to the other players in the match to confirm, so nobody can just claim a win. The maths allows for partner strength, and automatic checks look for anyone trying to game the system.",
+      "Every competitive result goes to your opponents to confirm, so nobody can just claim a win. The maths allows for partner strength, and automatic checks look for anyone trying to game the system.",
   },
   {
     title: "Community",
@@ -124,9 +124,9 @@ export const PADLR = {
   name: "PADLR.",
   tagline: "Your Rating. Your Game. Your Community.",
   summary: "The padel app for ratings, matches and finding players.",
-  description: `Track your skill rating, record matches, find players, book games and climb the leaderboards, all in one app across ${COUNTRIES.length} countries.`,
+  description: `Track your skill rating, record matches, find players, join open games and climb the leaderboards, all in one app across ${COUNTRIES.length} countries.`,
   about:
-    "PADLR. is an app for padel players. It gives you a skill rating on a 0–7 scale that updates after every confirmed competitive match and shows you why it moved. You can also log matches, find players near you, book games and climb the leaderboards. The rating runs on OpenSkill, a Bayesian system built for team sports.",
+    "PADLR. is an app for padel players. It gives you a skill rating on a 0–7 scale that updates after every confirmed competitive match and shows you why it moved. You can also log matches, find players near you, join open games and climb the leaderboards. The rating runs on OpenSkill, a Bayesian system built for team sports.",
   launch: "November 2026",
   appStoreUrl: APP_STORE_URL,
   links: {
@@ -155,7 +155,7 @@ export const PADLR = {
     {
       icon: "zap",
       title: "Quick Match Logging",
-      short: "Singles or doubles, set by set, confirmed by another player.",
+      short: "Singles or doubles, set by set, confirmed by an opponent.",
     },
     {
       icon: "messages",
@@ -179,8 +179,8 @@ export const PADLR = {
     },
     {
       icon: "calendar-check",
-      title: "Book & Join Matches",
-      short: "Create open matches or join games nearby.",
+      title: "Open Games",
+      short: "Set up a game or join one nearby. You book the court with the venue.",
     },
     {
       icon: "message-circle",
