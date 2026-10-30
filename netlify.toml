@@ -4,3 +4,77 @@
 
 [[plugins]]
   package = "@netlify/plugin-nextjs"
+
+# Paths only vulnerability scanners ask for. Answer them with a static 404 so
+# they never start the Next.js server function.
+[[redirects]]
+  from = "/wp-admin/*"
+  to = "/bot-404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/wp-login.php"
+  to = "/bot-404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/wp-content/*"
+  to = "/bot-404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/wp-includes/*"
+  to = "/bot-404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/wp-json"
+  to = "/bot-404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/wp-json/*"
+  to = "/bot-404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/xmlrpc.php"
+  to = "/bot-404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/.env"
+  to = "/bot-404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/app/.env"
+  to = "/bot-404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/.git/*"
+  to = "/bot-404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/phpinfo.php"
+  to = "/bot-404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/phpmyadmin/*"
+  to = "/bot-404.html"
+  status = 404
+  force = true
