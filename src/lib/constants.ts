@@ -1,6 +1,6 @@
 // This site summarises PADLR. and links to https://playpadlr.app for the
 // details. Keep only facts here that rarely change (what the app does, the
-// launch, countries, the rating scale), so the two sites can't drift apart.
+// launch, the rating scale), so the two sites can't drift apart.
 
 const PADLR_SITE = "https://playpadlr.app";
 
@@ -18,39 +18,6 @@ export const PADLR_CTA = APP_STORE_URL
       label: "Join the waitlist",
       short: "Join waitlist",
     };
-
-const LANGUAGES = 14;
-
-const COUNTRIES = [
-  "Argentina",
-  "Austria",
-  "Bahrain",
-  "Belgium",
-  "Brazil",
-  "Canada",
-  "Chile",
-  "Colombia",
-  "Denmark",
-  "Finland",
-  "France",
-  "Germany",
-  "Ireland",
-  "Italy",
-  "Kuwait",
-  "Netherlands",
-  "Norway",
-  "Poland",
-  "Portugal",
-  "Qatar",
-  "Saudi Arabia",
-  "Spain",
-  "Sweden",
-  "Switzerland",
-  "UAE",
-  "UK",
-  "Uruguay",
-  "US",
-] as const;
 
 export const SITE = {
   name: "Rebel Lion Labs",
@@ -124,7 +91,7 @@ export const PADLR = {
   name: "PADLR.",
   tagline: "Your Rating. Your Game. Your Community.",
   summary: "The padel app for ratings, matches and finding players.",
-  description: `Track your skill rating, record matches, find players, join open games and climb the leaderboards, all in one app across ${COUNTRIES.length} countries.`,
+  description: `Track your skill rating, record matches, find players, join open games and climb the leaderboards, all in one app.`,
   about:
     "PADLR. is an app for padel players. It gives you a skill rating on a 0–7 scale that updates after every confirmed competitive match and shows you why it moved. You can also log matches, find players near you, join open games and climb the leaderboards. The rating runs on OpenSkill, a Bayesian system built for team sports.",
   launch: "November 2026",
@@ -138,13 +105,10 @@ export const PADLR = {
     eula: `${PADLR_SITE}/docs/eula/`,
   },
   stats: [
-    {
-      value: String(COUNTRIES.length),
-      label: PADLR_LAUNCHED ? "Countries" : "Countries at launch",
-    },
-    { value: String(LANGUAGES), label: "Languages" },
+    { value: "Free", label: "To download" },
     { value: "0–7", label: "Rating scale" },
     { value: "30s", label: "To log a match" },
+    { value: "300+", label: "Rating engine tests" },
   ],
   features: [
     {
@@ -188,8 +152,6 @@ export const PADLR = {
       short: "Direct messages and group chats for your matches.",
     },
   ],
-  countries: COUNTRIES,
-  languages: LANGUAGES,
   socials: [
     {
       label: "Instagram",

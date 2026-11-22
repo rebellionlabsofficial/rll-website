@@ -27,7 +27,7 @@ const FACTS = [
   { label: "First app", value: "PADLR. (padel)" },
   {
     label: PADLR_LAUNCHED ? "Available" : "Launching",
-    value: `${PADLR_LAUNCHED ? "iOS" : PADLR.launch} · ${PADLR.countries.length} countries`,
+    value: PADLR_LAUNCHED ? "iOS" : `iOS · ${PADLR.launch}`,
   },
   { label: "Approach", value: "One sport at a time" },
 ];

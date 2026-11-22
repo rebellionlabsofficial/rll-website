@@ -65,8 +65,7 @@ export default function FeaturedProduct() {
               </ButtonLink>
             </div>
             <p className="mt-6 font-mono text-[11px] uppercase tracking-[0.18em] text-white/55">
-              iOS · {PADLR_LAUNCHED ? "Out now" : PADLR.launch} ·{" "}
-              {PADLR.countries.length} countries
+              iOS · {PADLR_LAUNCHED ? "Out now" : PADLR.launch}
             </p>
           </div>
 
