@@ -1,0 +1,5 @@
+# Old URLs that moved, read by Cloudflare at deploy time.
+# Moved from next.config.ts, because a static export can't redirect.
+
+# /products became the PADLR. case study; keep old links and search results working.
+/products /work/padlr 301

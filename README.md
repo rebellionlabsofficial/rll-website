@@ -1,36 +1,46 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# rebellionlabs.app
 
-## Getting Started
+The Rebel Lion Labs website: Next.js (App Router), exported as static files and
+served by Cloudflare Workers.
 
-First, run the development server:
+## Commands
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm run dev               # local site at http://localhost:3000 (no enquiry endpoint)
+npm run preview           # build, then run the site and Worker locally on Cloudflare's runtime
+npm run build             # static export to out/
+npm run lint
+npm run typecheck:worker  # type-check worker/index.ts against wrangler.jsonc
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+In `npm run preview`, enquiries aren't sent. Wrangler prints them and saves
+them under `.wrangler/tmp/email/`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## How it's hosted
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **Pages and files**: `npm run build` exports every page to `out/`. Cloudflare
+  serves them from its cache. `public/_headers` sets the security headers and
+  caching, and `public/_redirects` lists moved URLs.
+- **Enquiry form**: `src/components/ContactForm.tsx` posts to `/api/enquiry`.
+  `worker/index.ts` checks the enquiry and emails it to our Gmail through
+  Cloudflare Email Routing. It can only send to that one verified address,
+  which is set in `wrangler.jsonc`.
+- **Deploys**: Cloudflare Workers Builds watches this repo. A push to `main`
+  runs `npm run build` and then `npx wrangler deploy`. Other branches get a
+  preview version with its own URL. There's no deploy limit to worry about
+  on the free plan.
 
-## Learn More
+## Cloudflare set-up (done once)
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Zone `rebellionlabs.app` with:
+  - Email Routing on
+  - Gmail verified as the destination
+  - SSL Full (strict), Always Use HTTPS, TLS 1.2+
+  - Email obfuscation off (it rewrites the HTML)
+  - Browser cache TTL set to respect the site's headers
+- `www` redirects to the main domain with a 301 (a Cloudflare redirect rule).
+- AI crawlers are allowed, because the site is written to be quoted by AI
+  answers (see `public/llms.txt`).
+- The Worker `rll-website` serves `rebellionlabs.app` and
+  `www.rebellionlabs.app` as custom domains, from `routes` in
+  `wrangler.jsonc`.

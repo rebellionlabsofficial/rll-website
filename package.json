@@ -5,7 +5,9 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
+    "preview": "next build && wrangler dev",
+    "deploy": "next build && wrangler deploy",
+    "typecheck:worker": "wrangler types && tsc -p worker",
     "lint": "eslint"
   },
   "dependencies": {
@@ -23,6 +25,7 @@
     "postcss": "^8.5.8",
     "schema-dts": "^2.0.0",
     "tailwindcss": "^3.4.19",
-    "typescript": "^5"
+    "typescript": "^5",
+    "wrangler": "4.161.0"
   }
 }

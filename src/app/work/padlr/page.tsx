@@ -20,9 +20,9 @@ export const metadata = pageMetadata({
 
 const SCREENS = [
   {
-    src: "/padlr-app-preview.png",
-    width: 1284,
-    height: 2778,
+    src: "/padlr/feed.webp",
+    width: 720,
+    height: 1558,
     label: "Feed",
     alt: "PADLR. padel app feed with a doubles match result and a Globe Trotter badge",
   },

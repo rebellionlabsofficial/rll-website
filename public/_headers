@@ -1,0 +1,25 @@
+# Response headers for every page and file, read by Cloudflare at deploy time.
+# Moved from next.config.ts, because a static export can't set headers.
+#
+# Security headers follow the OWASP Secure Headers Project and were checked
+# with Mozilla's HTTP Observatory and Google's CSP Evaluator. The CSP allows
+# inline scripts because Next.js inlines its page data and the pages are
+# prerendered, so there is no per-request nonce to use. The site has no
+# user-generated content, and the policy still blocks third-party scripts,
+# framing, plugins and sending data to other origins.
+# HSTS is left out: every .app domain is HTTPS-only in browsers already.
+#
+# These only apply to files. The enquiry endpoint sets its own headers in
+# worker/index.ts.
+
+/*
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=(), browsing-topics=()
+  Cross-Origin-Opener-Policy: same-origin
+
+# Next.js puts a content hash in these file names, so they never change.
+/_next/static/*
+  Cache-Control: public, max-age=31536000, immutable

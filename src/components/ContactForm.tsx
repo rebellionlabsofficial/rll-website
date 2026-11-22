@@ -5,7 +5,7 @@ import Link from "next/link";
 import Icon from "@/components/Icon";
 import { SITE } from "@/lib/constants";
 
-// Keep in sync with the field list in public/__forms.html.
+// Keep in sync with WORK_TYPES in worker/index.ts, which checks each enquiry.
 const WORK_TYPES = [
   "A website",
   "An app",
@@ -43,9 +43,8 @@ export default function ContactForm({
     setStatus("submitting");
 
     try {
-      // With the Next.js runtime, Netlify Forms only captures submissions
-      // POSTed to a static file, so post to the form definition itself.
-      const response = await fetch("/__forms.html", {
+      // worker/index.ts checks the enquiry and emails it to our inbox.
+      const response = await fetch("/api/enquiry", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: new URLSearchParams(
@@ -91,7 +90,7 @@ export default function ContactForm({
 
   return (
     <form
-      name="contact"
+      action="/api/enquiry"
       method="POST"
       onSubmit={handleSubmit}
       aria-label={title ?? "Enquiry form"}
@@ -100,7 +99,6 @@ export default function ContactForm({
       {title && (
         <h2 className="mb-6 text-2xl font-semibold tracking-tight">{title}</h2>
       )}
-      <input type="hidden" name="form-name" value="contact" />
       <p className="hidden">
         <label>
           Don&apos;t fill this out:{" "}

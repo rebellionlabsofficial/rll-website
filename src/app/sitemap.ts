@@ -1,6 +1,9 @@
 import type { MetadataRoute } from "next";
 import { SITE } from "@/lib/constants";
 
+// Built once into a static file for the static export.
+export const dynamic = "force-static";
+
 // Search engines only trust lastModified if it changes when the content does,
 // so these are fixed dates rather than the build time. Update a page's date
 // when you change what it says.

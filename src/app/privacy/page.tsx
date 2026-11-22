@@ -153,10 +153,10 @@ export default function PrivacyPage() {
               <li>
                 <strong>When you use the contact form:</strong> your name, email
                 address, your phone number if you give it, the type of work you
-                choose, and your description of the work. Netlify, which
-                receives the form for us, also records technical details sent
-                with it, such as your IP address and browser type, and uses them
-                to filter spam.
+                choose, and your description of the work. Cloudflare, which
+                receives the form for us and passes it to our inbox by email,
+                also processes technical details sent with it, such as your IP
+                address and browser type, to deliver it and block abuse.
               </li>
               <li>
                 <strong>When you email us:</strong> your email address, your
@@ -206,8 +206,9 @@ export default function PrivacyPage() {
             </p>
             <ul>
               <li>
-                <strong>Netlify, Inc. (USA)</strong> hosts this website and
-                receives contact-form submissions for us, as our processor.
+                <strong>Cloudflare, Inc. (USA)</strong> hosts this website and
+                receives contact-form submissions for us, sending them to our
+                inbox by email, as our processor.
               </li>
               <li>
                 <strong>Google Ireland Limited</strong> provides the Gmail
@@ -223,7 +224,7 @@ export default function PrivacyPage() {
 
             <h2 id="international-transfers">International transfers</h2>
             <p>
-              Netlify is based in the United States, and Google may process
+              Cloudflare is based in the United States, and Google may process
               email outside the European Economic Area, so your data may be
               transferred outside the EEA. Where that happens, we rely on the
               EU-U.S. Data Privacy Framework for providers certified under it,
