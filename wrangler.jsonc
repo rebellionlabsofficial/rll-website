@@ -12,22 +12,22 @@
     // /about serves out/about.html; /about.html and /about/ redirect to /about.
     "html_handling": "auto-trailing-slash",
     // Unknown URLs get out/404.html with a 404 status.
-    "not_found_handling": "404-page"
+    "not_found_handling": "404-page",
   },
   "routes": [
     { "pattern": "rebellionlabs.app", "custom_domain": true },
-    { "pattern": "www.rebellionlabs.app", "custom_domain": true }
+    { "pattern": "www.rebellionlabs.app", "custom_domain": true },
   ],
   // Enquiries are emailed through Cloudflare Email Routing, and only ever to
   // this one verified address.
   "send_email": [
     {
       "name": "ENQUIRY_EMAIL",
-      "destination_address": "rebellionlabsofficial@gmail.com"
-    }
+      "destination_address": "rebellionlabsofficial@gmail.com",
+    },
   ],
   "vars": {
     "ENQUIRY_FROM": "website@rebellionlabs.app",
-    "ENQUIRY_TO": "rebellionlabsofficial@gmail.com"
-  }
+    "ENQUIRY_TO": "rebellionlabsofficial@gmail.com",
+  },
 }
