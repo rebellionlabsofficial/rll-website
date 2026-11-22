@@ -103,28 +103,58 @@ export default async function PadlrPage() {
                 </p>
                 <div className="mt-8 flex flex-wrap gap-3">
                   <ButtonLink
-                    href={PADLR_CTA.href}
+                    href={PADLR.links.website}
                     external
                     variant="neon"
                     size="lg"
                   >
-                    {PADLR_CTA.label}
+                    Visit the website
                   </ButtonLink>
                   <ButtonLink
-                    href={PADLR.links.website}
+                    href={PADLR_CTA.href}
                     external
                     variant="ghost-dark"
                     size="lg"
                   >
-                    playpadlr.app
+                    {PADLR_LAUNCHED ? "Get the app" : "Join the app waitlist"}
                   </ButtonLink>
                 </div>
-                <p className="mt-6 font-mono text-[11px] uppercase tracking-[0.18em] text-white/55">
-                  iPhone ·{" "}
-                  {PADLR_LAUNCHED
-                    ? "On the App Store"
-                    : "Coming soon to the App Store"}
-                </p>
+                <dl className="mt-8 grid gap-3 border-t border-white/10 pt-6 text-sm sm:grid-cols-2">
+                  <div>
+                    <dt className="eyebrow text-white/45">Website</dt>
+                    <dd className="mt-1.5">
+                      <a
+                        href={PADLR.links.website}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="font-medium text-white underline-offset-4 hover:underline"
+                      >
+                        playpadlr.app
+                        <span className="sr-only"> (opens in a new tab)</span>
+                      </a>
+                    </dd>
+                  </div>
+                  <div>
+                    <dt className="eyebrow text-white/45">iPhone app</dt>
+                    <dd className="mt-1.5">
+                      {PADLR.appStoreUrl ? (
+                        <a
+                          href={PADLR.appStoreUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="font-medium text-white underline-offset-4 hover:underline"
+                        >
+                          On the App Store
+                          <span className="sr-only"> (opens in a new tab)</span>
+                        </a>
+                      ) : (
+                        <span className="text-white/70">
+                          Coming soon to the App Store
+                        </span>
+                      )}
+                    </dd>
+                  </div>
+                </dl>
               </div>
             </div>
 
@@ -174,14 +204,14 @@ export default async function PadlrPage() {
         <div className="container-page grid gap-12 lg:grid-cols-12 lg:gap-10">
           <div className="reveal lg:col-span-5">
             <SectionHeading
-              eyebrow="What I built"
+              eyebrow="What we built"
               title={
                 <>
                   From idea to the{" "}
                   <span className="accent text-lion">App Store.</span>
                 </>
               }
-              lead="PADLR. started on a padel court, with a score on a whiteboard and nowhere useful to put it. I designed and built the whole thing: the app, the rating system behind it and its website."
+              lead="PADLR. started on a padel court, with a score on a whiteboard and nowhere useful to put it. We designed and built the whole thing: the app, the rating system behind it and its website."
             />
           </div>
           <ol className="reveal reveal-1 grid content-start gap-4 lg:col-span-7">
@@ -252,7 +282,7 @@ export default async function PadlrPage() {
 
       <CtaBand
         title="Want an app like this?"
-        lead="I can take your idea from a sketch to the App Store. Start with a free chat about what you have in mind."
+        lead="We can take your idea from a sketch to the App Store. Start with a free chat about what you have in mind."
       >
         <ButtonLink href="/contact" variant="light" size="lg">
           Book a free chat

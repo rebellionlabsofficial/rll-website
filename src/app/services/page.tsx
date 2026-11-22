@@ -14,7 +14,7 @@ import { breadcrumbs, serviceNodes } from "@/lib/structured-data";
 export const metadata = pageMetadata({
   title: "Services and Prices: Websites, Apps and AI",
   description:
-    "Websites from €750, AI sessions for your team from €350 and iPhone apps from €5,000. Based in Cork, working across Ireland, with a fixed quote before any work starts.",
+    "Websites from €595, team AI training from €750 and iPhone apps from €7,950. A Cork studio working across Ireland, with a fixed quote before any work starts.",
   path: "/services",
 });
 
@@ -34,7 +34,7 @@ const QUESTIONS = [
   {
     question: "Do I own my website?",
     answer:
-      "Yes. The domain, the content and the site are yours. If you ever want to move on, I'll hand everything over.",
+      "Yes. The domain, the content and the site are yours. If you ever want to move on, we'll hand everything over.",
   },
   {
     question: "Is it safe to use ChatGPT with my business?",
@@ -42,9 +42,14 @@ const QUESTIONS = [
       "It can be, with some care. Part of every AI session is agreeing what should never go into these tools, such as customer details, and which settings to change so your chats aren't used to train the models.",
   },
   {
+    question: "Can I get a grant towards this?",
+    answer:
+      "Sometimes. The old Trading Online Voucher has closed. Its replacement, your Local Enterprise Office's Grow Digital Voucher, can cover up to half the cost of new off-the-shelf software plus set-up and training, so it may help with AI tools. It doesn't cover a custom-built website. Check with your LEO before you buy anything, because approval has to come first.",
+  },
+  {
     question: "Do you work outside Cork?",
     answer:
-      "Yes. I'm happy to meet in person around Cork, and everything else works well over video calls.",
+      "Yes. We're happy to meet in person around Cork, and everything else works well over video calls.",
   },
 ];
 
@@ -102,15 +107,7 @@ export default function ServicesPage() {
                 <p className="mt-5 text-lg leading-relaxed text-ink-soft">
                   {service.summary}
                 </p>
-                <p className="mt-8 text-3xl font-semibold tracking-tight text-ink">
-                  {fromPrice(service.price)}
-                </p>
-                <p className="mt-2 text-sm leading-relaxed text-ink-muted">
-                  {service.extra}
-                </p>
-              </div>
-              <div className="lg:col-span-6 lg:col-start-7">
-                <h3 className="eyebrow text-ink-muted">What you get</h3>
+                <h3 className="eyebrow mt-8 text-ink-muted">What you get</h3>
                 <ul className="mt-5 space-y-3.5">
                   {service.includes.map((item) => (
                     <li
@@ -125,6 +122,38 @@ export default function ServicesPage() {
                     </li>
                   ))}
                 </ul>
+              </div>
+              <div className="lg:col-span-6 lg:col-start-7">
+                <h3 className="eyebrow text-ink-muted">Packages</h3>
+                <ul className="mt-5 space-y-3">
+                  {service.packages.map((pkg) => (
+                    <li
+                      key={pkg.name}
+                      className="rounded-2xl border border-line bg-canvas p-5"
+                    >
+                      <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+                        <h4 className="font-semibold tracking-tight text-ink">
+                          {pkg.name}
+                        </h4>
+                        <p className="font-semibold text-lion">
+                          {fromPrice(pkg.price)}
+                          {"unit" in pkg && (
+                            <span className="font-normal text-ink-muted">
+                              {" "}
+                              {pkg.unit}
+                            </span>
+                          )}
+                        </p>
+                      </div>
+                      <p className="mt-1.5 text-[15px] leading-relaxed text-ink-soft">
+                        {pkg.description}
+                      </p>
+                    </li>
+                  ))}
+                </ul>
+                <p className="mt-4 text-sm leading-relaxed text-ink-muted">
+                  {service.extra}
+                </p>
                 <p className="mt-8 border-t border-line pt-6 text-sm text-ink-muted">
                   Examples: {PROOF[service.id].join(", ")}.{" "}
                   <Link
@@ -191,7 +220,7 @@ export default function ServicesPage() {
 
       <CtaBand
         title="Not sure what you need?"
-        lead="That's what the free chat is for. Tell me what's slowing your business down, and we'll work out together whether a website, an app or AI is the right fix."
+        lead="That's what the free chat is for. Tell us what's slowing your business down, and we'll work out together whether a website, an app or AI is the right fix."
       >
         <ButtonLink href="/contact" variant="light" size="lg">
           Book a free chat

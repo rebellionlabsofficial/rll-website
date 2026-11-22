@@ -87,6 +87,21 @@ export default function ProjectCards({
                 <span className="sr-only"> (opens in a new tab)</span>
               </a>
             )}
+            {project.app && (
+              <a
+                href={project.app}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 text-ink-soft underline-offset-4 hover:text-ink hover:underline"
+              >
+                App Store
+                <Icon name="arrow-up-right" className="h-4 w-4" />
+                <span className="sr-only"> (opens in a new tab)</span>
+              </a>
+            )}
+            {project.app === null && (
+              <span className="text-ink-muted">App coming soon</span>
+            )}
             {project.slug === "rebel-lion-labs" && (
               <span className="text-ink-muted">You&apos;re looking at it</span>
             )}

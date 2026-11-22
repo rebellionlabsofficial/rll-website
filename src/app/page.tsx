@@ -26,10 +26,10 @@ export default function Home() {
         <div className="container-page">
           <div className="reveal flex flex-wrap items-end justify-between gap-8">
             <SectionHeading
-              eyebrow="What I do"
+              eyebrow="What we do"
               title={
                 <>
-                  Three ways I can{" "}
+                  Three ways we can{" "}
                   <span className="accent text-lion">help.</span>
                 </>
               }
@@ -74,7 +74,7 @@ export default function Home() {
         <div className="container-page grid gap-14 lg:grid-cols-12 lg:gap-10">
           <div className="reveal lg:col-span-4">
             <SectionHeading
-              eyebrow="Why work with me"
+              eyebrow="Why work with us"
               title={
                 <>
                   Straight answers,{" "}
@@ -110,10 +110,10 @@ export default function Home() {
 
       <CtaBand
         title="Got a project in mind?"
-        lead="Tell me what you need. The first chat is free, and you'll get a straight answer on whether I can help."
+        lead="Tell us what you need. The first chat is free, and you'll get a straight answer on whether we can help."
       >
-        <ButtonLink href="/contact" variant="light" size="lg">
-          Book a free chat
+        <ButtonLink href="#enquire" variant="light" size="lg">
+          Send an enquiry
         </ButtonLink>
         <ButtonLink
           href={`mailto:${SITE.email}`}
@@ -121,7 +121,7 @@ export default function Home() {
           size="lg"
           icon="mail"
         >
-          Email me
+          Email us
         </ButtonLink>
       </CtaBand>
     </>

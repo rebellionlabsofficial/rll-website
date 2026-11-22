@@ -11,9 +11,9 @@ import { pageMetadata } from "@/lib/metadata";
 import { breadcrumbs, founder } from "@/lib/structured-data";
 
 export const metadata = pageMetadata({
-  title: "About Levent Arslan and RL Labs",
+  title: "About Us: A Cork Studio for Websites, Apps and AI",
   description:
-    "Rebel Lion Labs is run by Levent Arslan in Cork: websites, apps and practical AI for small businesses, from someone whose day job is information security and compliance.",
+    "Rebel Lion Labs is a studio in Cork founded by Levent Arslan. We build websites and apps and help small businesses use AI, with a background in information security and compliance.",
   path: "/about",
 });
 
@@ -41,17 +41,15 @@ export default function AboutPage() {
         />
         <div className="container-page grid items-end gap-14 lg:grid-cols-12 lg:gap-10">
           <div className="lg:col-span-7">
-            <Eyebrow className="rise">About</Eyebrow>
+            <Eyebrow className="rise">About us</Eyebrow>
             <h1 className="rise rise-d1 display mt-7 text-[clamp(3rem,7vw,5.5rem)]">
-              Hi, I&apos;m{" "}
-              <span className="accent text-lion">
-                {FOUNDER.name.split(" ")[0]}.
-              </span>
+              Built properly,{" "}
+              <span className="accent text-lion">explained plainly.</span>
             </h1>
             <p className="rise rise-d2 mt-8 max-w-xl text-lg leading-relaxed text-ink-soft sm:text-xl">
-              I run {SITE.name}, or RL Labs for short, from Cork. I build
-              websites and apps, and I help small businesses get real use out of
-              AI without the risks.
+              {SITE.name}, or RL Labs for short, is a studio in Cork. We build
+              websites and apps, and we help small businesses get real use out
+              of AI without the risks.
             </p>
           </div>
           <div className="rise rise-d3 lg:col-span-5">
@@ -95,7 +93,7 @@ export default function AboutPage() {
           <div className="reveal lg:col-span-4">
             <div className="lg:sticky lg:top-32">
               <SectionHeading
-                eyebrow="My story"
+                eyebrow="Our story"
                 title={
                   <>
                     Started on a{" "}
@@ -108,21 +106,22 @@ export default function AboutPage() {
           <div className="reveal reveal-1 space-y-6 text-lg leading-relaxed text-ink-soft lg:col-span-8 lg:pt-12">
             <p>
               RL Labs began with PADLR. After a game of padel, the score sat on
-              a whiteboard with nowhere useful to put it, so I built an app for
+              a whiteboard with nowhere useful to put it, so we built an app for
               it: a fair skill rating, quick match logging and an easy way to
-              find people to play with. I designed and built the whole thing
-              myself, along with its website.
+              find people to play with. We designed and built the whole thing,
+              along with its website.
             </p>
             <p>
-              My day job is in information security and compliance. That shapes
-              how I build: sites that are quick and secure, and AI set-ups where
-              everyone knows what data is safe to share and what isn&apos;t.
+              Our founder, {FOUNDER.name}, works in information security and
+              compliance. That shapes how we build: sites that are quick and
+              secure, and AI set-ups where everyone knows what data is safe to
+              share and what isn&apos;t.
             </p>
             <p>
-              Now I do the same for other businesses. I&apos;ve built websites
-              for local businesses, and I&apos;ve helped teams in Cork use
-              ChatGPT for event ideas, planning and new business ideas. If
-              you&apos;d like the same, I&apos;d be glad to hear from you.
+              Now we do the same for other businesses. We build websites for
+              local businesses, and we&apos;ve helped teams in Cork use ChatGPT
+              for event ideas, planning and new business ideas. If you&apos;d
+              like the same, we&apos;d be glad to hear from you.
             </p>
             <Link
               href="/work/padlr"
@@ -136,7 +135,7 @@ export default function AboutPage() {
                 className="h-6 w-auto"
               />
               <span className="flex-1 text-base text-white/70">
-                Read how I built it
+                Read how we built it
               </span>
               <Icon
                 name="arrow-right"

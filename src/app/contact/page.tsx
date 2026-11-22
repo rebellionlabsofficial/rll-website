@@ -28,9 +28,9 @@ export default function ContactPage() {
             Let&apos;s <span className="accent text-lion">talk.</span>
           </h1>
           <p className="rise rise-d2 mt-8 max-w-md text-lg leading-relaxed text-ink-soft">
-            Tell me a bit about your business and what you need. I&apos;ll reply
-            within two working days to set up a free chat, by phone, video or
-            over a coffee in Cork.
+            Tell us a bit about your business and what you need. We&apos;ll
+            reply within two working days to set up a free chat, by phone, video
+            or over a coffee in Cork.
           </p>
 
           <ul className="rise rise-d3 mt-12 space-y-3">

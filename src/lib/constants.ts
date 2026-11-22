@@ -48,6 +48,9 @@ export const NAV_LINKS = [
   { label: "Contact", href: "/contact" },
 ] as const;
 
+// Starting prices, set from published Cork and Irish competitor prices in
+// late 2026 (see the pricing research report). "price" is the headline
+// "from" price shown on service cards.
 export const SERVICES = [
   {
     id: "websites",
@@ -57,14 +60,34 @@ export const SERVICES = [
     summary:
       "A fast, good-looking website that tells people what you do and makes it easy to get in touch.",
     includes: [
-      "Up to five pages, designed for phones first",
-      "Contact form that sends enquiries straight to you",
-      "Set up on your own domain, with Google Search basics done",
-      "Fast loading and accessible, checked with Google's own tools",
+      "Designed for phones first, with your logo, colours and photos",
+      "Enquiry form that sends messages straight to your inbox",
+      "Google Search basics and your Google Business Profile set up",
+      "Privacy notice, security settings and accessibility checks done properly",
     ],
-    price: 750,
+    packages: [
+      {
+        name: "One-page site",
+        price: 595,
+        description:
+          "Everything on one page: who you are, what you do and how to reach you.",
+      },
+      {
+        name: "Business site",
+        price: 1195,
+        description:
+          "Up to five pages, help with your wording, and 30 days of free changes after launch.",
+      },
+      {
+        name: "Online shop",
+        price: 2250,
+        description:
+          "Sell online with card payments and shipping set up, plus training so you can run it yourself.",
+      },
+    ],
+    price: 595,
     extra:
-      "Hosting and small updates from €25 a month, or look after it yourself.",
+      "Care plans from €39 a month cover hosting, backups and security updates, or €79 a month with 30 minutes of changes included. Extra pages €95.",
   },
   {
     id: "ai",
@@ -72,15 +95,36 @@ export const SERVICES = [
     title: "AI for your business",
     ask: "Ask about AI help",
     summary:
-      "Practical help getting ChatGPT and similar tools into your team's day-to-day work, without putting customer data at risk.",
+      "Practical help getting ChatGPT, Copilot and similar tools into your team's day-to-day work, without putting customer data at risk.",
     includes: [
-      "A half-day session with your team, in Cork or online",
-      "We pick the jobs where AI saves time: ideas, planning, writing, admin",
-      "Prompts and templates set up for your business",
-      "Plain rules on what information should never go into an AI tool",
+      "We find the jobs where AI saves your team time: ideas, planning, writing, admin",
+      "Hands-on training on your own tasks, with prompts made for your business",
+      "A one-page AI use policy covering what information must never go into AI tools",
+      "A training record that helps with the EU AI Act's AI literacy requirement",
     ],
-    price: 350,
-    extra: "Follow-up help by the hour or on a monthly plan.",
+    packages: [
+      {
+        name: "AI kick-start",
+        price: 750,
+        description:
+          "A two-hour session for up to 12 people, in Cork or online, with a starter set of prompts and clear rules on data.",
+      },
+      {
+        name: "Safe AI workshop",
+        price: 1450,
+        description:
+          "A half day for up to 15 people. We build one real workflow live and leave you with a prompt library, an AI use policy and a 30-day plan.",
+      },
+      {
+        name: "Automation build",
+        price: 995,
+        description:
+          "We set up one AI-assisted process for you, such as a custom GPT or an automated workflow, and train your team on it.",
+      },
+    ],
+    price: 750,
+    extra:
+      "Also available: an AI policy and data protection pack from €750, and ongoing support from €250 a month.",
   },
   {
     id: "apps",
@@ -88,16 +132,37 @@ export const SERVICES = [
     title: "Apps",
     ask: "Ask about an app",
     summary:
-      "iPhone apps built properly, from first idea to the App Store, the same way PADLR. was built.",
+      "iPhone apps built properly, from first idea to the App Store, the same way we built PADLR.",
     includes: [
-      "Scoping session to agree what the first version needs",
-      "Design, build and testing",
-      "App Store submission and review",
-      "Support after launch",
+      "A discovery stage that turns your idea into screens, a plan and a fixed price",
+      "Native iPhone app design, build and testing",
+      "App Store submission and review handled for you",
+      "30 days of bug fixes after launch, then optional care",
     ],
-    price: 5000,
+    packages: [
+      {
+        name: "Discovery sprint",
+        price: 950,
+        description:
+          "Two days to produce screen designs, a written spec and a fixed quote. Credited in full if you go ahead with the build.",
+      },
+      {
+        name: "First version (MVP)",
+        price: 7950,
+        description:
+          "A focused iPhone app with the core features your users need, ready for the App Store. Paid in stages.",
+      },
+      {
+        name: "App care",
+        price: 149,
+        unit: "a month",
+        description:
+          "Updates for new iOS versions, monitoring, and up to two hours of fixes each month.",
+      },
+    ],
+    price: 7950,
     extra:
-      "Most apps are quoted in stages, so you only commit to one at a time.",
+      "Android can follow as a second stage once the iPhone app is live. Apple charges its own developer fee of about €99 a year.",
   },
 ] as const;
 
@@ -108,7 +173,7 @@ export const PROCESS = [
   {
     title: "Free chat",
     description:
-      "A 20-minute call or coffee in Cork. You tell me what you need, and I tell you honestly whether I can help.",
+      "A 20-minute call or a coffee in Cork. You tell us what you need, and we tell you honestly whether we can help.",
   },
   {
     title: "Fixed quote",
@@ -118,12 +183,12 @@ export const PROCESS = [
   {
     title: "Build",
     description:
-      "Regular check-ins while I build, so you see progress and can change direction early.",
+      "Regular check-ins while we build, so you see progress and can change direction early.",
   },
   {
     title: "Launch and handover",
     description:
-      "Your site, domain and content stay in your name. I show you how it all works.",
+      "Your site, domain and content stay in your name, and we show you how it all works.",
   },
 ] as const;
 
@@ -138,7 +203,7 @@ export const STRENGTHS = [
     icon: "shield-check",
     title: "Security built in",
     description:
-      "My day job is in information security and compliance, so privacy and GDPR are part of the plan from the start, especially with AI.",
+      "Our background is information security and compliance, so privacy and GDPR are part of the plan from the start, especially with AI.",
   },
   {
     icon: "gauge",
@@ -165,6 +230,8 @@ interface Project {
   url: string | null;
   /** Our own page about the project, if it has one. */
   page?: string;
+  /** App Store link, for app projects once they're live. */
+  app?: string | null;
   /** A short quote from the client, once they've given one. */
   review?: { quote: string; name: string };
 }
@@ -175,9 +242,10 @@ export const PROJECTS: readonly Project[] = [
     name: "PADLR.",
     kinds: ["App", "Website"],
     summary:
-      "My own padel app for iPhone: skill ratings, match logging and finding players, with a marketing site at playpadlr.app.",
+      "Our own padel app for iPhone: skill ratings, match logging and finding players, with its website at playpadlr.app.",
     url: PADLR_SITE,
     page: "/work/padlr",
+    app: APP_STORE_URL,
   },
   {
     slug: "your-best-life",

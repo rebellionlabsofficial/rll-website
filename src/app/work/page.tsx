@@ -26,7 +26,7 @@ export default function WorkPage() {
         <div className="container-page">
           <Eyebrow className="rise">Work</Eyebrow>
           <h1 className="rise rise-d1 display mt-7 max-w-4xl text-[clamp(3rem,7vw,5.5rem)]">
-            What I&apos;ve <span className="accent text-lion">built.</span>
+            What we&apos;ve <span className="accent text-lion">built.</span>
           </h1>
           <p className="rise rise-d2 mt-8 max-w-2xl text-lg leading-relaxed text-ink-soft sm:text-xl">
             An iPhone app, websites for local businesses, and AI set-ups for
@@ -43,7 +43,7 @@ export default function WorkPage() {
 
       <CtaBand
         title="Could your business be next?"
-        lead="Tell me what you need. The first chat is free."
+        lead="Tell us what you need. The first chat is free."
       >
         <ButtonLink href="/contact" variant="light" size="lg">
           Book a free chat

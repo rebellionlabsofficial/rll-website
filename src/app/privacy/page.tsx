@@ -37,7 +37,7 @@ const SECTIONS = [
 const PURPOSES = [
   {
     purpose: "Replying to your enquiry and any follow-up",
-    data: "Your name, email address, the topic you choose, your message, and anything else you include in emails to us.",
+    data: "Your name, email address, phone number if you give it, the type of work you choose, your description of the work, and anything else you include in emails to us.",
     basis:
       "Our legitimate interest in responding to people who contact us (GDPR Article 6(1)(f)). If your enquiry is about working with us (a partnership, for example), taking the steps you've asked for before entering into a contract (Article 6(1)(b)).",
   },
@@ -152,7 +152,8 @@ export default function PrivacyPage() {
             <ul>
               <li>
                 <strong>When you use the contact form:</strong> your name, email
-                address, the topic you choose, and your message. Netlify, which
+                address, your phone number if you give it, the type of work you
+                choose, and your description of the work. Netlify, which
                 receives the form for us, also records technical details sent
                 with it, such as your IP address and browser type, and uses them
                 to filter spam.

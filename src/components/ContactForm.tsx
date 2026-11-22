@@ -6,7 +6,7 @@ import Icon from "@/components/Icon";
 import { SITE } from "@/lib/constants";
 
 // Keep in sync with the field list in public/__forms.html.
-const TOPICS = [
+const WORK_TYPES = [
   "A website",
   "An app",
   "AI for my business",
@@ -21,8 +21,21 @@ const fieldClass =
 
 const labelClass = "text-sm font-medium text-ink";
 
-export default function ContactForm() {
+interface ContactFormProps {
+  /** Optional heading shown inside the card, e.g. on the home page. */
+  title?: string;
+  /** Tighter spacing for use beside other content. */
+  compact?: boolean;
+}
+
+export default function ContactForm({
+  title,
+  compact = false,
+}: ContactFormProps) {
   const [status, setStatus] = useState<Status>("idle");
+  const card = `rounded-3xl border border-line bg-white shadow-card ${
+    compact ? "p-6 sm:p-8" : "p-6 sm:p-10"
+  }`;
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -51,23 +64,24 @@ export default function ContactForm() {
     return (
       <div
         role="status"
-        className="flex flex-col items-center rounded-3xl border border-line bg-white p-10 text-center shadow-card sm:p-14"
+        className={`${card} flex flex-col items-center text-center sm:p-14`}
       >
         <span className="flex h-14 w-14 items-center justify-center rounded-full bg-lion-tint text-lion">
           <Icon name="check-circle" className="h-7 w-7" />
         </span>
         <h2 className="mt-6 text-2xl font-semibold tracking-tight">
-          Message sent
+          Enquiry sent
         </h2>
         <p className="mt-3 max-w-sm text-ink-soft">
-          Thanks for getting in touch. I aim to reply within two working days.
+          Thanks for getting in touch. We aim to reply within two working days
+          to arrange a free chat.
         </p>
         <button
           type="button"
           onClick={() => setStatus("idle")}
           className="mt-8 text-sm font-medium text-lion underline-offset-4 hover:underline"
         >
-          Send another message
+          Send another enquiry
         </button>
       </div>
     );
@@ -80,8 +94,12 @@ export default function ContactForm() {
       name="contact"
       method="POST"
       onSubmit={handleSubmit}
-      className="rounded-3xl border border-line bg-white p-6 shadow-card sm:p-10"
+      aria-label={title ?? "Enquiry form"}
+      className={card}
     >
+      {title && (
+        <h2 className="mb-6 text-2xl font-semibold tracking-tight">{title}</h2>
+      )}
       <input type="hidden" name="form-name" value="contact" />
       <p className="hidden">
         <label>
@@ -90,7 +108,7 @@ export default function ContactForm() {
         </label>
       </p>
 
-      <div className="grid gap-6 sm:grid-cols-2">
+      <div className="grid gap-5 sm:grid-cols-2">
         <div>
           <label htmlFor="name" className={labelClass}>
             Name
@@ -117,47 +135,59 @@ export default function ContactForm() {
             className={fieldClass}
           />
         </div>
-      </div>
-
-      <div className="mt-6">
-        <label htmlFor="topic" className={labelClass}>
-          What do you need help with?
-        </label>
-        <div className="relative">
-          <select
-            id="topic"
-            name="topic"
-            defaultValue={TOPICS[0]}
-            className={`${fieldClass} appearance-none pr-11`}
-          >
-            {TOPICS.map((topic) => (
-              <option key={topic} value={topic}>
-                {topic}
-              </option>
-            ))}
-          </select>
-          <Icon
-            name="chevron-down"
-            className="pointer-events-none absolute right-4 top-1/2 mt-1 h-4 w-4 -translate-y-1/2 text-ink-muted"
+        <div>
+          <label htmlFor="phone" className={labelClass}>
+            Phone <span className="font-normal text-ink-muted">(optional)</span>
+          </label>
+          <input
+            type="tel"
+            id="phone"
+            name="phone"
+            autoComplete="tel"
+            className={fieldClass}
           />
+        </div>
+        <div>
+          <label htmlFor="topic" className={labelClass}>
+            Type of work
+          </label>
+          <div className="relative">
+            <select
+              id="topic"
+              name="topic"
+              defaultValue={WORK_TYPES[0]}
+              className={`${fieldClass} appearance-none pr-11`}
+            >
+              {WORK_TYPES.map((type) => (
+                <option key={type} value={type}>
+                  {type}
+                </option>
+              ))}
+            </select>
+            <Icon
+              name="chevron-down"
+              className="pointer-events-none absolute right-4 top-1/2 mt-1 h-4 w-4 -translate-y-1/2 text-ink-muted"
+            />
+          </div>
         </div>
       </div>
 
-      <div className="mt-6">
+      <div className="mt-5">
         <label htmlFor="message" className={labelClass}>
-          Message
+          Tell us about the work
         </label>
         <textarea
           id="message"
           name="message"
-          rows={6}
+          rows={compact ? 4 : 6}
           required
+          placeholder="What does your business do, and what would you like help with?"
           className={`${fieldClass} resize-y`}
         />
       </div>
 
-      <p className="mt-5 text-sm leading-relaxed text-ink-muted">
-        I only use your details to reply to you. See the{" "}
+      <p className="mt-4 text-sm leading-relaxed text-ink-muted">
+        We only use your details to reply to you. See our{" "}
         <Link
           href="/privacy"
           className="font-medium text-ink underline decoration-line-strong underline-offset-4 hover:decoration-ink"
@@ -174,7 +204,7 @@ export default function ContactForm() {
         >
           <Icon name="alert-circle" className="mt-0.5 h-4 w-4 shrink-0" />
           <span>
-            Something went wrong sending your message. Please try again, or
+            Something went wrong sending your enquiry. Please try again, or
             email us at{" "}
             <a
               href={`mailto:${SITE.email}`}
@@ -187,7 +217,11 @@ export default function ContactForm() {
         </p>
       )}
 
-      <div className="mt-8 flex flex-col-reverse items-start gap-4 sm:flex-row sm:items-center sm:justify-between">
+      <div
+        className={`flex flex-col-reverse items-start gap-4 sm:flex-row sm:items-center sm:justify-between ${
+          compact ? "mt-6" : "mt-8"
+        }`}
+      >
         <p className="text-sm text-ink-muted">
           Prefer email?{" "}
           <a
@@ -200,7 +234,7 @@ export default function ContactForm() {
         <button
           type="submit"
           disabled={submitting}
-          className="group inline-flex h-12 items-center gap-2 rounded-full bg-ink px-7 text-[15px] font-medium text-white transition-all duration-300 hover:bg-ink/85 disabled:cursor-wait disabled:opacity-70"
+          className="group inline-flex h-12 shrink-0 items-center gap-2 rounded-full bg-ink px-7 text-[15px] font-medium text-white transition-all duration-300 hover:bg-ink/85 disabled:cursor-wait disabled:opacity-70"
         >
           {submitting ? (
             <>
@@ -209,7 +243,7 @@ export default function ContactForm() {
             </>
           ) : (
             <>
-              Send message
+              Send enquiry
               <Icon
                 name="arrow-right"
                 className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
