@@ -110,6 +110,7 @@ export default function Home() {
 
       <CtaBand
         title="Got a project in mind?"
+        logo
         lead="Tell us what you need. The first chat is free, and you'll get a straight answer on whether we can help."
       >
         <ButtonLink href="#enquire" variant="light" size="lg">

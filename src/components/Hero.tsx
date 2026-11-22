@@ -38,8 +38,8 @@ export default function Hero() {
 
           <p className="rise rise-d2 mt-8 max-w-xl text-lg leading-relaxed text-ink-soft sm:text-xl">
             {SITE.name} is a studio in Cork. We build websites and apps for
-            small businesses, and we help teams use AI tools like ChatGPT in
-            their everyday work, safely.
+            small businesses, and we help teams use AI tools like ChatGPT,
+            Claude and Gemini in their everyday work, safely.
           </p>
 
           <ul className="rise rise-d2 mt-8 space-y-3">

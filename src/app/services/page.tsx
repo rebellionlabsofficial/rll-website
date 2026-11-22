@@ -37,7 +37,7 @@ const QUESTIONS = [
       "Yes. The domain, the content and the site are yours. If you ever want to move on, we'll hand everything over.",
   },
   {
-    question: "Is it safe to use ChatGPT with my business?",
+    question: "Is it safe to use AI tools like ChatGPT with my business?",
     answer:
       "It can be, with some care. Part of every AI session is agreeing what should never go into these tools, such as customer details, and which settings to change so your chats aren't used to train the models.",
   },

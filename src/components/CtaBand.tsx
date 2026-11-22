@@ -6,9 +6,16 @@ interface CtaBandProps {
   lead: ReactNode;
   /** Action buttons. */
   children: ReactNode;
+  /** Show the full Rebel Lion Labs logo beside the text on wider screens. */
+  logo?: boolean;
 }
 
-export default function CtaBand({ title, lead, children }: CtaBandProps) {
+export default function CtaBand({
+  title,
+  lead,
+  children,
+  logo = false,
+}: CtaBandProps) {
   return (
     <section
       data-surface="brand"
@@ -23,9 +30,9 @@ export default function CtaBand({ title, lead, children }: CtaBandProps) {
         alt=""
         width={458}
         height={492}
-        className="pointer-events-none absolute -bottom-24 -right-20 -z-10 w-[22rem] opacity-[0.08] sm:w-[28rem] lg:-bottom-20 lg:right-10 lg:w-[30rem]"
+        className={`pointer-events-none absolute ${logo ? "lg:hidden" : ""} -bottom-24 -right-20 -z-10 w-[22rem] opacity-[0.08] sm:w-[28rem] lg:-bottom-20 lg:right-10 lg:w-[30rem]`}
       />
-      <div className="container-page py-20 sm:py-24 lg:py-28">
+      <div className="container-page flex items-center justify-between gap-12 py-20 sm:py-24 lg:py-28">
         <div className="reveal max-w-2xl">
           <h2 className="heading text-[2.5rem] text-white sm:text-6xl">
             {title}
@@ -33,6 +40,15 @@ export default function CtaBand({ title, lead, children }: CtaBandProps) {
           <p className="mt-6 text-lg leading-relaxed text-white/80">{lead}</p>
           <div className="mt-10 flex flex-wrap gap-3">{children}</div>
         </div>
+        {logo && (
+          <Image
+            src="/brand/kit/logo/rll-stacked-white.svg"
+            alt="Rebel Lion Labs"
+            width={601}
+            height={689}
+            className="reveal reveal-1 hidden h-auto w-56 shrink-0 lg:block xl:mr-10 xl:w-64"
+          />
+        )}
       </div>
     </section>
   );

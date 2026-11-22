@@ -26,7 +26,7 @@ export const SITE = {
   // Home page <title>. Other pages use "<page title> | Rebel Lion Labs".
   title: "Rebel Lion Labs | Websites, Apps and AI for Irish Businesses",
   description:
-    "Rebel Lion Labs builds websites and apps for small businesses and helps teams put AI tools like ChatGPT to work, safely. Based in Cork. The first chat is free.",
+    "Rebel Lion Labs builds websites and apps for small businesses and helps teams put AI tools like ChatGPT, Claude and Gemini to work, safely. Based in Cork. The first chat is free.",
   url: "https://rebellionlabs.app",
   email: "rebellionlabsofficial@gmail.com",
   location: "Cork, Ireland",
@@ -95,7 +95,7 @@ export const SERVICES = [
     title: "AI for your business",
     ask: "Ask about AI help",
     summary:
-      "Practical help getting ChatGPT, Copilot and similar tools into your team's day-to-day work, without putting customer data at risk.",
+      "Practical help getting ChatGPT, Claude, Gemini and Copilot into your team's day-to-day work, without putting customer data at risk.",
     includes: [
       "We find the jobs where AI saves your team time: ideas, planning, writing, admin",
       "Hands-on training on your own tasks, with prompts made for your business",
