@@ -1,10 +1,10 @@
 # Rebel Lion Labs
 
-> Rebel Lion Labs (RL Labs) is a small studio in Cork, Ireland, founded by Levent Arslan, who has a background in information security and compliance. We build websites for small businesses (from €595), help teams use AI tools such as ChatGPT, Microsoft Copilot, Claude and Gemini safely (training from €750), and build native iPhone apps (first version from €7,950). We work in person around Cork and online across Ireland. Every project gets a fixed written quote before work starts.
+> Rebel Lion Labs (RL Labs) is a small studio in Cork, Ireland, founded by Levent Arslan, an IT manager with a background in tech and cybersecurity. We build websites for small businesses (from €595), set up and connect AI tools such as Microsoft 365 Copilot, Gemini, ChatGPT, Claude and Claude Code and train teams to use them (from €750), and build native iPhone apps (first version from €7,950). We work in person around Cork and online across Ireland. Every project gets a fixed written quote before work starts.
 
 ## Services
 - [Web design for small businesses in Cork](https://rebellionlabs.app/services/websites): packages, prices, redesigns, timelines, ownership
-- [AI training and support](https://rebellionlabs.app/services/ai): ChatGPT, Copilot, Claude and Gemini training, AI use policies, EU AI Act AI literacy, automation
+- [AI set-up and training](https://rebellionlabs.app/services/ai): Microsoft 365 Copilot and Gemini set-up, ChatGPT and Claude workspaces, automations and AI agents, Claude Code with plugins, skills and MCP, team training and AI use policies
 - [iPhone app development](https://rebellionlabs.app/services/apps): discovery sprint, first version, App Store submission, care
 - [All services and prices](https://rebellionlabs.app/services)
 

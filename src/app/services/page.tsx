@@ -15,14 +15,14 @@ import { breadcrumbs, faqPage, serviceNode } from "@/lib/structured-data";
 export const metadata = pageMetadata({
   title: "Prices: Web Design, Apps and AI Training",
   description:
-    "Websites from €595, AI training from €750 and iPhone apps from €7,950. A Cork studio working across Ireland, with a fixed written quote before work starts.",
+    "Websites from €595, AI set-up and training from €750 and iPhone apps from €7,950. A Cork studio with a fixed written quote before work starts.",
   path: "/services",
 });
 
 // Example work for each service, split into live projects and ones still to launch.
 const MORE_LABEL: Record<string, string> = {
   websites: "More about web design",
-  ai: "More about AI training",
+  ai: "More about AI set-up",
   apps: "More about app development",
 };
 

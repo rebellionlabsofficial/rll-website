@@ -26,7 +26,7 @@ export const SITE = {
   // Home page <title>. Other pages use "<page title> | Rebel Lion Labs".
   title: "Web Design, Apps and AI Training in Cork | Rebel Lion Labs",
   description:
-    "Rebel Lion Labs is a Cork studio building small business websites from €595 and iPhone apps, and running practical AI training for teams. Free first chat.",
+    "Rebel Lion Labs is a Cork studio building websites from €595 and iPhone apps, and setting up AI tools like Copilot and ChatGPT for teams. Free first chat.",
   url: "https://rebellionlabs.app",
   email: "rebellionlabsofficial@gmail.com",
   location: "Cork, Ireland",
@@ -92,39 +92,45 @@ export const SERVICES = [
   {
     id: "ai",
     icon: "sparkles",
-    title: "AI for your business",
-    ask: "Ask about AI help",
+    title: "AI set-up and training",
+    ask: "Ask about AI",
     summary:
-      "Practical help getting ChatGPT, Claude, Gemini and Copilot into your team's day-to-day work, without putting customer data at risk.",
+      "We set up Microsoft Copilot, Gemini, ChatGPT, Claude and Claude Code for your business, connect them to the software you already use, and train your team to get real work out of them.",
     includes: [
-      "We find the jobs where AI saves your team time: ideas, planning, writing, admin",
-      "Hands-on training on your own tasks, with prompts made for your business",
-      "An AI use policy on what must never go into AI tools: included in the Safe AI workshop, or as its own pack",
-      "A record of who was trained, which supports the EU AI Act's AI literacy requirement",
+      "The right AI tools and plans for how you work, set up and configured properly",
+      "Connected to your email, files and business apps, with custom assistants that know your business",
+      "Hands-on training for your team, built around their own tasks",
+      "Clear rules on data: an AI use policy with every set-up, and a record of who was trained",
     ],
     packages: [
       {
         name: "AI kick-start",
         price: 750,
         description:
-          "A two-hour session for up to 12 people, in Cork or online, with a starter set of prompts and clear rules on data.",
+          "A two-hour training session for up to 12 people, in Cork or online, on the AI tools you already have.",
       },
       {
-        name: "Safe AI workshop",
+        name: "AI workspace set-up",
         price: 1450,
         description:
-          "A half day for up to 15 people. We build one real workflow live and leave you with a prompt library, an AI use policy and a 30-day plan.",
+          "Microsoft 365 Copilot, Gemini, ChatGPT Business or Claude Team set up and connected to your files and email, with custom assistants, an AI use policy and a half-day of team training.",
       },
       {
-        name: "Automation build",
+        name: "Automations and AI agents",
         price: 995,
         description:
-          "We set up one AI-assisted process for you, such as a custom GPT or an automated workflow, and train your team on it.",
+          "AI connected to the apps you run your business on, so routine jobs happen on their own. Priced per workflow, with training for whoever looks after it.",
+      },
+      {
+        name: "Claude Code for technical teams",
+        price: 1200,
+        description:
+          "Claude Code installed and configured with plugins, skills, MCP connectors and GitHub, plus hands-on training for your developers.",
       },
     ],
     price: 750,
     extra:
-      "Also available: an AI policy and data protection pack from €750, and ongoing support from €250 a month.",
+      "Ongoing AI support from €250 a month, for new tools, new assistants and questions as they come up.",
   },
   {
     id: "apps",
@@ -207,7 +213,7 @@ export const STRENGTHS = [
     icon: "shield-check",
     title: "Security built in",
     description:
-      "Our background is information security and compliance, so privacy and GDPR are part of the plan from the start, especially with AI.",
+      "Our background is in tech and cybersecurity, so tools are set up properly and privacy and GDPR are part of the plan from the start.",
   },
   {
     icon: "gauge",

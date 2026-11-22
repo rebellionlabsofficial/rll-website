@@ -15,7 +15,7 @@ const PADLR_LINKS = [
 
 const SERVICE_LINKS = [
   { label: "Web design", href: "/services/websites" },
-  { label: "AI training", href: "/services/ai" },
+  { label: "AI set-up", href: "/services/ai" },
   { label: "App development", href: "/services/apps" },
 ];
 

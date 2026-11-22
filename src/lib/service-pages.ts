@@ -95,44 +95,68 @@ export const SERVICE_PAGES: readonly ServicePage[] = [
   },
   {
     id: "ai",
-    metaTitle: "AI Training for Cork Businesses: ChatGPT and Copilot | RL Labs",
+    metaTitle: "AI Set-up and Training in Cork: Copilot, ChatGPT | RL Labs",
     metaDescription:
-      "Hands-on ChatGPT, Copilot, Claude and Gemini training for Irish teams, in Cork or online, from €750, with clear rules on what data stays out of AI tools.",
-    heading: ["AI training and support for small businesses", "in Cork."],
+      "We set up Microsoft Copilot, Gemini, ChatGPT, Claude and Claude Code for Irish businesses, connect them to your software and train your team. From €750.",
+    heading: ["AI set-up and training for businesses", "in Cork."],
     intro:
-      "We help small teams in Cork and across Ireland use ChatGPT, Microsoft Copilot, Claude and Gemini in their everyday work. Training is hands-on and built around your own tasks. Every session also covers what information must never go into AI tools, and leaves you with a record of who was trained.",
-    serviceName: "AI training and consultancy for small businesses in Cork",
-    serviceType: "AI training",
-    pricesHeading: "AI training packages and prices",
+      "We set up AI tools for small businesses in Cork and across Ireland, and train your team to use them well. That might be Microsoft 365 Copilot connected to your email and SharePoint, Gemini in Google Workspace, a ChatGPT or Claude workspace with assistants that know your business, automations that link AI to the apps you already use, or Claude Code for your developers.",
+    serviceName: "AI set-up, integration and training for businesses in Cork",
+    serviceType: "AI consulting and training",
+    pricesHeading: "AI set-up and training packages",
     sections: [
       {
-        heading: "ChatGPT, Copilot, Claude and Gemini training for your team",
+        heading: "Microsoft 365 Copilot and Google Gemini set-up",
         paragraphs: [
-          "We start with the tool that fits how you already work. If your business runs on Microsoft 365, that's usually Copilot. On Google Workspace, it's Gemini. Otherwise ChatGPT or Claude. Then we train your team on real tasks from your week: writing emails and posts, planning events, summarising documents and turning rough ideas into plans.",
-        ],
-      },
-      {
-        heading: "An AI use policy for your business",
-        paragraphs: [
-          "A one-page policy written with you in plain English. It's included in the Safe AI workshop, or available on its own from €750. It covers:",
+          "If your business runs on Microsoft 365 or Google Workspace, the AI you need is often already there. We get it working properly:",
         ],
         bullets: [
-          "Which AI tools staff may use, and on which accounts",
-          "What information must never go into them, such as customer details and passwords",
-          "When a person must check AI output before it's used",
-          "Who to ask when someone isn't sure",
+          "Choose the right licences, so you don't pay for features nobody uses",
+          "Check SharePoint, OneDrive and Drive sharing first, so Copilot or Gemini can't surface files people shouldn't see",
+          "Set up Copilot in Outlook, Teams, Word and Excel, or Gemini in Gmail, Docs and Sheets",
+          "Build Copilot agents in Copilot Studio, or Gemini Gems, that answer questions from your own documents",
         ],
       },
       {
-        heading: "The EU AI Act and AI literacy",
+        heading: "ChatGPT and Claude workspaces for your team",
         paragraphs: [
-          "If your staff use AI tools at work, the EU AI Act asks you to take steps to support their AI literacy. Our sessions are a practical way to do that: training on the tools they use, a written AI use policy, and a record of who was trained. We don't issue certificates, and no training on its own makes a business compliant.",
+          "For teams that want ChatGPT or Claude, we set up a business workspace rather than personal accounts, so your data is handled under business terms and everyone shares the same tools.",
+        ],
+        bullets: [
+          "ChatGPT Business or Claude Team accounts, with the right data settings",
+          "Connections to Google Drive, SharePoint, Slack and other apps you use",
+          "Custom GPTs and Claude Projects loaded with your price lists, policies and templates",
+          "Claude skills and shared prompts for the jobs you do every week",
         ],
       },
       {
-        heading: "Looking for an AI consultant in Cork?",
+        heading: "Automations and AI agents",
         paragraphs: [
-          "Most small businesses need training and clear rules more than a strategy report, so that's where we start. When a task comes up again and again, we can automate it for you, for example with a custom GPT or an automated workflow, from €995.",
+          "We connect AI to the apps you run your business on, using Zapier, Make, Power Automate or n8n, and MCP connectors that let assistants work directly with your tools. Typical jobs:",
+        ],
+        bullets: [
+          "Drafting replies to new enquiries from your website or inbox",
+          "Turning meeting notes into tasks in your project or CRM tool",
+          "Filling quotes, reports and documents from form answers",
+          "Answering common customer questions from your own information",
+        ],
+      },
+      {
+        heading: "Claude Code for technical teams",
+        paragraphs: [
+          "If your team writes code or manages technical systems, Claude Code can take on real engineering work. We install and configure it properly and show your developers how to use it day to day.",
+        ],
+        bullets: [
+          "Plugins and skills for your stack and the way your team works",
+          "MCP servers connecting Claude Code to GitHub, your issue tracker and internal tools",
+          "Project instructions (CLAUDE.md), hooks and permission settings, so it follows your rules",
+          "Training on planning work, reviewing changes and keeping it safe in your repositories",
+        ],
+      },
+      {
+        heading: "Training that sticks, and rules that keep your data safe",
+        paragraphs: [
+          "Every set-up includes hands-on training built around your team's own tasks, so people keep using the tools after we leave. We also write a one-page AI use policy with you and keep a record of who was trained, which supports the EU AI Act's AI literacy requirement. We don't issue certificates, and no training on its own makes a business compliant.",
         ],
       },
     ],
@@ -142,6 +166,26 @@ export const SERVICE_PAGES: readonly ServicePage[] = [
     },
     faqs: [
       {
+        question: "Can you connect AI to the software we already use?",
+        answer:
+          "Usually, yes. Copilot and Gemini work inside Microsoft 365 and Google Workspace. ChatGPT and Claude connect to apps like Google Drive, SharePoint and Slack, and tools like Zapier, Make, Power Automate, n8n and MCP connectors link AI to most business software. We'll tell you in the free chat what's possible with your set-up.",
+      },
+      {
+        question: "Do you set up Microsoft 365 Copilot?",
+        answer:
+          "Yes. We help you choose the right licences, check your SharePoint and OneDrive sharing so Copilot can't surface files it shouldn't, set it up in Outlook, Teams, Word and Excel, and train your team. We can also build Copilot agents in Copilot Studio that answer questions from your own documents.",
+      },
+      {
+        question: "What is Claude Code, and does my business need it?",
+        answer:
+          "Claude Code is Anthropic's AI tool for software development. It can read a codebase, make changes, run tests and work with GitHub. It's worth it for teams that write code or manage technical systems. We install it with the plugins, skills and MCP connectors your team needs, and train your developers to use it safely.",
+      },
+      {
+        question: "Which AI tool should my business use?",
+        answer:
+          "Usually the one that fits the software you already pay for: Copilot if you use Microsoft 365, Gemini if you use Google Workspace, and ChatGPT or Claude otherwise. The right business plan matters more than the brand, because it decides how your data is handled.",
+      },
+      {
         question: "Is it safe to put business information into ChatGPT?",
         answer:
           "It depends on the plan and the settings. Business plans such as ChatGPT Business and Enterprise, Microsoft 365 Copilot with a work account, Gemini in Google Workspace and Claude's Team and Enterprise plans don't use your data to train their models by default. Free and personal accounts may, unless you turn that off. Whatever the plan, don't paste in customer personal data, passwords or confidential figures unless your AI use policy allows it.",
@@ -150,21 +194,6 @@ export const SERVICE_PAGES: readonly ServicePage[] = [
         question: "What does the EU AI Act mean for a small business?",
         answer:
           "If your staff use AI tools at work, the EU AI Act asks you to take steps to support their AI literacy, so they understand the tools well enough to use them safely. This has applied since 2 February 2025, and there's no exemption for small businesses. No certificate is required. A short training session, a written AI use policy and a record of who was trained is a sensible way to show you've taken those steps.",
-      },
-      {
-        question: "What should an AI use policy include?",
-        answer:
-          "A one-page policy should say which AI tools staff may use and on which accounts, what information must never go into them, when a person must check AI output before it's used, and who to ask when unsure. We write it with you in plain English as part of our Safe AI workshop, or on its own from €750.",
-      },
-      {
-        question: "Do you offer Copilot training?",
-        answer:
-          "Yes. If your business runs on Microsoft 365, we train your team on Copilot in Outlook, Word, Excel and Teams, using your own tasks. We'll also check which Copilot you have, because the free Copilot Chat and the paid Microsoft 365 Copilot can do different things.",
-      },
-      {
-        question: "Which AI tool should my business use?",
-        answer:
-          "Usually the one that fits the software you already pay for: Copilot if you use Microsoft 365, Gemini if you use Google Workspace, and ChatGPT or Claude otherwise. The right business plan matters more than the brand, because it decides how your data is handled.",
       },
     ],
   },

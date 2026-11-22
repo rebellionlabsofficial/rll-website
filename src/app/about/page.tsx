@@ -14,7 +14,7 @@ export const metadata = pageMetadata({
   title: "About Rebel Lion Labs | Cork Web, App and AI Studio",
   absolute: true,
   description:
-    "Rebel Lion Labs is a Cork studio founded by Levent Arslan, with a background in information security. We build websites and apps and run AI training.",
+    "Rebel Lion Labs is a Cork studio founded by Levent Arslan, an IT manager with a background in tech and cybersecurity. We build websites, apps and AI set-ups.",
   path: "/about",
 });
 
@@ -113,10 +113,10 @@ export default function AboutPage() {
               along with its website.
             </p>
             <p>
-              Our founder, {FOUNDER.name}, works in information security and
-              compliance. That shapes how we build: sites that are quick and
-              secure, and AI set-ups where everyone knows what data is safe to
-              share and what isn&apos;t.
+              Our founder, {FOUNDER.name}, is an IT manager with a background in
+              tech and cybersecurity. That shapes how we build: sites that are
+              quick and secure, and AI tools that are set up properly, connected
+              to the software you already use, and safe with your data.
             </p>
             <p>
               Now we do the same for other businesses. We build websites for
@@ -156,15 +156,15 @@ export default function AboutPage() {
             <div className="mt-6 space-y-5 text-lg leading-relaxed text-ink-soft">
               <p>
                 {FOUNDER.name} founded {SITE.name} and does the work. Outside RL
-                Labs, {FOUNDER.name.split(" ")[0]} works in information security
-                and compliance, covering NIS2, supplier risk and security
-                awareness training.
+                Labs, {FOUNDER.name.split(" ")[0]} is an IT manager, with a
+                background in tech and cybersecurity and hands-on experience
+                with Microsoft 365, AI tools and app development.
               </p>
               <p>
-                So every project here treats privacy and security as part of the
-                job: GDPR-friendly forms, sensible security settings on every
-                site, and AI training that starts with what data should stay out
-                of AI tools.
+                So every project gets the same care you&apos;d expect from an IT
+                team: sites with sensible security settings and GDPR-friendly
+                forms, and AI tools that are configured, connected to your
+                software and explained to your team.
               </p>
             </div>
           </div>
