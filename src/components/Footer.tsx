@@ -13,6 +13,12 @@ const PADLR_LINKS = [
   { label: "EULA", href: PADLR.links.eula },
 ];
 
+const SERVICE_LINKS = [
+  { label: "Web design", href: "/services/websites" },
+  { label: "AI training", href: "/services/ai" },
+  { label: "App development", href: "/services/apps" },
+];
+
 const linkClass = "text-sm text-white/65 transition-colors hover:text-white";
 
 export default function Footer() {
@@ -60,7 +66,7 @@ export default function Footer() {
           <nav aria-label="Footer">
             <h2 className="eyebrow text-white/50">Studio</h2>
             <ul className="mt-5 space-y-3">
-              {NAV_LINKS.map((link) => (
+              {[...NAV_LINKS, ...SERVICE_LINKS].map((link) => (
                 <li key={link.href}>
                   <Link href={link.href} className={linkClass}>
                     {link.label}

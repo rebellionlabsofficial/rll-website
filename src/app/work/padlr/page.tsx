@@ -12,9 +12,9 @@ import { getPadlrStats } from "@/lib/padlr-stats";
 import { breadcrumbs, padlrApp } from "@/lib/structured-data";
 
 export const metadata = pageMetadata({
-  title: "PADLR. Padel App: Case Study",
+  title: "PADLR Case Study: an iPhone App Built in Cork",
   description:
-    "How Rebel Lion Labs designed and built PADLR., a padel app for iPhone with a fair 0–7 skill rating, quick match logging and player discovery, plus its website.",
+    "How we designed and built PADLR., a padel app for iPhone with a 0 to 7 skill rating, match logging and player discovery, plus its website.",
   path: "/work/padlr",
 });
 
@@ -61,7 +61,7 @@ export default async function PadlrPage() {
 
   return (
     <>
-      <JsonLd data={[breadcrumbs("PADLR.", "/work/padlr"), padlrApp]} />
+      <JsonLd data={[breadcrumbs(["PADLR.", "/work/padlr"]), padlrApp]} />
 
       <section className="pt-24 sm:pt-28">
         <div
@@ -91,6 +91,10 @@ export default async function PadlrPage() {
                     priority
                     className="h-10 w-auto sm:h-12"
                   />
+                  <span className="sr-only">
+                    : a padel app for iPhone, designed and built by Rebel Lion
+                    Labs
+                  </span>
                 </h1>
                 <p className="rise rise-d1 heading mt-8 text-[2.5rem] text-white sm:text-6xl">
                   Your <span className="text-padlr-neon">Rating.</span> Your
@@ -287,7 +291,7 @@ export default async function PadlrPage() {
         <ButtonLink href="/contact" variant="light" size="lg">
           Book a free chat
         </ButtonLink>
-        <ButtonLink href="/services#apps" variant="ghost-dark" size="lg">
+        <ButtonLink href="/services/apps" variant="ghost-dark" size="lg">
           App pricing
         </ButtonLink>
       </CtaBand>

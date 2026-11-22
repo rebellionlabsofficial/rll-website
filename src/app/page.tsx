@@ -9,7 +9,7 @@ import ServiceCards from "@/components/ServiceCards";
 import Strengths from "@/components/Strengths";
 import { PRICE_NOTE, SITE } from "@/lib/constants";
 import { pageMetadata } from "@/lib/metadata";
-import { organization, website } from "@/lib/structured-data";
+import { founder, organization, website } from "@/lib/structured-data";
 
 export const metadata = pageMetadata({
   description: SITE.description,
@@ -19,7 +19,7 @@ export const metadata = pageMetadata({
 export default function Home() {
   return (
     <>
-      <JsonLd data={[organization, website]} />
+      <JsonLd data={[organization, founder, website]} />
       <Hero />
 
       <section className="border-t border-line py-24 sm:py-32">

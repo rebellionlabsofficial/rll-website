@@ -11,9 +11,10 @@ import { pageMetadata } from "@/lib/metadata";
 import { breadcrumbs, founder } from "@/lib/structured-data";
 
 export const metadata = pageMetadata({
-  title: "About Us: A Cork Studio for Websites, Apps and AI",
+  title: "About Rebel Lion Labs | Cork Web, App and AI Studio",
+  absolute: true,
   description:
-    "Rebel Lion Labs is a studio in Cork founded by Levent Arslan. We build websites and apps and help small businesses use AI, with a background in information security and compliance.",
+    "Rebel Lion Labs is a Cork studio founded by Levent Arslan, with a background in information security. We build websites and apps and run AI training.",
   path: "/about",
 });
 
@@ -32,7 +33,7 @@ const initials = FOUNDER.name
 export default function AboutPage() {
   return (
     <>
-      <JsonLd data={[breadcrumbs("About", "/about"), founder]} />
+      <JsonLd data={[breadcrumbs(["About", "/about"]), founder]} />
 
       <section className="relative isolate overflow-clip pb-20 pt-32 sm:pt-36 lg:pb-28 lg:pt-44">
         <div
@@ -142,6 +143,44 @@ export default function AboutPage() {
                 className="h-5 w-5 text-padlr-neon transition-transform duration-300 group-hover:translate-x-1"
               />
             </Link>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-24 sm:py-32">
+        <div className="container-page grid gap-12 lg:grid-cols-2 lg:gap-16">
+          <div className="reveal">
+            <h2 className="heading text-3xl sm:text-4xl">
+              Who you&apos;ll work with
+            </h2>
+            <div className="mt-6 space-y-5 text-lg leading-relaxed text-ink-soft">
+              <p>
+                {FOUNDER.name} founded {SITE.name} and does the work. Outside RL
+                Labs, {FOUNDER.name.split(" ")[0]} works in information security
+                and compliance, covering NIS2, supplier risk and security
+                awareness training.
+              </p>
+              <p>
+                So every project here treats privacy and security as part of the
+                job: GDPR-friendly forms, sensible security settings on every
+                site, and AI training that starts with what data should stay out
+                of AI tools.
+              </p>
+            </div>
+          </div>
+          <div className="reveal reveal-1">
+            <h2 className="heading text-3xl sm:text-4xl">Why Cork</h2>
+            <div className="mt-6 space-y-5 text-lg leading-relaxed text-ink-soft">
+              <p>
+                We&apos;re based in Cork, and we&apos;d rather meet you over a
+                coffee than a sales call. We meet clients in person around Cork
+                city and county.
+              </p>
+              <p>
+                For businesses elsewhere in Ireland, everything works well over
+                video calls, from the first chat to training your team.
+              </p>
+            </div>
           </div>
         </div>
       </section>

@@ -11,7 +11,7 @@ export default function ServiceCards() {
       {SERVICES.map((service, index) => (
         <li key={service.id} className={`reveal ${STAGGER[index]}`}>
           <Link
-            href={`/services#${service.id}`}
+            href={`/services/${service.id}`}
             className="group flex h-full flex-col rounded-3xl border border-line bg-white p-8 shadow-card transition-all duration-300 hover:-translate-y-1 hover:shadow-lift"
           >
             <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-lion-tint text-lion">

@@ -13,6 +13,8 @@ export const SHARE_IMAGE = {
 interface PageMetadataOptions {
   /** Page title; omitted on the home page so the root default title applies. */
   title?: string;
+  /** Use the title exactly as given, without the " | Rebel Lion Labs" suffix. */
+  absolute?: boolean;
   description: string;
   path: string;
 }
@@ -22,13 +24,18 @@ interface PageMetadataOptions {
 // canonical URL, Open Graph and Twitter fields complete and page-specific.
 export function pageMetadata({
   title,
+  absolute = false,
   description,
   path,
 }: PageMetadataOptions): Metadata {
-  const fullTitle = title ? `${title} | ${SITE.name}` : SITE.title;
+  const fullTitle = title
+    ? absolute
+      ? title
+      : `${title} | ${SITE.name}`
+    : SITE.title;
 
   return {
-    ...(title ? { title } : {}),
+    ...(title ? { title: absolute ? { absolute: title } : title } : {}),
     description,
     alternates: { canonical: path },
     openGraph: {

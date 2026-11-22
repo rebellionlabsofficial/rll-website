@@ -16,7 +16,7 @@ export const metadata = pageMetadata({
 export default function ContactPage() {
   return (
     <section className="relative isolate overflow-clip pb-24 pt-32 sm:pb-32 sm:pt-36 lg:pt-44">
-      <JsonLd data={breadcrumbs("Contact", "/contact")} />
+      <JsonLd data={breadcrumbs(["Contact", "/contact"])} />
       <div
         aria-hidden="true"
         className="bg-grid mask-radial absolute inset-0 -z-10"

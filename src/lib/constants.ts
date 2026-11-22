@@ -24,9 +24,9 @@ export const SITE = {
   short: "RL Labs",
   tagline: "Websites, apps and practical AI, built in Cork.",
   // Home page <title>. Other pages use "<page title> | Rebel Lion Labs".
-  title: "Rebel Lion Labs | Websites, Apps and AI for Irish Businesses",
+  title: "Web Design, Apps and AI Training in Cork | Rebel Lion Labs",
   description:
-    "Rebel Lion Labs builds websites and apps for small businesses and helps teams put AI tools like ChatGPT, Claude and Gemini to work, safely. Based in Cork. The first chat is free.",
+    "Rebel Lion Labs is a Cork studio building small business websites from €595 and iPhone apps, and running practical AI training for teams. Free first chat.",
   url: "https://rebellionlabs.app",
   email: "rebellionlabsofficial@gmail.com",
   location: "Cork, Ireland",
@@ -99,8 +99,8 @@ export const SERVICES = [
     includes: [
       "We find the jobs where AI saves your team time: ideas, planning, writing, admin",
       "Hands-on training on your own tasks, with prompts made for your business",
-      "A one-page AI use policy covering what information must never go into AI tools",
-      "A training record that helps with the EU AI Act's AI literacy requirement",
+      "An AI use policy on what must never go into AI tools: included in the Safe AI workshop, or as its own pack",
+      "A record of who was trained, which supports the EU AI Act's AI literacy requirement",
     ],
     packages: [
       {
@@ -165,6 +165,10 @@ export const SERVICES = [
       "Android can follow as a second stage once the iPhone app is live. Apple charges its own developer fee of about €99 a year.",
   },
 ] as const;
+
+// True while the studio isn't registered for VAT. Change this line if that changes.
+export const VAT_NOTE =
+  "We're not registered for VAT, so no VAT is added to these prices.";
 
 export const PRICE_NOTE =
   "Prices are a starting point. Every project is different, so you get a fixed quote in writing after our first chat, before any work starts.";

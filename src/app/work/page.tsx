@@ -7,7 +7,7 @@ import { pageMetadata } from "@/lib/metadata";
 import { breadcrumbs } from "@/lib/structured-data";
 
 export const metadata = pageMetadata({
-  title: "Work: Websites, Apps and AI Projects",
+  title: "Work: Websites, Apps and AI Projects in Cork",
   description:
     "Projects by Rebel Lion Labs: the PADLR. padel app, websites for local businesses, and ChatGPT set-ups for Cork businesses Your Best Life and All About Cork.",
   path: "/work",
@@ -16,7 +16,7 @@ export const metadata = pageMetadata({
 export default function WorkPage() {
   return (
     <>
-      <JsonLd data={breadcrumbs("Work", "/work")} />
+      <JsonLd data={breadcrumbs(["Work", "/work"])} />
 
       <section className="relative isolate overflow-clip pb-16 pt-32 sm:pt-36 lg:pt-44">
         <div

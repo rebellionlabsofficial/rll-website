@@ -32,8 +32,8 @@ export default function Hero() {
           </p>
 
           <h1 className="rise rise-d1 display mt-8 text-[clamp(3rem,6.4vw,5.25rem)]">
-            Websites, apps and AI that{" "}
-            <span className="accent text-lion">work for you.</span>
+            Websites, apps and AI training for{" "}
+            <span className="accent text-lion">Cork businesses.</span>
           </h1>
 
           <p className="rise rise-d2 mt-8 max-w-xl text-lg leading-relaxed text-ink-soft sm:text-xl">

@@ -61,7 +61,7 @@ const linkClass =
 export default function PrivacyPage() {
   return (
     <>
-      <JsonLd data={breadcrumbs("Privacy Notice", "/privacy")} />
+      <JsonLd data={breadcrumbs(["Privacy Notice", "/privacy"])} />
       <section className="relative isolate overflow-clip pb-14 pt-32 sm:pt-36 lg:pt-44">
         <div
           aria-hidden="true"
@@ -201,17 +201,18 @@ export default function PrivacyPage() {
 
             <h2 id="who-we-share-it-with">Who we share it with</h2>
             <p>
-              We use two service providers, who process personal data on our
-              behalf and under our instructions:
+              We use two service providers to run this website and answer your
+              messages:
             </p>
             <ul>
               <li>
                 <strong>Netlify, Inc. (USA)</strong> hosts this website and
-                receives contact-form submissions for us.
+                receives contact-form submissions for us, as our processor.
               </li>
               <li>
-                <strong>Google LLC (USA)</strong> provides the email service
-                (Gmail) we use to read and answer messages.
+                <strong>Google Ireland Limited</strong> provides the Gmail
+                account we use to read and answer messages. Google handles that
+                email under its own terms and privacy policy.
               </li>
             </ul>
             <p>
@@ -222,13 +223,14 @@ export default function PrivacyPage() {
 
             <h2 id="international-transfers">International transfers</h2>
             <p>
-              Netlify and Google are based in the United States, so your data
-              may be transferred outside the European Economic Area. Where that
-              happens, we rely on the EU-U.S. Data Privacy Framework for
-              providers certified under it, and otherwise on the European
-              Commission&apos;s Standard Contractual Clauses in the
-              provider&apos;s data processing terms. Data travelling to and from
-              this website is encrypted in transit (HTTPS).
+              Netlify is based in the United States, and Google may process
+              email outside the European Economic Area, so your data may be
+              transferred outside the EEA. Where that happens, we rely on the
+              EU-U.S. Data Privacy Framework for providers certified under it,
+              and otherwise on the European Commission&apos;s Standard
+              Contractual Clauses in the provider&apos;s data processing terms.
+              Data travelling to and from this website is encrypted in transit
+              (HTTPS).
             </p>
 
             <h2 id="how-long-we-keep-it">How long we keep it</h2>

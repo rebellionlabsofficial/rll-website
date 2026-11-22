@@ -61,7 +61,7 @@ export default function RootLayout({
 }) {
   return (
     <html
-      lang="en"
+      lang="en-IE"
       className={`${geist.variable} ${geistMono.variable} ${instrumentSerif.variable}`}
     >
       <body>

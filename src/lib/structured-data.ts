@@ -1,12 +1,16 @@
 import type {
   BreadcrumbList,
+  FAQPage,
   MobileApplication,
+  Offer,
   Organization,
   Person,
+  ProfessionalService,
   Service,
   WebSite,
 } from "schema-dts";
 import { FOUNDER, PADLR, SERVICES, SITE } from "@/lib/constants";
+import type { Faq, ServicePage } from "@/lib/service-pages";
 
 // Schema.org data for search engines, typed with schema-dts so a misspelt or
 // misplaced property fails the type check. The full organisation lives on the
@@ -14,6 +18,7 @@ import { FOUNDER, PADLR, SERVICES, SITE } from "@/lib/constants";
 // makes sense on its own.
 
 const ORGANIZATION_ID = `${SITE.url}/#organization`;
+const FOUNDER_ID = `${SITE.url}/about#founder`;
 
 const publisher: Organization = {
   "@type": "Organization",
@@ -22,33 +27,45 @@ const publisher: Organization = {
   url: SITE.url,
 };
 
-// schema-dts also allows an Organization to be a bare name; this one is a node.
-export const organization: Exclude<Organization, string> = {
-  "@type": "Organization",
+const AREA_SERVED = [
+  { "@type": "City", name: "Cork" },
+  { "@type": "AdministrativeArea", name: "Munster" },
+  { "@type": "Country", name: "Ireland" },
+] as const;
+
+// A service-area business, so no street address is published.
+export const organization: Exclude<ProfessionalService, string> = {
+  "@type": "ProfessionalService",
   "@id": ORGANIZATION_ID,
   name: SITE.name,
+  alternateName: SITE.short,
   url: SITE.url,
   logo: `${SITE.url}/logo.png`,
+  image: `${SITE.url}/og-image.png`,
   email: SITE.email,
-  alternateName: SITE.short,
   description: SITE.description,
   address: {
     "@type": "PostalAddress",
     addressLocality: "Cork",
+    addressRegion: "County Cork",
     addressCountry: "IE",
   },
-  areaServed: { "@type": "Country", name: "Ireland" },
-  founder: { "@id": `${SITE.url}/about#founder` },
+  areaServed: [...AREA_SERVED],
+  priceRange: `From €${Math.min(...SERVICES.map((s) => s.price))}`,
+  founder: { "@id": FOUNDER_ID },
   knowsAbout: [
     "Web design",
     "Website development",
     "iOS app development",
-    "Artificial intelligence for small businesses",
+    "AI training for small businesses",
     "ChatGPT",
     "Claude",
     "Google Gemini",
     "Microsoft Copilot",
-    "Data protection",
+    "AI use policies",
+    "EU AI Act AI literacy",
+    "GDPR",
+    "Information security",
   ],
   brand: { "@type": "Brand", name: "PADLR" },
   sameAs: [SITE.linkedin],
@@ -56,11 +73,20 @@ export const organization: Exclude<Organization, string> = {
 
 export const founder: Exclude<Person, string> = {
   "@type": "Person",
-  "@id": `${SITE.url}/about#founder`,
+  "@id": FOUNDER_ID,
   name: FOUNDER.name,
   jobTitle: FOUNDER.role,
+  description:
+    "Founder of Rebel Lion Labs in Cork, with a background in information security and compliance.",
   worksFor: publisher,
   ...(FOUNDER.photo ? { image: `${SITE.url}${FOUNDER.photo}` } : {}),
+  knowsAbout: [
+    "Information security",
+    "Data protection",
+    "GDPR",
+    "iOS development",
+    "AI adoption",
+  ],
   address: {
     "@type": "PostalAddress",
     addressLocality: "Cork",
@@ -68,22 +94,55 @@ export const founder: Exclude<Person, string> = {
   },
 };
 
-export const serviceNodes: Service[] = SERVICES.map((service) => ({
-  "@type": "Service",
-  "@id": `${SITE.url}/services#${service.id}`,
-  name: service.title,
-  description: service.summary,
-  provider: publisher,
-  areaServed: { "@type": "Country", name: "Ireland" },
-  offers: {
+function offers(id: string): Offer[] {
+  const service = SERVICES.find((s) => s.id === id);
+  if (!service) return [];
+  return service.packages.map((pkg) => ({
     "@type": "Offer",
-    priceSpecification: {
-      "@type": "PriceSpecification",
-      minPrice: service.price,
-      priceCurrency: "EUR",
-    },
-  },
-}));
+    name: pkg.name,
+    description: pkg.description,
+    priceSpecification:
+      "unit" in pkg
+        ? {
+            "@type": "UnitPriceSpecification",
+            price: pkg.price,
+            priceCurrency: "EUR",
+            unitText: "month",
+          }
+        : {
+            "@type": "PriceSpecification",
+            minPrice: pkg.price,
+            priceCurrency: "EUR",
+          },
+  }));
+}
+
+export function serviceNode(page: ServicePage): Service {
+  const service = SERVICES.find((s) => s.id === page.id);
+  return {
+    "@type": "Service",
+    "@id": `${SITE.url}/services/${page.id}#service`,
+    name: page.serviceName,
+    serviceType: page.serviceType,
+    description: service?.summary,
+    url: `${SITE.url}/services/${page.id}`,
+    provider: publisher,
+    areaServed: [...AREA_SERVED],
+    offers: offers(page.id),
+  };
+}
+
+export function faqPage(faqs: readonly Faq[], path: string): FAQPage {
+  return {
+    "@type": "FAQPage",
+    "@id": `${SITE.url}${path}#faq`,
+    mainEntity: faqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: { "@type": "Answer", text: faq.answer },
+    })),
+  };
+}
 
 export const website: WebSite = {
   "@type": "WebSite",
@@ -112,13 +171,20 @@ export const padlrApp: MobileApplication = {
   publisher,
 };
 
-/** Home > page trail, so results show the page name instead of the URL. */
-export function breadcrumbs(name: string, path: string): BreadcrumbList {
+/** Home > ... > page trail, so results show page names instead of the URL. */
+export function breadcrumbs(
+  ...trail: readonly [name: string, path: string][]
+): BreadcrumbList {
   return {
     "@type": "BreadcrumbList",
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "Home", item: SITE.url },
-      { "@type": "ListItem", position: 2, name, item: `${SITE.url}${path}` },
+      ...trail.map(([name, path], index) => ({
+        "@type": "ListItem" as const,
+        position: index + 2,
+        name,
+        item: `${SITE.url}${path}`,
+      })),
     ],
   };
 }

@@ -6,24 +6,40 @@ import Icon from "@/components/Icon";
 import JsonLd from "@/components/JsonLd";
 import ProcessSteps from "@/components/ProcessSteps";
 import SectionHeading from "@/components/SectionHeading";
-import { PRICE_NOTE, SERVICES } from "@/lib/constants";
-import { fromPrice } from "@/lib/format";
+import ServicePackages from "@/components/ServicePackages";
+import { PRICE_NOTE, PROJECTS, SERVICES, VAT_NOTE } from "@/lib/constants";
 import { pageMetadata } from "@/lib/metadata";
-import { breadcrumbs, serviceNodes } from "@/lib/structured-data";
+import { SERVICE_PAGES } from "@/lib/service-pages";
+import { breadcrumbs, faqPage, serviceNode } from "@/lib/structured-data";
 
 export const metadata = pageMetadata({
-  title: "Services and Prices: Websites, Apps and AI",
+  title: "Prices: Web Design, Apps and AI Training",
   description:
-    "Websites from €595, team AI training from €750 and iPhone apps from €7,950. A Cork studio working across Ireland, with a fixed quote before any work starts.",
+    "Websites from €595, AI training from €750 and iPhone apps from €7,950. A Cork studio working across Ireland, with a fixed written quote before work starts.",
   path: "/services",
 });
 
-// Which pieces of work to point to from each service.
-const PROOF: Record<string, string[]> = {
-  websites: ["Mike Lynch Electrical", "Luke Cahill Fitness", "playpadlr.app"],
-  ai: ["Your Best Life", "All About Cork"],
-  apps: ["PADLR."],
+// Example work for each service, split into live projects and ones still to launch.
+const MORE_LABEL: Record<string, string> = {
+  websites: "More about web design",
+  ai: "More about AI training",
+  apps: "More about app development",
 };
+
+function proofLine(id: string): string {
+  const slugs = SERVICE_PAGES.find((page) => page.id === id)?.proof.slugs ?? [];
+  const projects = slugs.flatMap((slug) =>
+    PROJECTS.filter((p) => p.slug === slug),
+  );
+  const live = projects.filter((p) => p.url).map((p) => p.name);
+  const soon = projects.filter((p) => !p.url).map((p) => p.name);
+  return [
+    live.length ? `Examples: ${live.join(", ")}.` : "",
+    soon.length ? `Launching soon: ${soon.join(" and ")}.` : "",
+  ]
+    .filter(Boolean)
+    .join(" ");
+}
 
 const QUESTIONS = [
   {
@@ -37,14 +53,9 @@ const QUESTIONS = [
       "Yes. The domain, the content and the site are yours. If you ever want to move on, we'll hand everything over.",
   },
   {
-    question: "Is it safe to use AI tools like ChatGPT with my business?",
-    answer:
-      "It can be, with some care. Part of every AI session is agreeing what should never go into these tools, such as customer details, and which settings to change so your chats aren't used to train the models.",
-  },
-  {
     question: "Can I get a grant towards this?",
     answer:
-      "Sometimes. The old Trading Online Voucher has closed. Its replacement, your Local Enterprise Office's Grow Digital Voucher, can cover up to half the cost of new off-the-shelf software plus set-up and training, so it may help with AI tools. It doesn't cover a custom-built website. Check with your LEO before you buy anything, because approval has to come first.",
+      "Possibly, for AI tools, but not for a custom website or app. The Trading Online Voucher closed in December 2024. Its replacement is the Grow Digital Voucher from your Local Enterprise Office. It pays 50% of eligible costs, from €500 up to €5,000, towards new off-the-shelf software plus set-up and training. To apply, your business needs 1 to 50 employees, at least six months of trading, tax clearance and a completed LEO Digital for Business project in the last two years. Approval has to come before you buy anything, so talk to your LEO first.",
   },
   {
     question: "Do you work outside Cork?",
@@ -56,7 +67,13 @@ const QUESTIONS = [
 export default function ServicesPage() {
   return (
     <>
-      <JsonLd data={[breadcrumbs("Services", "/services"), ...serviceNodes]} />
+      <JsonLd
+        data={[
+          breadcrumbs(["Services", "/services"]),
+          ...SERVICE_PAGES.map(serviceNode),
+          faqPage(QUESTIONS, "/services"),
+        ]}
+      />
 
       <section className="relative isolate overflow-clip pb-16 pt-32 sm:pt-36 lg:pt-44">
         <div
@@ -69,7 +86,7 @@ export default function ServicesPage() {
             Clear prices, <span className="accent text-lion">no jargon.</span>
           </h1>
           <p className="rise rise-d2 mt-8 max-w-2xl text-lg leading-relaxed text-ink-soft sm:text-xl">
-            {PRICE_NOTE}
+            {PRICE_NOTE} {VAT_NOTE}
           </p>
           <nav
             aria-label="Services"
@@ -107,7 +124,9 @@ export default function ServicesPage() {
                 <p className="mt-5 text-lg leading-relaxed text-ink-soft">
                   {service.summary}
                 </p>
-                <h3 className="eyebrow mt-8 text-ink-muted">What you get</h3>
+                <h3 className="eyebrow mt-8 text-ink-muted">
+                  What&apos;s covered
+                </h3>
                 <ul className="mt-5 space-y-3.5">
                   {service.includes.map((item) => (
                     <li
@@ -125,37 +144,11 @@ export default function ServicesPage() {
               </div>
               <div className="lg:col-span-6 lg:col-start-7">
                 <h3 className="eyebrow text-ink-muted">Packages</h3>
-                <ul className="mt-5 space-y-3">
-                  {service.packages.map((pkg) => (
-                    <li
-                      key={pkg.name}
-                      className="rounded-2xl border border-line bg-canvas p-5"
-                    >
-                      <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
-                        <h4 className="font-semibold tracking-tight text-ink">
-                          {pkg.name}
-                        </h4>
-                        <p className="font-semibold text-lion">
-                          {fromPrice(pkg.price)}
-                          {"unit" in pkg && (
-                            <span className="font-normal text-ink-muted">
-                              {" "}
-                              {pkg.unit}
-                            </span>
-                          )}
-                        </p>
-                      </div>
-                      <p className="mt-1.5 text-[15px] leading-relaxed text-ink-soft">
-                        {pkg.description}
-                      </p>
-                    </li>
-                  ))}
-                </ul>
-                <p className="mt-4 text-sm leading-relaxed text-ink-muted">
-                  {service.extra}
-                </p>
+                <div className="mt-5">
+                  <ServicePackages id={service.id} />
+                </div>
                 <p className="mt-8 border-t border-line pt-6 text-sm text-ink-muted">
-                  Examples: {PROOF[service.id].join(", ")}.{" "}
+                  {proofLine(service.id)}{" "}
                   <Link
                     href="/work"
                     className="font-medium text-lion underline-offset-4 hover:underline"
@@ -163,9 +156,14 @@ export default function ServicesPage() {
                     See the work
                   </Link>
                 </p>
-                <ButtonLink href="/contact" className="mt-8">
-                  {service.ask}
-                </ButtonLink>
+                <div className="mt-8 flex flex-wrap gap-3">
+                  <ButtonLink href={`/services/${service.id}`}>
+                    {MORE_LABEL[service.id]}
+                  </ButtonLink>
+                  <ButtonLink href="/contact" variant="secondary">
+                    {service.ask}
+                  </ButtonLink>
+                </div>
               </div>
             </article>
           ))}

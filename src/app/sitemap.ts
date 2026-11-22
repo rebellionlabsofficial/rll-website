@@ -23,6 +23,24 @@ const PAGES: {
     priority: 0.9,
   },
   {
+    path: "/services/websites",
+    lastModified: "2026-11-22",
+    changeFrequency: "monthly",
+    priority: 0.9,
+  },
+  {
+    path: "/services/ai",
+    lastModified: "2026-11-22",
+    changeFrequency: "monthly",
+    priority: 0.9,
+  },
+  {
+    path: "/services/apps",
+    lastModified: "2026-11-22",
+    changeFrequency: "monthly",
+    priority: 0.9,
+  },
+  {
     path: "/work",
     lastModified: "2026-11-22",
     changeFrequency: "monthly",
