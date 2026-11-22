@@ -50,8 +50,8 @@ export default function Hero() {
             players a fair skill rating, a quick way to log matches and an easy
             way to find people to play with.{" "}
             {PADLR_LAUNCHED
-              ? `It's out now on iOS in ${PADLR.countries.length} countries.`
-              : `It launches in ${PADLR.countries.length} countries on iOS in ${PADLR.launch}.`}
+              ? "It's out now on iOS."
+              : `It launches on iOS in ${PADLR.launch}.`}
           </p>
 
           <div className="rise rise-d3 mt-10 flex flex-wrap items-center gap-3">

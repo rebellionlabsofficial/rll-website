@@ -108,8 +108,8 @@ export default function ProductsPage() {
               <p className="mt-3 max-w-md text-white/65">
                 {PADLR.summary}{" "}
                 {PADLR_LAUNCHED
-                  ? `Out now on iOS in ${PADLR.countries.length} countries.`
-                  : `Launching on iOS in ${PADLR.launch} across ${PADLR.countries.length} countries.`}
+                  ? "Out now on iOS."
+                  : `Launching on iOS in ${PADLR.launch}.`}
               </p>
               <p className="mt-8 inline-flex items-center gap-2 text-sm font-medium text-padlr-neon">
                 Explore PADLR.
@@ -203,8 +203,7 @@ export default function ProductsPage() {
                 </ButtonLink>
               </div>
               <p className="mt-6 font-mono text-[11px] uppercase tracking-[0.18em] text-white/55">
-                iOS · {PADLR_LAUNCHED ? "Out now" : PADLR.launch} ·{" "}
-                {PADLR.countries.length} countries · {PADLR.languages} languages
+                iOS · {PADLR_LAUNCHED ? "Out now" : PADLR.launch}
               </p>
             </div>
           </div>
