@@ -1,6 +1,6 @@
 import Eyebrow from "@/components/Eyebrow";
 import JsonLd from "@/components/JsonLd";
-import { PADLR, SITE } from "@/lib/constants";
+import { FOUNDER, PADLR, SITE } from "@/lib/constants";
 import { pageMetadata } from "@/lib/metadata";
 import { breadcrumbs } from "@/lib/structured-data";
 
@@ -11,7 +11,7 @@ export const metadata = pageMetadata({
   path: "/privacy",
 });
 
-const LAST_UPDATED = "25 September 2026";
+const LAST_UPDATED = "22 November 2026";
 
 const SUMMARY = [
   "We only collect what you choose to send us, through the contact form or by email.",
@@ -138,9 +138,10 @@ export default function PrivacyPage() {
           <article className="legal max-w-3xl lg:col-span-8 lg:col-start-5">
             <h2 id="who-we-are">Who we are</h2>
             <p>
-              Rebel Lion Labs, based in {SITE.location}, is the controller of
-              the personal data collected through this website. You can reach us
-              at{" "}
+              Rebel Lion Labs is the trading name of {FOUNDER.name}, a sole
+              trader based in {SITE.location}. {FOUNDER.name} is the controller
+              of the personal data collected through this website. You can reach
+              us at{" "}
               <a href={`mailto:${SITE.email}`} className={linkClass}>
                 {SITE.email}
               </a>
@@ -310,7 +311,7 @@ export default function PrivacyPage() {
 
             <h2 id="contact">Contact us</h2>
             <p>
-              Rebel Lion Labs
+              {FOUNDER.name}, trading as Rebel Lion Labs
               <br />
               {SITE.location}
               <br />

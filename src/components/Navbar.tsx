@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import Icon from "@/components/Icon";
-import { NAV_LINKS, PADLR_CTA, PADLR_LAUNCHED } from "@/lib/constants";
+import { NAV_LINKS } from "@/lib/constants";
 
 export default function Navbar() {
   const pathname = usePathname();
@@ -80,24 +80,17 @@ export default function Navbar() {
         </ul>
 
         <div className="flex items-center gap-2">
-          <a
-            href={PADLR_CTA.href}
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            href="/contact"
+            onClick={() => setOpen(false)}
             className="group hidden h-10 items-center gap-1.5 rounded-full bg-ink px-4 text-sm font-medium text-white transition-colors hover:bg-ink/85 sm:inline-flex"
           >
-            {PADLR_CTA.short}
+            Free chat
             <Icon
-              name="arrow-up-right"
-              className="h-4 w-4 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+              name="arrow-right"
+              className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5"
             />
-            <span className="sr-only">
-              {" "}
-              {PADLR_LAUNCHED
-                ? "for PADLR. on the App Store (opens in a new tab)"
-                : "for PADLR. on playpadlr.app (opens in a new tab)"}
-            </span>
-          </a>
+          </Link>
           <button
             type="button"
             onClick={() => setOpen((value) => !value)}
@@ -149,19 +142,14 @@ export default function Navbar() {
             );
           })}
         </ul>
-        <a
-          href={PADLR_CTA.href}
-          target="_blank"
-          rel="noopener noreferrer"
+        <Link
+          href="/contact"
           onClick={() => setOpen(false)}
           className="mt-2 flex h-12 items-center justify-center gap-2 rounded-2xl bg-ink text-[15px] font-medium text-white"
         >
-          {PADLR_LAUNCHED
-            ? "Get PADLR. on the App Store"
-            : "Join the PADLR. waitlist"}
-          <Icon name="arrow-up-right" className="h-4 w-4" />
-          <span className="sr-only"> (opens in a new tab)</span>
-        </a>
+          Book a free chat
+          <Icon name="arrow-right" className="h-4 w-4" />
+        </Link>
       </div>
     </header>
   );

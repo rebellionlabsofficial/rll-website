@@ -36,8 +36,8 @@ export default function Footer() {
             />
           </Link>
           <p className="mt-6 max-w-sm leading-relaxed text-white/65">
-            Sports apps built for the players, by a player. Our first app is
-            PADLR., for padel.
+            {SITE.tagline} Websites and apps for small businesses, and practical
+            help with AI.
           </p>
           <ul className="mt-8 space-y-3 text-sm">
             <li>
@@ -109,7 +109,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link href="/contact" className={linkClass}>
-                  Partner with us
+                  Book a free chat
                 </Link>
               </li>
             </ul>
@@ -155,7 +155,6 @@ export default function Footer() {
             >
               Privacy notice
             </Link>
-            <p>PADLR. is a trademark of Rebel Lion Labs.</p>
           </div>
         </div>
       </div>

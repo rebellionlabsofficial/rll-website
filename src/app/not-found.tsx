@@ -27,8 +27,8 @@ export default function NotFound() {
             <ButtonLink href="/" size="lg">
               Go to the home page
             </ButtonLink>
-            <ButtonLink href="/products" variant="secondary" size="lg">
-              See PADLR.
+            <ButtonLink href="/work" variant="secondary" size="lg">
+              See the work
             </ButtonLink>
           </div>
         </div>

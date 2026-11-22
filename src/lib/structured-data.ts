@@ -2,9 +2,11 @@ import type {
   BreadcrumbList,
   MobileApplication,
   Organization,
+  Person,
+  Service,
   WebSite,
 } from "schema-dts";
-import { PADLR, SITE } from "@/lib/constants";
+import { FOUNDER, PADLR, SERVICES, SITE } from "@/lib/constants";
 
 // Schema.org data for search engines, typed with schema-dts so a misspelt or
 // misplaced property fails the type check. The full organisation lives on the
@@ -28,16 +30,57 @@ export const organization: Exclude<Organization, string> = {
   url: SITE.url,
   logo: `${SITE.url}/logo.png`,
   email: SITE.email,
-  description:
-    "Rebel Lion Labs is a sports app studio in Dublin, Ireland, and the maker of PADLR., a padel app for skill ratings, match logging and finding players.",
+  alternateName: SITE.short,
+  description: SITE.description,
   address: {
     "@type": "PostalAddress",
-    addressLocality: "Dublin",
+    addressLocality: "Cork",
     addressCountry: "IE",
   },
+  areaServed: { "@type": "Country", name: "Ireland" },
+  founder: { "@id": `${SITE.url}/about#founder` },
+  knowsAbout: [
+    "Web design",
+    "Website development",
+    "iOS app development",
+    "Artificial intelligence for small businesses",
+    "ChatGPT",
+    "Data protection",
+  ],
   brand: { "@type": "Brand", name: "PADLR" },
   sameAs: [SITE.linkedin],
 };
+
+export const founder: Exclude<Person, string> = {
+  "@type": "Person",
+  "@id": `${SITE.url}/about#founder`,
+  name: FOUNDER.name,
+  jobTitle: FOUNDER.role,
+  worksFor: publisher,
+  ...(FOUNDER.photo ? { image: `${SITE.url}${FOUNDER.photo}` } : {}),
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Cork",
+    addressCountry: "IE",
+  },
+};
+
+export const serviceNodes: Service[] = SERVICES.map((service) => ({
+  "@type": "Service",
+  "@id": `${SITE.url}/services#${service.id}`,
+  name: service.title,
+  description: service.summary,
+  provider: publisher,
+  areaServed: { "@type": "Country", name: "Ireland" },
+  offers: {
+    "@type": "Offer",
+    priceSpecification: {
+      "@type": "PriceSpecification",
+      minPrice: service.price,
+      priceCurrency: "EUR",
+    },
+  },
+}));
 
 export const website: WebSite = {
   "@type": "WebSite",
@@ -50,7 +93,7 @@ export const website: WebSite = {
 
 export const padlrApp: MobileApplication = {
   "@type": "MobileApplication",
-  "@id": `${SITE.url}/products#padlr`,
+  "@id": `${SITE.url}/work/padlr#app`,
   // The App Store name has no trailing full stop; the wordmark does.
   name: "PADLR",
   alternateName: PADLR.name,

@@ -7,7 +7,7 @@ export const SHARE_IMAGE = {
   url: "/og-image.png",
   width: 1200,
   height: 630,
-  alt: "Rebel Lion Labs: apps built for the players, by a player. Home of PADLR., the padel app.",
+  alt: "Rebel Lion Labs: websites, apps and practical AI, built in Cork.",
 };
 
 interface PageMetadataOptions {

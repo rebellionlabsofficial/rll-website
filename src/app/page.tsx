@@ -1,11 +1,13 @@
 import Hero from "@/components/Hero";
-import CountryMarquee from "@/components/CountryMarquee";
-import PillarCards from "@/components/PillarCards";
-import FeaturedProduct from "@/components/FeaturedProduct";
-import CtaBand from "@/components/CtaBand";
 import ButtonLink from "@/components/ButtonLink";
+import CtaBand from "@/components/CtaBand";
 import JsonLd from "@/components/JsonLd";
-import { PADLR, PADLR_LAUNCHED, SITE } from "@/lib/constants";
+import ProcessSteps from "@/components/ProcessSteps";
+import ProjectCards from "@/components/ProjectCards";
+import SectionHeading from "@/components/SectionHeading";
+import ServiceCards from "@/components/ServiceCards";
+import Strengths from "@/components/Strengths";
+import { PRICE_NOTE, SITE } from "@/lib/constants";
 import { pageMetadata } from "@/lib/metadata";
 import { organization, website } from "@/lib/structured-data";
 
@@ -20,32 +22,98 @@ export default function Home() {
       <JsonLd data={[organization, website]} />
       <Hero />
 
-      <section
-        aria-label={
-          PADLR_LAUNCHED
-            ? "Where PADLR. is available"
-            : "Where PADLR. is launching"
-        }
-        className="border-y border-line bg-white/40"
-      >
-        <div className="container-page flex items-center gap-8 py-5">
-          <p className="eyebrow hidden shrink-0 text-ink sm:block">
-            {PADLR_LAUNCHED ? "Available" : "Launching"} in{" "}
-            {PADLR.countries.length} countries
-          </p>
-          <CountryMarquee countries={PADLR.countries} />
+      <section className="border-t border-line py-24 sm:py-32">
+        <div className="container-page">
+          <div className="reveal flex flex-wrap items-end justify-between gap-8">
+            <SectionHeading
+              eyebrow="What I do"
+              title={
+                <>
+                  Three ways I can{" "}
+                  <span className="accent text-lion">help.</span>
+                </>
+              }
+              lead={PRICE_NOTE}
+            />
+            <ButtonLink href="/services" variant="secondary">
+              All services and prices
+            </ButtonLink>
+          </div>
+          <div className="mt-14">
+            <ServiceCards />
+          </div>
         </div>
       </section>
 
-      <PillarCards />
-      <FeaturedProduct />
+      <section className="bg-canvas-deep py-24 sm:py-32">
+        <div className="container-page">
+          <div className="reveal flex flex-wrap items-end justify-between gap-8">
+            <SectionHeading
+              eyebrow="Recent work"
+              title={
+                <>
+                  Built for real{" "}
+                  <span className="accent text-lion">businesses.</span>
+                </>
+              }
+              lead="Websites, an app and AI set-ups for businesses in Cork and beyond."
+            />
+            <ButtonLink href="/work" variant="secondary">
+              See all the work
+            </ButtonLink>
+          </div>
+          <div className="mt-14">
+            <ProjectCards
+              slugs={["padlr", "your-best-life", "all-about-cork"]}
+            />
+          </div>
+        </div>
+      </section>
+
+      <section className="py-24 sm:py-32">
+        <div className="container-page grid gap-14 lg:grid-cols-12 lg:gap-10">
+          <div className="reveal lg:col-span-4">
+            <SectionHeading
+              eyebrow="Why work with me"
+              title={
+                <>
+                  Straight answers,{" "}
+                  <span className="accent text-lion">solid work.</span>
+                </>
+              }
+            />
+          </div>
+          <div className="lg:col-span-8">
+            <Strengths />
+          </div>
+        </div>
+      </section>
+
+      <section className="border-t border-line bg-white/50 py-24 sm:py-32">
+        <div className="container-page">
+          <div className="reveal">
+            <SectionHeading
+              eyebrow="How it works"
+              title={
+                <>
+                  From first chat to{" "}
+                  <span className="accent text-lion">launch.</span>
+                </>
+              }
+            />
+          </div>
+          <div className="mt-14">
+            <ProcessSteps />
+          </div>
+        </div>
+      </section>
 
       <CtaBand
-        title="Talk to us."
-        lead="We'd like to hear from players, clubs, partners and investors. Use the contact form or send us an email."
+        title="Got a project in mind?"
+        lead="Tell me what you need. The first chat is free, and you'll get a straight answer on whether I can help."
       >
         <ButtonLink href="/contact" variant="light" size="lg">
-          Get in touch
+          Book a free chat
         </ButtonLink>
         <ButtonLink
           href={`mailto:${SITE.email}`}
@@ -53,7 +121,7 @@ export default function Home() {
           size="lg"
           icon="mail"
         >
-          Email us
+          Email me
         </ButtonLink>
       </CtaBand>
     </>

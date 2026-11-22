@@ -1,11 +1,11 @@
-// This site summarises PADLR. and links to https://playpadlr.app for the
-// details. Keep only facts here that rarely change (what the app does, the
-// launch, countries, the rating scale), so the two sites can't drift apart.
+// Site content in one place. Keep PADLR. facts general (what the app does,
+// not counts of countries, languages or tests) so nothing here goes stale
+// when the app grows. Live numbers come from src/lib/padlr-stats.ts instead.
 
 const PADLR_SITE = "https://playpadlr.app";
 
 // Launch-day switch. Paste the App Store link here when PADLR. goes live and
-// every waitlist button, launch date and "coming soon" line switches over.
+// every waitlist button and "coming soon" line switches over.
 const APP_STORE_URL = null as string | null;
 
 export const PADLR_LAUNCHED = APP_STORE_URL !== null;
@@ -19,115 +19,214 @@ export const PADLR_CTA = APP_STORE_URL
       short: "Join waitlist",
     };
 
-const LANGUAGES = 14;
-
-const COUNTRIES = [
-  "Argentina",
-  "Austria",
-  "Bahrain",
-  "Belgium",
-  "Brazil",
-  "Canada",
-  "Chile",
-  "Colombia",
-  "Denmark",
-  "Finland",
-  "France",
-  "Germany",
-  "Ireland",
-  "Italy",
-  "Kuwait",
-  "Netherlands",
-  "Norway",
-  "Poland",
-  "Portugal",
-  "Qatar",
-  "Saudi Arabia",
-  "Spain",
-  "Sweden",
-  "Switzerland",
-  "UAE",
-  "UK",
-  "Uruguay",
-  "US",
-] as const;
-
 export const SITE = {
   name: "Rebel Lion Labs",
-  tagline: "Apps Built for the Players, by a Player",
+  short: "RL Labs",
+  tagline: "Websites, apps and practical AI, built in Cork.",
   // Home page <title>. Other pages use "<page title> | Rebel Lion Labs".
-  title: "Rebel Lion Labs | Makers of the PADLR. Padel Rating App",
-  description: `Sports app studio in Dublin, Ireland. We make PADLR., the padel app for skill ratings, match logging and finding players. ${
-    PADLR_LAUNCHED ? "Out now on iOS." : "On iOS from November 2026."
-  }`,
+  title: "Rebel Lion Labs | Websites, Apps and AI for Irish Businesses",
+  description:
+    "Rebel Lion Labs builds websites and apps for small businesses and helps teams put AI tools like ChatGPT to work, safely. Based in Cork. The first chat is free.",
   url: "https://rebellionlabs.app",
   email: "rebellionlabsofficial@gmail.com",
-  location: "Dublin, Ireland",
+  location: "Cork, Ireland",
   linkedin: "https://www.linkedin.com/company/rebel-lion-labs/",
+} as const;
+
+export const FOUNDER = {
+  name: "Levent Arslan",
+  role: "Founder",
+  // Drop a square photo into public/ and set its path here, e.g. "/levent.jpg".
+  photo: null as string | null,
 } as const;
 
 export const NAV_LINKS = [
   { label: "Home", href: "/" },
+  { label: "Services", href: "/services" },
+  { label: "Work", href: "/work" },
   { label: "About", href: "/about" },
-  { label: "Products", href: "/products" },
   { label: "Contact", href: "/contact" },
 ] as const;
 
-export const PILLARS = [
+export const SERVICES = [
   {
-    title: "Made by players",
-    description:
-      "We play the sports we build for, so we design for what actually happens on court and in the minutes after a match.",
+    id: "websites",
+    icon: "globe",
+    title: "Websites",
+    ask: "Ask about a website",
+    summary:
+      "A fast, good-looking website that tells people what you do and makes it easy to get in touch.",
+    includes: [
+      "Up to five pages, designed for phones first",
+      "Contact form that sends enquiries straight to you",
+      "Set up on your own domain, with Google Search basics done",
+      "Fast loading and accessible, checked with Google's own tools",
+    ],
+    price: 750,
+    extra:
+      "Hosting and small updates from €25 a month, or look after it yourself.",
   },
   {
-    title: "Built around people",
-    description:
-      "Sport is social. Our apps help you find people to play with, keep a rivalry going and climb your club's leaderboard.",
+    id: "ai",
+    icon: "sparkles",
+    title: "AI for your business",
+    ask: "Ask about AI help",
+    summary:
+      "Practical help getting ChatGPT and similar tools into your team's day-to-day work, without putting customer data at risk.",
+    includes: [
+      "A half-day session with your team, in Cork or online",
+      "We pick the jobs where AI saves time: ideas, planning, writing, admin",
+      "Prompts and templates set up for your business",
+      "Plain rules on what information should never go into an AI tool",
+    ],
+    price: 350,
+    extra: "Follow-up help by the hour or on a monthly plan.",
   },
   {
-    title: "Properly engineered",
-    description:
-      "A rating only works if players trust it. PADLR.'s rating engine alone has more than 300 automated tests.",
+    id: "apps",
+    icon: "smartphone",
+    title: "Apps",
+    ask: "Ask about an app",
+    summary:
+      "iPhone apps built properly, from first idea to the App Store, the same way PADLR. was built.",
+    includes: [
+      "Scoping session to agree what the first version needs",
+      "Design, build and testing",
+      "App Store submission and review",
+      "Support after launch",
+    ],
+    price: 5000,
+    extra:
+      "Most apps are quoted in stages, so you only commit to one at a time.",
   },
 ] as const;
 
-export const PRINCIPLES = [
+export const PRICE_NOTE =
+  "Prices are a starting point. Every project is different, so you get a fixed quote in writing after our first chat, before any work starts.";
+
+export const PROCESS = [
   {
-    title: "Transparency",
+    title: "Free chat",
     description:
-      "You should always know why your rating moved. PADLR. explains every change in plain language, so a drop makes sense and a rise shows what earned it.",
+      "A 20-minute call or coffee in Cork. You tell me what you need, and I tell you honestly whether I can help.",
   },
   {
-    title: "Fairness",
+    title: "Fixed quote",
     description:
-      "Every competitive result goes to your opponents to confirm, so nobody can just claim a win. The maths allows for partner strength, and automatic checks look for anyone trying to game the system.",
+      "A written plan with the price and timeline, so there are no surprises.",
   },
   {
-    title: "Community",
+    title: "Build",
     description:
-      "Padel is social, and PADLR. is too. You can follow friends' matches, earn badges for milestones and find new players at your level.",
+      "Regular check-ins while I build, so you see progress and can change direction early.",
   },
   {
-    title: "Simplicity",
+    title: "Launch and handover",
     description:
-      "Logging a match should take 30 seconds: add the players, enter the score, done. If logging feels like a chore, people stop doing it.",
+      "Your site, domain and content stay in your name. I show you how it all works.",
   },
 ] as const;
 
-export const PADEL_STATS = [
-  { value: "30M+", label: "Padel players worldwide" },
-  { value: "130+", label: "Countries that play padel" },
-  { value: "50,000+", label: "Courts worldwide, with more opening every week" },
+export const STRENGTHS = [
+  {
+    icon: "message-square",
+    title: "Plain English",
+    description:
+      "No jargon. You'll know what you're paying for, why it matters and what happens next.",
+  },
+  {
+    icon: "shield-check",
+    title: "Security built in",
+    description:
+      "My day job is in information security and compliance, so privacy and GDPR are part of the plan from the start, especially with AI.",
+  },
+  {
+    icon: "gauge",
+    title: "Fast and findable",
+    description:
+      "Sites load quickly on phones and are set up so Google can understand them.",
+  },
+  {
+    icon: "map-pin",
+    title: "Local",
+    description:
+      "Based in Cork, happy to meet in person, and working with businesses anywhere in Ireland.",
+  },
 ] as const;
+
+type ProjectKind = "Website" | "App" | "AI";
+
+interface Project {
+  slug: string;
+  name: string;
+  kinds: readonly ProjectKind[];
+  summary: string;
+  /** Live address. Leave null until the site launches. */
+  url: string | null;
+  /** Our own page about the project, if it has one. */
+  page?: string;
+  /** A short quote from the client, once they've given one. */
+  review?: { quote: string; name: string };
+}
+
+export const PROJECTS: readonly Project[] = [
+  {
+    slug: "padlr",
+    name: "PADLR.",
+    kinds: ["App", "Website"],
+    summary:
+      "My own padel app for iPhone: skill ratings, match logging and finding players, with a marketing site at playpadlr.app.",
+    url: PADLR_SITE,
+    page: "/work/padlr",
+  },
+  {
+    slug: "your-best-life",
+    name: "Your Best Life",
+    kinds: ["AI"],
+    summary:
+      "Helped the team behind Cork's Your Best Life wellness events bring ChatGPT into their workflow: brainstorming event ideas, planning what happens on the day and developing new business ideas.",
+    url: "https://www.yourbestlife.ie",
+  },
+  {
+    slug: "all-about-cork",
+    name: "All About Cork",
+    kinds: ["AI"],
+    summary:
+      "Set up ChatGPT for All About Cork, the Cork lifestyle and news site, to help with ideas for events, planning them out and expanding on new business ideas.",
+    url: "https://allaboutcork.ie",
+  },
+  {
+    slug: "mike-lynch-electrical",
+    name: "Mike Lynch Electrical",
+    kinds: ["Website"],
+    summary:
+      "A new website for an electrical business, so customers can see what they do and get in touch.",
+    url: null,
+  },
+  {
+    slug: "luke-cahill-fitness",
+    name: "Luke Cahill Fitness",
+    kinds: ["Website"],
+    summary:
+      "A new website for a personal trainer, built to bring in new clients.",
+    url: null,
+  },
+  {
+    slug: "rebel-lion-labs",
+    name: "Rebel Lion Labs",
+    kinds: ["Website"],
+    summary:
+      "This site. It scores 100 for accessibility, best practices and SEO in Google's Lighthouse checks.",
+    url: "https://rebellionlabs.app",
+  },
+];
 
 export const PADLR = {
   name: "PADLR.",
   tagline: "Your Rating. Your Game. Your Community.",
   summary: "The padel app for ratings, matches and finding players.",
-  description: `Track your skill rating, record matches, find players, join open games and climb the leaderboards, all in one app across ${COUNTRIES.length} countries.`,
   about:
     "PADLR. is an app for padel players. It gives you a skill rating on a 0–7 scale that updates after every confirmed competitive match and shows you why it moved. You can also log matches, find players near you, join open games and climb the leaderboards. The rating runs on OpenSkill, a Bayesian system built for team sports.",
-  launch: "November 2026",
   appStoreUrl: APP_STORE_URL,
   links: {
     website: PADLR_SITE,
@@ -137,14 +236,22 @@ export const PADLR = {
     terms: `${PADLR_SITE}/docs/terms/`,
     eula: `${PADLR_SITE}/docs/eula/`,
   },
-  stats: [
+  // What the build involved: no counts, so it never needs updating.
+  build: [
     {
-      value: String(COUNTRIES.length),
-      label: PADLR_LAUNCHED ? "Countries" : "Countries at launch",
+      title: "Native iPhone app",
+      description: "Built in SwiftUI, with a Firebase backend.",
     },
-    { value: String(LANGUAGES), label: "Languages" },
-    { value: "0–7", label: "Rating scale" },
-    { value: "30s", label: "To log a match" },
+    {
+      title: "A rating people trust",
+      description:
+        "A Bayesian rating engine for doubles, covered by automated tests and explained in plain language after every match.",
+    },
+    {
+      title: "Marketing site and blog",
+      description:
+        "playpadlr.app, with guides and a waitlist, built to rank for padel searches.",
+    },
   ],
   features: [
     {
@@ -180,7 +287,8 @@ export const PADLR = {
     {
       icon: "calendar-check",
       title: "Open Games",
-      short: "Set up a game or join one nearby. You book the court with the venue.",
+      short:
+        "Set up a game or join one nearby. You book the court with the venue.",
     },
     {
       icon: "message-circle",
@@ -188,8 +296,6 @@ export const PADLR = {
       short: "Direct messages and group chats for your matches.",
     },
   ],
-  countries: COUNTRIES,
-  languages: LANGUAGES,
   socials: [
     {
       label: "Instagram",

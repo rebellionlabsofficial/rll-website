@@ -1,8 +1,7 @@
 import Image from "next/image";
 import ButtonLink from "@/components/ButtonLink";
-import Icon from "@/components/Icon";
 import PhoneFrame from "@/components/PhoneFrame";
-import { PADLR, PADLR_CTA, PADLR_LAUNCHED } from "@/lib/constants";
+import { FOUNDER, SITE } from "@/lib/constants";
 
 export default function Hero() {
   return (
@@ -18,48 +17,31 @@ export default function Hero() {
 
       <div className="container-page grid items-center gap-16 lg:grid-cols-12 lg:gap-10">
         <div className="lg:col-span-7">
-          <a
-            href={PADLR_CTA.href}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="rise group inline-flex items-center gap-3 rounded-full border border-line bg-white/80 py-1.5 pl-1.5 pr-4 text-sm shadow-card backdrop-blur transition-colors hover:border-line-strong"
-          >
-            <span className="rounded-full bg-ink px-2.5 py-1 font-mono text-[10px] font-medium uppercase tracking-[0.18em] text-padlr-neon">
-              {PADLR_LAUNCHED ? "Out now" : "Nov 2026"}
-            </span>
-            <span className="text-ink-soft">
-              {PADLR_LAUNCHED
-                ? "PADLR. is on the App Store. Download it free"
-                : "PADLR. launches on iOS. Join the waitlist"}
-            </span>
-            <Icon
-              name="arrow-up-right"
-              className="h-4 w-4 text-ink-muted transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+          <p className="rise eyebrow inline-flex items-center gap-2.5 text-ink-muted">
+            <span
+              aria-hidden="true"
+              className="h-1.5 w-1.5 rounded-full bg-lion"
             />
-            <span className="sr-only"> (opens in a new tab)</span>
-          </a>
+            {SITE.short} · {SITE.location}
+          </p>
 
-          <h1 className="rise rise-d1 display mt-8 text-[clamp(3rem,7.4vw,6rem)]">
-            Apps built for the players,{" "}
-            <span className="accent text-lion">by a player.</span>
+          <h1 className="rise rise-d1 display mt-8 text-[clamp(3rem,7vw,5.75rem)]">
+            Websites, apps and AI that{" "}
+            <span className="accent text-lion">work for you.</span>
           </h1>
 
           <p className="rise rise-d2 mt-8 max-w-xl text-lg leading-relaxed text-ink-soft sm:text-xl">
-            We&apos;re a small sports app studio in Dublin. Our first app,{" "}
-            <span className="font-semibold text-ink">PADLR.</span>, gives padel
-            players a fair skill rating, a quick way to log matches and an easy
-            way to find people to play with.{" "}
-            {PADLR_LAUNCHED
-              ? `It's out now on iOS in ${PADLR.countries.length} countries.`
-              : `It launches in ${PADLR.countries.length} countries on iOS in ${PADLR.launch}.`}
+            I&apos;m {FOUNDER.name.split(" ")[0]}, and {SITE.name} is my studio
+            in Cork. I build websites and apps for small businesses, and I help
+            teams use AI tools like ChatGPT in their everyday work, safely.
           </p>
 
           <div className="rise rise-d3 mt-10 flex flex-wrap items-center gap-3">
-            <ButtonLink href="/products" size="lg">
-              Explore PADLR.
+            <ButtonLink href="/contact" size="lg">
+              Book a free chat
             </ButtonLink>
-            <ButtonLink href="/about" variant="secondary" size="lg">
-              Our story
+            <ButtonLink href="/work" variant="secondary" size="lg">
+              See the work
             </ButtonLink>
           </div>
         </div>
@@ -97,21 +79,21 @@ export default function Hero() {
 
           <div className="absolute -left-3 top-[30%] rounded-2xl border border-line bg-white/90 px-4 py-3 shadow-lift backdrop-blur sm:-left-8">
             <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-ink-muted">
-              Skill rating
+              Recent work
             </p>
-            <p className="mt-1 text-2xl font-semibold tracking-tight text-ink">
-              0–7
+            <p className="mt-1 text-lg font-semibold tracking-tight text-ink">
+              PADLR.
             </p>
-            <p className="text-xs text-ink-muted">OpenSkill Bayesian</p>
+            <p className="text-xs text-ink-muted">iPhone app and website</p>
           </div>
           <div className="absolute -right-3 bottom-[14%] rounded-2xl border border-line bg-white/90 px-4 py-3 shadow-lift backdrop-blur sm:-right-6">
             <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-ink-muted">
-              Log a match
+              Also
             </p>
-            <p className="mt-1 text-2xl font-semibold tracking-tight text-ink">
-              30s
+            <p className="mt-1 text-lg font-semibold tracking-tight text-ink">
+              AI set-up
             </p>
-            <p className="text-xs text-ink-muted">Player-confirmed</p>
+            <p className="text-xs text-ink-muted">For Cork businesses</p>
           </div>
         </div>
       </div>

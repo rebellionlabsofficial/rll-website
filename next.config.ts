@@ -37,6 +37,12 @@ const securityHeaders = [
 ];
 
 const nextConfig: NextConfig = {
+  // /products became the PADLR. case study; keep old links and search results working.
+  async redirects() {
+    return [
+      { source: "/products", destination: "/work/padlr", permanent: true },
+    ];
+  },
   async headers() {
     return [{ source: "/(.*)", headers: securityHeaders }];
   },

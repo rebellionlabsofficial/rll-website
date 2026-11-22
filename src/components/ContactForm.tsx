@@ -7,11 +7,11 @@ import { SITE } from "@/lib/constants";
 
 // Keep in sync with the field list in public/__forms.html.
 const TOPICS = [
-  "General enquiry",
-  "Partnership",
-  "Investment",
-  "Press",
-  "PADLR. feedback",
+  "A website",
+  "An app",
+  "AI for my business",
+  "PADLR.",
+  "Something else",
 ] as const;
 
 type Status = "idle" | "submitting" | "success" | "error";
@@ -60,7 +60,7 @@ export default function ContactForm() {
           Message sent
         </h2>
         <p className="mt-3 max-w-sm text-ink-soft">
-          Thanks for getting in touch. We aim to reply within two working days.
+          Thanks for getting in touch. I aim to reply within two working days.
         </p>
         <button
           type="button"
@@ -121,7 +121,7 @@ export default function ContactForm() {
 
       <div className="mt-6">
         <label htmlFor="topic" className={labelClass}>
-          What&apos;s it about?
+          What do you need help with?
         </label>
         <div className="relative">
           <select
@@ -157,7 +157,7 @@ export default function ContactForm() {
       </div>
 
       <p className="mt-5 text-sm leading-relaxed text-ink-muted">
-        We only use your details to reply to you. See our{" "}
+        I only use your details to reply to you. See the{" "}
         <Link
           href="/privacy"
           className="font-medium text-ink underline decoration-line-strong underline-offset-4 hover:decoration-ink"
