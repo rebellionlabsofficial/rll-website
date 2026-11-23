@@ -30,6 +30,15 @@ them under `.wrangler/tmp/email/`.
   preview version with its own URL. There's no deploy limit to worry about
   on the free plan.
 
+### Build settings in Cloudflare
+
+Workers & Pages → `rll-website` → Settings → Build:
+
+- Git repository: `rebellionlabsofficial/rll-website`, production branch `main`
+- Build command: `npm run build`
+- Deploy command: `npx wrangler deploy`
+- The Worker name must stay `rll-website`, to match `wrangler.jsonc`.
+
 ## Cloudflare set-up (done once)
 
 - Zone `rebellionlabs.app` with:
