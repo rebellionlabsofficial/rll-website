@@ -69,7 +69,7 @@ const PAGES: {
   },
   {
     path: "/privacy",
-    lastModified: "2026-11-22",
+    lastModified: "2026-11-23",
     changeFrequency: "yearly",
     priority: 0.3,
   },

@@ -6,14 +6,16 @@
 # inline scripts because Next.js inlines its page data and the pages are
 # prerendered, so there is no per-request nonce to use. The site has no
 # user-generated content, and the policy still blocks third-party scripts,
-# framing, plugins and sending data to other origins.
+# framing, plugins and sending data to other origins. The one exception is
+# Cloudflare Web Analytics (cookie-free visit counts), which Cloudflare adds to
+# each page: its script and the endpoint it reports to are allowed.
 # HSTS is left out: every .app domain is HTTPS-only in browsers already.
 #
 # These only apply to files. The enquiry endpoint sets its own headers in
 # worker/index.ts.
 
 /*
-  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self'; connect-src 'self' https://cloudflareinsights.com; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'
   X-Frame-Options: DENY
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin

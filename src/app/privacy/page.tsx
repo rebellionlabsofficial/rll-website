@@ -11,12 +11,12 @@ export const metadata = pageMetadata({
   path: "/privacy",
 });
 
-const LAST_UPDATED = "22 November 2026";
+const LAST_UPDATED = "23 November 2026";
 
 const SUMMARY = [
   "We only collect what you choose to send us, through the contact form or by email.",
   "We use it to reply to you. We don't use it for marketing, and we never sell it.",
-  "This website doesn't use cookies, analytics, advertising, or tracking.",
+  "This website doesn't use cookies, advertising, or tracking. We count visits with Cloudflare Web Analytics, which doesn't identify you.",
   "You can ask us to see, correct, or delete your data at any time.",
 ];
 
@@ -46,6 +46,12 @@ const PURPOSES = [
     data: "Technical details such as your IP address, browser type, and the pages requested, including those sent with a form submission.",
     basis:
       "Our legitimate interest in keeping the site available, secure, and free of abuse (Article 6(1)(f)).",
+  },
+  {
+    purpose: "Counting visits to the site",
+    data: "The page visited, the site you came from, your browser and device type, your country, and how quickly the page loaded. Collected without cookies and only shown to us as totals.",
+    basis:
+      "Our legitimate interest in knowing which pages are useful so we can improve the site (Article 6(1)(f)).",
   },
   {
     purpose: "Meeting our legal obligations",
@@ -208,7 +214,8 @@ export default function PrivacyPage() {
               <li>
                 <strong>Cloudflare, Inc. (USA)</strong> hosts this website and
                 receives contact-form submissions for us, sending them to our
-                inbox by email, as our processor.
+                inbox by email. It also provides our visit counts (Web
+                Analytics). It acts as our processor.
               </li>
               <li>
                 <strong>Google Ireland Limited</strong> provides the Gmail
@@ -253,9 +260,17 @@ export default function PrivacyPage() {
             <h2 id="cookies">Cookies and tracking</h2>
             <p>
               This website doesn&apos;t set cookies, and it doesn&apos;t use
-              analytics, advertising, or tracking technologies. Our fonts and
-              images are served from this website, so browsing it doesn&apos;t
-              send your data to third parties such as Google Fonts.
+              advertising or tracking technologies. Our fonts and images are
+              served from this website, so browsing it doesn&apos;t send your
+              data to third parties such as Google Fonts.
+            </p>
+            <p>
+              We use Cloudflare Web Analytics to count visits. It doesn&apos;t
+              use cookies or store anything on your device, and it doesn&apos;t
+              follow you across other websites. It records the page you visited,
+              the site you came from, your browser and device type, your
+              country, and how quickly the page loaded, and shows us only
+              totals, never individual visitors.
             </p>
             <p>
               Links to social networks and to playpadlr.app are ordinary links.
