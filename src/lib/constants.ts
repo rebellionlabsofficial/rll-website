@@ -28,7 +28,8 @@ export const SITE = {
   description:
     "Rebel Lion Labs is a Cork studio building websites from €595 and iPhone apps, and setting up AI tools like Copilot and ChatGPT for teams. Free first chat.",
   url: "https://rebellionlabs.app",
-  email: "rebellionlabsofficial@gmail.com",
+  // Forwarded to our Gmail inbox by Cloudflare Email Routing.
+  email: "levent@rebellionlabs.app",
   location: "Cork, Ireland",
   linkedin: "https://www.linkedin.com/company/rebel-lion-labs/",
 } as const;

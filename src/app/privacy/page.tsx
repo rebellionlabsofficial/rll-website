@@ -214,8 +214,9 @@ export default function PrivacyPage() {
               <li>
                 <strong>Cloudflare, Inc. (USA)</strong> hosts this website and
                 receives contact-form submissions for us, sending them to our
-                inbox by email. It also provides our visit counts (Web
-                Analytics). It acts as our processor.
+                inbox by email. It also forwards email sent to our address to
+                that inbox, and provides our visit counts (Web Analytics). It
+                acts as our processor.
               </li>
               <li>
                 <strong>Google Ireland Limited</strong> provides the Gmail
