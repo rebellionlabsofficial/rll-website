@@ -5,7 +5,12 @@
   "name": "rll-website",
   "main": "worker/index.ts",
   "compatibility_date": "2026-11-01",
-  "observability": { "enabled": true },
+  // Keep error logs, but not a log line per request: the privacy notice says
+  // we don't keep visitor logs.
+  "observability": {
+    "enabled": true,
+    "logs": { "enabled": true, "invocation_logs": false },
+  },
   "assets": {
     "directory": "./out",
     "binding": "ASSETS",

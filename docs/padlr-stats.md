@@ -3,8 +3,9 @@
 The case study page can show live numbers (downloads, players, matches played).
 They stay hidden until two things are true:
 
-1. `PADLR_STATS_URL` is set in Netlify (Project configuration > Environment
-   variables) to a public URL that returns JSON like:
+1. `PADLR_STATS_URL` is set as a build variable in Cloudflare (Workers &
+   Pages > rll-website > Settings > Build > Variables and secrets) to a public
+   URL that returns JSON like:
 
    ```json
    { "players": 1240, "matches": 5310, "downloads": 2100 }
@@ -15,7 +16,8 @@ They stay hidden until two things are true:
 2. A number passes its threshold in `src/lib/padlr-stats.ts` (500 downloads,
    250 players, 500 matches), so small early numbers never appear.
 
-Numbers are rounded down ("1,200+") and refreshed at most once a day. If the
+Numbers are rounded down ("1,200+"). The site is built as static files, so
+they're fetched when the site is built and refresh with each deploy. If the
 URL fails, the section quietly disappears; the page itself never breaks.
 
 ## The PADLR. side
