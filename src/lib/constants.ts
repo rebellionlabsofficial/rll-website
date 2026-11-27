@@ -6,9 +6,8 @@ const PADLR_SITE = "https://playpadlr.app";
 
 // Launch-day switch. Paste the App Store link here when PADLR. goes live and
 // every waitlist button and "coming soon" line switches over.
-// Use the campaign link so installs from this site show up in App Store Connect:
-// https://apps.apple.com/app/padlr/id6759811329?pt=128588531&ct=rll-site&mt=8
-const APP_STORE_URL = null as string | null;
+// The campaign link (ct=rll-site) counts installs from this site in App Store Connect.
+const APP_STORE_URL = "https://apps.apple.com/app/padlr/id6759811329?pt=128588531&ct=rll-site&mt=8" as string | null;
 
 export const PADLR_LAUNCHED = APP_STORE_URL !== null;
 
