@@ -85,7 +85,7 @@ export default function PrivacyPage() {
             <p className="rise rise-d2 mt-6 text-lg leading-relaxed text-ink-soft">
               This notice explains how Rebel Lion Labs collects and uses
               personal data through this website, rebellionlabs.app. The PADLR.
-              app and the PADLR. waitlist on playpadlr.app are covered by the{" "}
+              app and playpadlr.app are covered by the{" "}
               <a
                 href={PADLR.links.privacy}
                 target="_blank"

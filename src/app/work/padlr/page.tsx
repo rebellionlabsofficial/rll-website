@@ -6,7 +6,7 @@ import Icon from "@/components/Icon";
 import JsonLd from "@/components/JsonLd";
 import PhoneFrame from "@/components/PhoneFrame";
 import SectionHeading from "@/components/SectionHeading";
-import { PADLR, PADLR_CTA, PADLR_LAUNCHED } from "@/lib/constants";
+import { PADLR, PADLR_CTA } from "@/lib/constants";
 import { pageMetadata } from "@/lib/metadata";
 import { getPadlrStats } from "@/lib/padlr-stats";
 import { breadcrumbs, padlrApp } from "@/lib/structured-data";
@@ -120,7 +120,7 @@ export default async function PadlrPage() {
                     variant="ghost-dark"
                     size="lg"
                   >
-                    {PADLR_LAUNCHED ? "Get the app" : "Join the app waitlist"}
+                    Get the app
                   </ButtonLink>
                 </div>
                 <dl className="mt-8 grid gap-3 border-t border-white/10 pt-6 text-sm sm:grid-cols-2">

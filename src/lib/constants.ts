@@ -4,21 +4,11 @@
 
 const PADLR_SITE = "https://playpadlr.app";
 
-// Launch-day switch. Paste the App Store link here when PADLR. goes live and
-// every waitlist button and "coming soon" line switches over.
-// The campaign link (ct=rll-site) counts installs from this site in App Store Connect.
-const APP_STORE_URL = "https://apps.apple.com/app/padlr/id6759811329?pt=128588531&ct=rll-site&mt=8" as string | null;
+// PADLR. on the App Store, as a campaign link (ct=rll-site) so installs from this site show in App Store Connect.
+const APP_STORE_URL = "https://apps.apple.com/app/padlr/id6759811329?pt=128588531&ct=rll-site&mt=8";
 
-export const PADLR_LAUNCHED = APP_STORE_URL !== null;
-
-/** The main PADLR. call to action: the waitlist before launch, the App Store after. */
-export const PADLR_CTA = APP_STORE_URL
-  ? { href: APP_STORE_URL, label: "Download PADLR.", short: "Get the app" }
-  : {
-      href: `${PADLR_SITE}/#waitlist`,
-      label: "Join the waitlist",
-      short: "Join waitlist",
-    };
+/** The main PADLR. call to action: the App Store. */
+export const PADLR_CTA = { href: APP_STORE_URL, label: "Download PADLR.", short: "Get the app" };
 
 export const SITE = {
   name: "Rebel Lion Labs",
@@ -330,7 +320,7 @@ export const PADLR = {
     {
       title: "Marketing site and blog",
       description:
-        "playpadlr.app, with guides and a waitlist, built to rank for padel searches.",
+        "playpadlr.app, with guides and tools, built to rank for padel searches.",
     },
   ],
   features: [
